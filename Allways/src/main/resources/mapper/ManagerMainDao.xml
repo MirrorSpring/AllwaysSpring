@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="com.allways.base.dao.managerMainDao">
+	
+	<select id="ManagerMainOrder" resultType="com.allways.base.model.managerMainOrdersDto">
+		select ordersId,ordersStatus,o_customerId,o_cakeId,cakeName,o_goodsId,goodsName,ordersSalePrice,ordersQuantity,ordersPoint
+		from orders as o, cake as c, goods as g where o.o_cakeId = c.cakeId and g.goodsId = o.o_goodsId and ordersStatus = '구매'
+		and ordersDeletedate is null and orderSoldOutdate is null and ordersMakedate is null;
+	</select>
+	
+	<select id="ManagerMakeXaxis" resultType="string">
+		select concat(month(ordersDate), '/', day(ordersDate)) from orders where ordersStatus='구매' and ordersDate>=curdate()-5
+		group by date(ordersDate);
+	</select>
+	
+	<select id="ManagerMakeSale" resultType="int">
+		select sum(ordersSalePrice) from orders where ordersStatus='구매' and date(ordersDate)>=curdate()-5
+		group by date(ordersDate) order by date(ordersDate);
+	</select>
+	
+	<select id="ManagerMakeQuantity" resultType="int">
+		select count(*) from orders where ordersStatus='구매' and date(ordersDate)>=curdate()-5
+		group by date(ordersDate) order by date(ordersDate);
+	</select>
+	
+	<select id="ManagerMainReview" resultType="com.allways.base.model.ManagerMainOrdersReviewDto">
+		select or_customerId, oreviewStarrating, oreviewInitdate from ordersreview where oreviewDeletedate is null
+		order by oreviewInitdate desc;
+	</select>
+
+</mapper>
