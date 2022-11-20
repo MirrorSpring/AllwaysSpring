@@ -9,5 +9,14 @@
 		select cakeId, cakeName, cakePrice, cakeViews, cakeLike from cake
 		where cakeDeletedate is null and cakeName like #{cakeName};
 	</select>
+	
+	<insert id="ManagerAddCake">
+		insert into cake (cakeName, cakePrice, cakeImage, cakeDetail, cakeInitdate, cakeViews, cakeLike)
+		values (#{cakeName}, #{cakePrice}, #{cakeImage}, #{cakeDetail}, now(), 0, 0);
+	</insert>
+	
+	<select id="ManagerCheckCakeName" resultType="int">
+		select count(*) from cake where cakeName=#{cakeName} and cakeDeleteDate is null;
+	</select>
 
 </mapper>

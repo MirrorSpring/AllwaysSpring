@@ -160,7 +160,7 @@ a {
 		</table>
 	</div>
 	<div class="tablediv" align="right">
-		<a href="managercreatecake.jsp" style="color:#a87878;text-decoration:none">추가</a>
+		<a href="addCakeView" style="color:#a87878;text-decoration:none">추가</a>
 	</div>
 	
 	<c:if test="${true }">

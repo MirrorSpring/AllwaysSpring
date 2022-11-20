@@ -16,4 +16,15 @@ public class managerCakeDaoImpl implements managerCakeDao {
 		return sqlSession.selectList(nameSpace + ".ManagerCakeList");
 	}
 
+	@Override
+	public void ManagerAddCake(String cakeName, int cakePrice, String cakeImage, String cakeDetail) throws Exception {
+		sqlSession.insert(nameSpace + ".ManagerAddCake");
+		
+	}
+
+	@Override
+	public int ManagerCheckCakeName(String cakeName) throws Exception {
+		return (int)sqlSession.selectOne(nameSpace + ".ManagerCheckCakeName");
+	}
+
 }

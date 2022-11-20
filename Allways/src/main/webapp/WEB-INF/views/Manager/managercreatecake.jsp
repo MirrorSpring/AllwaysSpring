@@ -63,14 +63,14 @@ input[type=file]::file-selector-button{
 			swal("케이크 이름을 입력하세요",'','warning');
 			return;
 		} else{
-			form.action="checkName.do";
+			form.action="checkCakeName";
 			form.submit();
 		}
 	}
 	
 	function cancelDo(){
 		var form=document.actionForm;
-		form.action="searchCake.do";
+		form.action="cake";
 		form.submit();
 	}
 </script>
@@ -78,7 +78,7 @@ input[type=file]::file-selector-button{
 <body>
 <%@include file="managerHeader.jsp"%>
 <div align="center">
-<form action="addCake.do" method="post" enctype="multipart/form-data" name="actionForm">
+<form action="addCake" method="post" enctype="multipart/form-data" name="actionForm">
 	<input type="hidden" name="index" value="${index }">
 	<h1 style="margin-bottom:3%;margin-top:3%"><b>케이크 추가</b></h1>
 	<div style="display: inline-block;width:60%">

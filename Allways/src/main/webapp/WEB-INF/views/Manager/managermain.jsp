@@ -155,9 +155,6 @@ var arrxaxis=xaxis.split(',');
 var arrprice=pricedata.split(',');
 var arrquantity=quantitydata.split(',');
 
-console.log(arrxaxis);
-console.log(arrprice);
-
 const priceChart = new Chart(ctxprice, {
     type: 'line',
     data: {
