@@ -151,7 +151,7 @@ a {
 			<c:forEach var="cnt" items="${Dtos}" begin="${(index-1)*rowcount }" end="${(index)*rowcount-1}">
 				<tr>
 					<td>${cnt.cakeId}</td>
-					<td><a href="cakeDetail.do?cakeName=${cnt.cakeName}" class="tablebutton">${cnt.cakeName}</a></td>
+					<td><a href="ManageCake?cakeName=${cnt.cakeName}" class="tablebutton">${cnt.cakeName}</a></td>
 					<td><fmt:formatNumber value="${cnt.cakePrice}" type="currency"/></td>
 					<td><fmt:formatNumber value="${cnt.cakeViews}" groupingUsed="true"/></td>
 					<td><fmt:formatNumber value="${cnt.cakeLike }" groupingUsed="true"/></td>

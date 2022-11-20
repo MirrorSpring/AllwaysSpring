@@ -18,5 +18,14 @@
 	<select id="ManagerCheckCakeName" resultType="int">
 		select count(*) from cake where cakeName=#{cakeName} and cakeDeleteDate is null;
 	</select>
+	
+	<select id="ManagerViewCakeDetail" resultType="com.allways.base.model.managerCakeDetailDto">
+		select cakeName, cakePrice, cakeDetail, cakeImage from cake where cakeName=#{cakeName}
+		and cakeDeletedate is null;
+	</select>
+	
+	<update id="ManagerDeleteCake">
+		update cake set cakeDeletedate=now() where cakeName=#{cakeName};
+	</update>
 
 </mapper>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.allways.base.model.managerCakeDetailDto;
 import com.allways.base.model.managerCakeListDto;
 
 public class managerCakeDaoImpl implements managerCakeDao {
@@ -25,6 +26,16 @@ public class managerCakeDaoImpl implements managerCakeDao {
 	@Override
 	public int ManagerCheckCakeName(String cakeName) throws Exception {
 		return (int)sqlSession.selectOne(nameSpace + ".ManagerCheckCakeName");
+	}
+
+	@Override
+	public managerCakeDetailDto ManagerViewCakeDetail(String cakeName) throws Exception {
+		return (managerCakeDetailDto) sqlSession.selectList(nameSpace + ".ManagerViewCakeDetail");
+	}
+
+	@Override
+	public void ManagerDeleteCake(String cakeName) throws Exception {
+		sqlSession.update(nameSpace + ".ManagerDeleteCake");
 	}
 
 }

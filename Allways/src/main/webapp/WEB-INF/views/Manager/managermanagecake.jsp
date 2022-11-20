@@ -68,7 +68,7 @@ input[type=file]::file-selector-button{
 	
 	function cancelDo(){
 		var form=document.actionForm;
-		form.action="searchCake.do";
+		form.action="cake";
 		form.submit();
 	}
 	
@@ -85,7 +85,7 @@ input[type=file]::file-selector-button{
 	
 	function deleteDo(){
 		var form=document.actionForm;
-		form.action="deleteCake.do";
+		form.action="DeleteCake";
 		swal("삭제가 완료되었습니다",'','success');
 		form.submit();
 	}
@@ -120,15 +120,15 @@ input[type=file]::file-selector-button{
 		<div align="left" style="width:74%;display:inline-block">
 			<div style="width:50%;display:inline-block">
 				<c:if test="${check==null }">
-				<input type="text" name="cakeName" class="form-control" style="border-color:#fdcdcd" value="${cakeName }" onchange="formChange()">
+				<input type="text" name="cakeName" class="form-control" style="border-color:#fdcdcd" value="${dto.cakeName }" onchange="formChange()">
 				</c:if>
 				<c:if test="${check==true }">
 				<script>swal("사용 가능한 이름입니다.",'','success');</script>
-				<input type="text" name="cakeName" class="form-control is-valid" style="border-color:#fdcdcd" value="${cakeName }">
+				<input type="text" name="cakeName" class="form-control is-valid" style="border-color:#fdcdcd" value="${dto.cakeName }">
 				</c:if>
 				<c:if test="${check==false }">
 				<script>swal("이미 사용중인 이름입니다.",'','warning');</script>
-				<input type="text" name="cakeName" class="form-control is-invalid" style="border-color:#fdcdcd" value="${cakeName }">
+				<input type="text" name="cakeName" class="form-control is-invalid" style="border-color:#fdcdcd" value="${dto.cakeName }">
 				</c:if>
 				<input type="hidden" name="cakeOriginalName" class="form-control" style="border-color:#fdcdcd" value="${cakeOriginalName }">
 				<input type="hidden" name="check" value="${check }">
@@ -142,14 +142,14 @@ input[type=file]::file-selector-button{
 		</div>
 		<div align="left" style="width:74%;display:inline-block">
 			<div style="width:30%;display:inline-block">
-				<input type="number" step="1000" name="cakePrice" class="form-control" style="border-color:#fdcdcd" value="${cakePrice }">
+				<input type="number" step="1000" name="cakePrice" class="form-control" style="border-color:#fdcdcd" value="${dto.cakePrice }">
 			</div>원
 		</div>
 		<div align="left" style="width:20%;height:20%;display:inline-block">
 			메뉴설명
 		</div>
 		<div align="left" style="width:74%;height:20%;display:inline-block">
-			<textarea style="width:100%;margin-top:20px;border-color:#fdcdcd" class="form-control" name="cakeDetail">${cakeDetail }</textarea>
+			<textarea style="width:100%;margin-top:20px;border-color:#fdcdcd" class="form-control" name="cakeDetail">${dto.cakeDetail }</textarea>
 		</div>
 		<div align="left" style="width:20%;display:inline-block">
 			사진
@@ -163,8 +163,8 @@ input[type=file]::file-selector-button{
 			사진 미리보기
 		</div>
 		<div>
-			<img src="/Allways/${cakeImage }" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
-			<input type="hidden" name="cakeImage" value="${cakeImage }">
+			<img src="${dto.cakeImage }" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
+			<input type="hidden" name="cakeImage" value="${dto.cakeImage }">
 		</div>
 		<div>
 			<input type="button" class="btn" style="background:#ffffff;border-color:#a87878;color:#a87878" value="취소" onclick="cancelDo()">

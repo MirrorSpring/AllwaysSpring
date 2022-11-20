@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.allways.base.dao.managerCakeDao;
+import com.allways.base.model.managerCakeDetailDto;
 import com.allways.base.model.managerCakeListDto;
 
 @Service
@@ -32,7 +33,9 @@ public class managerCakeServiceImpl implements managerCakeService {
 		int pagepage=0;
 		
 		if (request.getParameter("index")!=null) {
-			index=(int)Float.parseFloat(request.getParameter("index"));
+			if (request.getParameter("index").equals("")!=true) {
+				index=(int)Float.parseFloat(request.getParameter("index"));
+			}
 		}
 		
 		if (cakeName==null) {
@@ -96,5 +99,21 @@ public class managerCakeServiceImpl implements managerCakeService {
 			model.addAttribute("check", true);
 		}
 	}
+
+	@Override
+	public void ManagerViewCakeDetail(Model model, HttpServletRequest request) throws Exception {
+		String cakeName=request.getParameter("cakeName");
+		managerCakeDetailDto dto=dao.ManagerViewCakeDetail(cakeName);
+		
+		model.addAttribute("dto", dto);
+		model.addAttribute("cakeOriginalName", cakeName);
+	}
+
+	@Override
+	public void ManagerDeleteCake(HttpServletRequest request) throws Exception {
+		String cakeName=request.getParameter("cakeName");
+		dao.ManagerDeleteCake(cakeName);
+	}
+	
 
 }

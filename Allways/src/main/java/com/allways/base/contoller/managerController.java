@@ -70,4 +70,16 @@ public class managerController {
 		return "Manager/managercreatecake";
 	}
 	
+	@RequestMapping("/Manager/ManageCake")
+	public String ManageCake(Model model, HttpServletRequest request) throws Exception{
+		cakeservice.ManagerViewCakeDetail(model, request);
+		return "Manager/managermanagecake";
+	}
+	
+	@RequestMapping("/Manager/DeleteCake")
+	public String DeleteCake(HttpServletRequest request) throws Exception{
+		cakeservice.ManagerDeleteCake(request);
+		return "redirect:cake";
+	}
+	
 }
