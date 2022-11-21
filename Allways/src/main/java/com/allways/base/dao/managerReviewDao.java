@@ -8,4 +8,5 @@ public interface managerReviewDao {
 
 	public List<managerOrdersReviewDto> ManagerViewOrdersReviewList() throws Exception;
 	public List<managerOrdersReviewDto> ManagerSearchOrdersReview(String condition, String query) throws Exception;
+	public managerOrdersReviewDto ManagerOrdersReviewDetail(int oreviewId) throws Exception;
 }

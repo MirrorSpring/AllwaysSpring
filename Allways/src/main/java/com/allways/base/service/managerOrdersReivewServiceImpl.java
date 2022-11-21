@@ -58,4 +58,13 @@ public class managerOrdersReivewServiceImpl implements managerOrdersReviewServic
 		
 	}
 
+	@Override
+	public void ManagerOrdersReviewDetail(Model model, HttpServletRequest request) throws Exception {
+		int oreviewId=Integer.parseInt(request.getParameter("oreviewId"));
+		
+		managerOrdersReviewDto dto=dao.ManagerOrdersReviewDetail(oreviewId);
+		
+		model.addAttribute("DTO", dto);
+	}
+
 }

@@ -21,4 +21,9 @@ public class managerReviewDaoImpl implements managerReviewDao {
 		return sqlSession.selectList(nameSpace + ".ManagerSearchOrdersReview");
 	}
 
+	@Override
+	public managerOrdersReviewDto ManagerOrdersReviewDetail(int oreviewId) throws Exception {
+		return (managerOrdersReviewDto) sqlSession.selectOne(nameSpace + ".ManagerOrdersReviewDetail");
+	}
+
 }

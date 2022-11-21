@@ -90,7 +90,7 @@ table tr.header{
 				<tr>
 					<td>${cnt.oreviewId}</td>
 					<td>${cnt.or_customerId }
-					<td><a href="reviewDetail.do?oreviewId=${cnt.oreviewId }" class="tablebutton">${cnt.or_cakeName }</a></td>
+					<td><a href="reviewDetail?oreviewId=${cnt.oreviewId }" class="tablebutton">${cnt.or_cakeName }</a></td>
 					<td>${cnt.oreviewStarrating}</td>
 					<td><fmt:formatDate value="${cnt.oreviewInitdate}"/></td>
 				</tr>
@@ -99,26 +99,26 @@ table tr.header{
 	</div>
 	
 	<div class="tablediv" align="center">
-		<a href="searchReview.do?index=1&query=${Query}&condition=${condition}" class="pagebutton">처음으로</a>
+		<a href="ordersReview?index=1&query=${Query}&condition=${condition}" class="pagebutton">처음으로</a>
 		<c:if test="${index!=1 }">
-			<a href="searchReview.do?index=${index-1 }&query=${Query}&condition=${condition}" class="pagebutton">이전</a>
+			<a href="ordersReview?index=${index-1 }&query=${Query}&condition=${condition}" class="pagebutton">이전</a>
 		</c:if>
 		<c:forEach var="cnt" begin="${pagecount*pagepage+1}" end="${pagecount*(pagepage+1) }">
 			<c:if test="${cnt<=Math.ceil(Size/rowcount) }">
 				<c:if test="${cnt==index }">
 					<span style="display:inline">
-						<a href="searchReview.do?index=${cnt }&query=${Query}&condition=${condition}" style="font-size:1.3em" class="pagebutton">${cnt }</a>
+						<a href="ordersReview?index=${cnt }&query=${Query}&condition=${condition}" style="font-size:1.3em" class="pagebutton">${cnt }</a>
 					</span>
 				</c:if>
 				<c:if test="${cnt!=index }">
-					<a href="searchReview.do?index=${cnt }&query=${Query}&condition=${condition}" class="pagebutton">${cnt }</a>
+					<a href="ordersReview?index=${cnt }&query=${Query}&condition=${condition}" class="pagebutton">${cnt }</a>
 				</c:if>
 			</c:if>
 		</c:forEach>
 		<c:if test="${index<Math.ceil(Size/rowcount) }">
-			<a href="searchReview.do?index=${index+1 }&query=${Query}&condition=${condition}" class="pagebutton">다음</a>
+			<a href="ordersReview?index=${index+1 }&query=${Query}&condition=${condition}" class="pagebutton">다음</a>
 		</c:if>
-		<a href="searchReview.do?index=${Math.ceil(Size/rowcount) }&query=${Query}&condition=${condition}" class="pagebutton">끝으로</a>
+		<a href="ordersReview?index=${Math.ceil(Size/rowcount) }&query=${Query}&condition=${condition}" class="pagebutton">끝으로</a>
 	</div>
 </div>
 </body>

@@ -16,4 +16,10 @@
 		and ${condition} like #{query} order by oreviewInitdate desc;
 	</select>
 	
+	<select id="ManagerOrdersReviewDetail" resultType="com.allways.base.model.managerOrdersReviewDto">
+		select oreviewId, or_customerId, cakeName, goodsName, oreviewStarrating, oreviewContent, oreviewImage, oreviewInitdate, oreviewUpdatedate
+		from cake, goods, ordersreview, customer where or_cakeId=cakeId and or_goodsId=goodsId and oreviewDeletedate is null
+		and or_customerId=customerId and oreviewId=#{oreviewId};
+	</select>
+	
 </mapper>

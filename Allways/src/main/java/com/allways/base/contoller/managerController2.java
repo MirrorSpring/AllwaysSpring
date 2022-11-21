@@ -74,4 +74,10 @@ public class managerController2 {
 		ordersreviewservice.ManagerViewOrdersReviewList(model, request);
 		return "Manager/managerviewreviews";
 	}
+	
+	@RequestMapping("/Manager/reviewDetail")
+	public String ManagerReviewDetail(HttpServletRequest request, Model model) throws Exception{
+		ordersreviewservice.ManagerOrdersReviewDetail(model, request);
+		return "Manager/managerviewordersreviewdetail";
+	}
 }
