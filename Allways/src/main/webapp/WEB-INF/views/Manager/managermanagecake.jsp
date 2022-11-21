@@ -44,28 +44,6 @@ input[type=file]::file-selector-button{
 		  }
 		}
 	
-	function submitDo(){
-		var form=document.actionForm;
-		if (form.checkName.value==true){
-			swal("추가가 완료되었습니다",'','success');
-			form.submit();
-		} else{
-			swal("이름 중복체크를 해 주세요.",'','warning');
-			return;
-		}
-	}
-	
-	function nameCheck(){
-		var form=document.actionForm;
-		if (form.cakeName.value==""){
-			swal("케이크 이름을 입력하세요",'','warning');
-			return;
-		} else{
-			form.action="checkName.do";
-			form.submit();
-		}
-	}
-	
 	function cancelDo(){
 		var form=document.actionForm;
 		form.action="cake";
@@ -78,7 +56,7 @@ input[type=file]::file-selector-button{
 			swal("이름 중복체크를 해주세요.",'','warning');
 			return;
 		}
-		form.action="updateCake.do";
+		form.action="updateCake";
 		swal("수정이 완료되었습니다",'','success');
 		form.submit();
 	}
@@ -96,7 +74,7 @@ input[type=file]::file-selector-button{
 			swal("케이크 이름을 입력하세요",'','warning');
 			return;
 		} else{
-			form.action="checkName2.do";
+			form.action="checkCakeName2";
 			form.submit();
 		}
 	}
@@ -164,7 +142,7 @@ input[type=file]::file-selector-button{
 		</div>
 		<div>
 			<img src="${dto.cakeImage }" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
-			<input type="hidden" name="cakeImage" value="${dto.cakeImage }">
+			<input type="hidden" name="cakeImage2" value="${dto.cakeImage }">
 		</div>
 		<div>
 			<input type="button" class="btn" style="background:#ffffff;border-color:#a87878;color:#a87878" value="취소" onclick="cancelDo()">

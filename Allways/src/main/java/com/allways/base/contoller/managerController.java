@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.allways.base.service.ManagerMainService;
+import com.allways.base.service.managerMainService;
 import com.allways.base.service.managerCakeService;
 import com.allways.base.service.managerLoginService;
 
@@ -18,7 +18,7 @@ import com.allways.base.service.managerLoginService;
 public class managerController {
 	
 	@Autowired
-	ManagerMainService mainservice;
+	managerMainService mainservice;
 	
 	@Autowired
 	managerLoginService loginservice;
@@ -79,6 +79,18 @@ public class managerController {
 	@RequestMapping("/Manager/DeleteCake")
 	public String DeleteCake(HttpServletRequest request) throws Exception{
 		cakeservice.ManagerDeleteCake(request);
+		return "redirect:cake";
+	}
+	
+	@RequestMapping("/Manager/checkCakeName2")
+	public String ManagerCheckCakeName2(Model model, MultipartHttpServletRequest request) throws Exception{
+		cakeservice.ManagerCheckCakeName2(request, model);
+		return "Manager/managermanagecake";
+	}
+	
+	@RequestMapping("/Manager/updateCake")
+	public String ManagerUpdateCake(MultipartHttpServletRequest request, @RequestParam("cakeImage") MultipartFile file) throws Exception{
+		cakeservice.ManagerUpdateCake(request, file);
 		return "redirect:cake";
 	}
 	

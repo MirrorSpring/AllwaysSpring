@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 @Service
-public interface ManagerMainService {
+public interface managerMainService {
 
 	public void ManagerMain(Model model) throws Exception;
 }

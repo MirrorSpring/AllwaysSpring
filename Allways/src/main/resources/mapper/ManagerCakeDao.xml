@@ -27,5 +27,19 @@
 	<update id="ManagerDeleteCake">
 		update cake set cakeDeletedate=now() where cakeName=#{cakeName};
 	</update>
+	
+	<update id="ManagerUpdateCake">
+		update cake set cakeName=#{cakeName}, cakePrice=#{cakePrice}, cakeDetail=#{cakeDetail}, cakeImage=#{cakeImage}, cakeUpdatedate=now()
+		where cakeName=#{cakeOriginalName};
+	</update>
+	
+	<update id="ManagerUpdateCake2">
+		update cake set cakeName=#{cakeName}, cakePrice=#{cakePrice}, cakeDetail=#{cakeDetail}, cakeUpdatedate=now()
+		where cakeName=#{cakeOriginalName};
+	</update>
+	
+	<select id="ManagerCheckCakeName2" resultType="int">
+		select count(*) from cake where cakeName=#{cakeName} and cakeDeleteDate is null and cakeName!=#{cakeOriginalName};
+	</select>
 
 </mapper>

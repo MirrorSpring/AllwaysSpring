@@ -10,7 +10,7 @@ import com.allways.base.dao.managerMainDao;
 import com.allways.base.model.managerMainOrdersDto;
 
 @Service
-public class managerMainServiceImpl implements ManagerMainService {
+public class managerMainServiceImpl implements managerMainService {
 	
 	@Autowired
 	managerMainDao dao;

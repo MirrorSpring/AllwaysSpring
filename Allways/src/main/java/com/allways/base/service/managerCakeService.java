@@ -15,4 +15,6 @@ public interface managerCakeService {
 	public void ManagerCheckCakeName(Model model, HttpServletRequest request) throws Exception;
 	public void ManagerViewCakeDetail(Model model, HttpServletRequest reuqest) throws Exception;
 	public void ManagerDeleteCake(HttpServletRequest request) throws Exception;
+	public void ManagerUpdateCake(MultipartHttpServletRequest request, MultipartFile file) throws Exception;
+	public void ManagerCheckCakeName2(MultipartHttpServletRequest request, Model model) throws Exception;
 }

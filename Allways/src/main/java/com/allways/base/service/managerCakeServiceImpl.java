@@ -114,6 +114,48 @@ public class managerCakeServiceImpl implements managerCakeService {
 		String cakeName=request.getParameter("cakeName");
 		dao.ManagerDeleteCake(cakeName);
 	}
+
+	@Override
+	public void ManagerUpdateCake(MultipartHttpServletRequest request, MultipartFile file) throws Exception {
+		HttpSession session=request.getSession();
+		ServletContext context=session.getServletContext();
+		String cakeName=request.getParameter("cakeName");
+		int cakePrice=Integer.parseInt(request.getParameter("cakePrice"));
+		String cakeDetail=request.getParameter("cakeDetail");
+		String cakeOriginalName=request.getParameter("cakeOriginalName");
+		String origName = file.getOriginalFilename();
+		
+		if (origName!=null&&origName.equals("")!=true) {
+			String uuid = UUID.randomUUID().toString();
+			String extension = origName.substring(origName.lastIndexOf("."));
+			String cakeImage = uuid + extension;
+			String savedPath = context.getRealPath("/") + cakeImage;
+			file.transferTo(new File(savedPath));
+			dao.ManagerUpdateCake(cakeName, cakePrice, cakeDetail, cakeImage, cakeOriginalName);
+		} else {
+			dao.ManagerUpdateCake2(cakeName, cakePrice, cakeDetail, cakeOriginalName);
+		}
+		
+	}
+
+	@Override
+	public void ManagerCheckCakeName2(MultipartHttpServletRequest request, Model model) throws Exception {
+		String cakeName=request.getParameter("cakeName");
+		int cakePrice=Integer.parseInt(request.getParameter("cakePrice"));
+		String cakeDetail=request.getParameter("cakeDetail");
+		String cakeImage=request.getParameter("cakeImage2");
+		managerCakeDetailDto dto=new managerCakeDetailDto(cakeName, cakePrice, cakeDetail, cakeImage);
+		String cakeOriginalName=request.getParameter("cakeOriginalName");
+		int check=dao.ManagerCheckCakeName2(cakeName, cakeOriginalName);
+		
+		if (check==1) {
+			model.addAttribute("check", false);
+		} else {
+			model.addAttribute("check", true);
+		}
+		model.addAttribute("dto", dto);
+		model.addAttribute("cakeOriginalName", cakeOriginalName);
+	}
 	
 
 }
