@@ -9,8 +9,8 @@
 
 <nav class="navbar navbar-expand-xl bg-pink py-3 py-lg-0 px-lg-5" style="background-color: #FDCDCD;">
   <div class="container-fluid">
-   <a class="navbar-brand" href="#">
-      <img src="image/HeaderLogo2.png" style="padding-right: 60px; padding-left: 40px;height:60px"></img>
+   <a class="navbar-brand" href="home">
+      <img src="image/HeaderLogo2.png" style="padding-right: 60px; padding-left: 40px;height:60px">
     </a>
     <a class="navbar-brand" href="home">ALLways</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,7 +19,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="main">MAIN</a>
+          <a class="nav-link active" aria-current="page" href="home">MAIN</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="MorderStatus.do">주문 현황 관리</a>
@@ -35,7 +35,7 @@
           </ul>
         </li>
           <li class="nav-item">
-          <a class="nav-link" href="searchReview.do">리뷰 관리</a>
+          <a class="nav-link" href="ordersReview">리뷰 관리</a>
         </li>
       </ul>
       

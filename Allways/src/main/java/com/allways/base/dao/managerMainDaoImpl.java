@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.allways.base.model.ManagerMainOrdersReviewDto;
+import com.allways.base.model.managerMainOrdersReviewDto;
 import com.allways.base.model.managerMainOrdersDto;
 
 public class managerMainDaoImpl implements managerMainDao {
@@ -34,7 +34,7 @@ public class managerMainDaoImpl implements managerMainDao {
 	}
 
 	@Override
-	public List<ManagerMainOrdersReviewDto> ManagerMainReview() throws Exception {
+	public List<managerMainOrdersReviewDto> ManagerMainReview() throws Exception {
 		return sqlSession.selectList(nameSpace + ".ManagerMainReview");
 	}
 

@@ -11,6 +11,11 @@
 		and goodsName like #{goodsName}
 	</select>
 	
+	<select id="ManagerViewAllGoods" resultType="com.allways.base.model.managerGoodsListDto">
+		select goodsId, goodsName, goodsCategory, goodsPrice from goods
+		where goodsDeletedate is null and goodsName like #{goodsName};
+	</select>
+	
 	<insert id="ManagerAddGoods">
 		insert into goods (goodsName, goodsCategory, goodsPrice, goodsDetail, goodsImage, goodsInitdate)
 		values (#{goodsName}, #{goodsCategory}, #{goodsPrice}, #{goodsDetail}, #{goodsImage}, now());
@@ -20,5 +25,28 @@
 		select count(*) from goods where goodsName=#{goodsName}
 		and goodsDeletedate is null;
 	</select>
+	
+	<select id="ManagerGoodsDetail" resultType="com.allways.base.model.managerGoodsListDto">
+		select goodsName, goodsCategory, goodsPrice, goodsDetail, goodsImage from goods where goodsName=#{goodsName}
+		and goodsDeletedate is null;
+	</select>
+	
+	<select id="ManagerCheckGoodsName2" resultType="int">
+		select count(*) from goods where goodsName=#{goodsName} and goodsName!=#{goodsOriginalName} and goodsDeletedate is null;
+	</select>
+	
+	<update id="ManagerUpdateGoods">
+		update goods set goodsName=#{goodsName}, goodsCategory=#{goodsCategory}, goodsPrice=#{goodsPrice}, goodsDetail=#{goodsDetail},
+		goodsImage=#{goodsImage}, goodsUpdatedate=now() where goodsName=#{goodsOriginalName};
+	</update>
+	
+	<update id="ManagerUpdateGoods2">
+		update goods set goodsName=#{goodsName}, goodsCategory=#{goodsCategory}, goodsPrice=#{goodsPrice}, goodsDetail=#{goodsDetail},
+		goodsUpdatedate=now() where goodsName=#{goodsOriginalName};
+	</update>
+	
+	<update id="ManagerDeleteGoods">
+		update goods set goodsDeletedate=now() where goodsName=#{goodsOriginalName};
+	</update>
 
 </mapper>

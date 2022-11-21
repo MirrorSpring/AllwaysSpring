@@ -19,7 +19,7 @@ div{
 <script>
 	function cancelDo(){
 		var form=document.actionForm;
-		form.action="searchReview.do";
+		form.action="ordersReview";
 		form.submit();
 	}
 </script>

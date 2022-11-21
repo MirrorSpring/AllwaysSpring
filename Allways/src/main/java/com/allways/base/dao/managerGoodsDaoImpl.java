@@ -27,4 +27,36 @@ public class managerGoodsDaoImpl implements managerGoodsDao {
 		return (int) sqlSession.selectOne(nameSpace + ".ManagerCheckGoodsName");
 	}
 
+	@Override
+	public List<managerGoodsListDto> ManagerViewAllGoods(String goodsName) throws Exception {
+		return sqlSession.selectList(nameSpace + ".ManagerViewAllGoods");
+	}
+
+	@Override
+	public managerGoodsListDto ManagerGoodsDetail(String goodsName) throws Exception {
+		return (managerGoodsListDto) sqlSession.selectOne(nameSpace + ".ManagerGoodsDetail");
+	}
+
+	@Override
+	public int ManagerCheckGoodsName2(String goodsName, String goodsOriginalName) throws Exception {
+		return (int) sqlSession.selectOne(nameSpace + ".ManagerCheckGoodsName2");
+	}
+
+	@Override
+	public void ManagerUpdateGoods(String goodsName, String goodsCategory, int goodsPrice, String goodsDetail,
+			String goodsImage, String goodsOriginalName) throws Exception {
+		sqlSession.update(nameSpace + ".ManagerUpdateGoods");
+	}
+
+	@Override
+	public void ManagerUpdateGoods2(String goodsName, String goodsCategory, int goodsPrice, String goodsDetail,
+			String goodsOriginalName) throws Exception {
+		sqlSession.update(nameSpace + ".ManagerUpdateGoods2");
+	}
+
+	@Override
+	public void ManagerDeleteGoods(String goodsOriginalName) throws Exception {
+		sqlSession.update(nameSpace + ".ManagerDeleteGoods");
+	}
+
 }

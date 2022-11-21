@@ -71,7 +71,7 @@ public class managerCakeServiceImpl implements managerCakeService {
         String uuid = UUID.randomUUID().toString();
         String extension = origName.substring(origName.lastIndexOf("."));
         String cakeImage = uuid + extension;
-        String savedPath = context.getRealPath("/") + cakeImage;
+        String savedPath = context.getRealPath("/") + "WEB-INF/views/Manager/image/cake/" + cakeImage;
         
         dao.ManagerAddCake(cakeName, cakePrice, cakeImage, cakeDetail);
         model.addAttribute("cakeName", cakeName);
@@ -129,7 +129,7 @@ public class managerCakeServiceImpl implements managerCakeService {
 			String uuid = UUID.randomUUID().toString();
 			String extension = origName.substring(origName.lastIndexOf("."));
 			String cakeImage = uuid + extension;
-			String savedPath = context.getRealPath("/") + cakeImage;
+			String savedPath = context.getRealPath("/") + "WEB-INF/views/Manager/image/cake/" + cakeImage;
 			file.transferTo(new File(savedPath));
 			dao.ManagerUpdateCake(cakeName, cakePrice, cakeDetail, cakeImage, cakeOriginalName);
 		} else {

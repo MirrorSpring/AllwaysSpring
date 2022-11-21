@@ -18,6 +18,18 @@ public class managerGoodsListDto {
 		this.goodsDetail = goodsDetail;
 	}
 	
+	public managerGoodsListDto(String goodsName, String goodsCategory, int goodsPrice, String goodsDetail) {
+		super();
+		this.goodsName = goodsName;
+		this.goodsCategory = goodsCategory;
+		this.goodsPrice = goodsPrice;
+		this.goodsDetail = goodsDetail;
+	}
+
+	public void setGoodsPrice(int goodsPrice) {
+		this.goodsPrice = goodsPrice;
+	}
+
 	public managerGoodsListDto(int goodsId, String goodsName, String goodsCategory, int goodPrice) {
 		super();
 		this.goodsId = goodsId;

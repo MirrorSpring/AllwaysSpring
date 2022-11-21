@@ -2,17 +2,17 @@ package com.allways.base.model;
 
 import java.sql.Timestamp;
 
-public class ManagerMainOrdersReviewDto {
+public class managerMainOrdersReviewDto {
 
 	Timestamp oreviewInitdate;
 	String or_customerId;
 	int oreviewStarrating;
 	
-	public ManagerMainOrdersReviewDto() {
+	public managerMainOrdersReviewDto() {
 		
 	}
 	
-	public ManagerMainOrdersReviewDto(Timestamp oreviewInitdate, String or_customerId, int oreviewStarrating) {
+	public managerMainOrdersReviewDto(Timestamp oreviewInitdate, String or_customerId, int oreviewStarrating) {
 		super();
 		this.oreviewInitdate = oreviewInitdate;
 		this.or_customerId = or_customerId;

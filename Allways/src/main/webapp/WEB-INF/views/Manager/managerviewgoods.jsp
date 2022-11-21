@@ -39,13 +39,19 @@
 <fmt:setLocale value="ko_kr"/>
 <div align="center">
 	<h1 style="margin-bottom:3%;margin-top:3%"><b>추가상품 리스트</b></h1>
-	<form action="searchGoods.do">
+	<form action="goods">
 		<div align="center" style="margin-bottom:10px;padding:5px;width:90%">
 			<div style="width:20%;display:inline-block" align="left">
 				<input type="text" size="1" class="form-control" name="query" style="border-color:#a87878" value="${Query }">
 			</div>
 			<div style="width:25%;display:inline-block" align="left">
 				<select name="goodsCategory" style="border-color:#fdcdcd;border-radius:10px;height:90%">
+					<c:if test="${goodsCategory=='all' }">
+						<option selected value="all">전체보기</option>
+					</c:if>
+					<c:if test="${goodsCategory!='all' }">
+						<option value="all">전체보기</option>
+					</c:if>
 					<c:if test="${goodsCategory=='초' }">
 						<option selected value="초">초</option>
 					</c:if>
@@ -95,7 +101,7 @@
 				<tr>
 					<td>${cnt.goodsId}</td>
 					<td>${cnt.goodsCategory}</td>
-					<td><a href="viewGoodsDetail.do?goodsName=${cnt.goodsName }" class="tablebutton">${cnt.goodsName}</a></td>
+					<td><a href="goodsDetail?goodsName=${cnt.goodsName }" class="tablebutton">${cnt.goodsName}</a></td>
 					<td><fmt:formatNumber value="${cnt.goodsPrice}" type="currency"/></td>
 				</tr>
 			</c:forEach>
@@ -107,26 +113,26 @@
 	
 	<c:if test="${true }">
 	<div class="tablediv" align="center">
-		<a href="searchGoods.do?index=1&query=${Query}&goodsCategory=${goodsCategory}" class="pagebutton">처음으로</a>
+		<a href="goods?index=1&query=${Query}&goodsCategory=${goodsCategory}" class="pagebutton">처음으로</a>
 		<c:if test="${index!=1 }">
-			<a href="searchGoods.do?index=${index-1 }&query=${Query}&goodsCategory=${goodsCategory}" class="pagebutton">이전</a>
+			<a href="goods?index=${index-1 }&query=${Query}&goodsCategory=${goodsCategory}" class="pagebutton">이전</a>
 		</c:if>
 		<c:forEach var="cnt" begin="${pagecount*pagepage+1}" end="${pagecount*(pagepage+1) }">
 			<c:if test="${cnt<=Math.ceil(Size/rowcount) }">
 				<c:if test="${cnt==index }">
 					<span style="display:inline">
-						<a href="searchGoods.do?index=${cnt }&query=${Query}&goodsCategory=${goodsCategory}" style="font-size:1.3em" class="pagebutton">${cnt }</a>
+						<a href="goods?index=${cnt }&query=${Query}&goodsCategory=${goodsCategory}" style="font-size:1.3em" class="pagebutton">${cnt }</a>
 					</span>
 				</c:if>
 				<c:if test="${cnt!=index }">
-					<a href="searchGoods.do?index=${cnt }&query=${Query}&goodsCategory=${goodsCategory}" class="pagebutton">${cnt }</a>
+					<a href="goods?index=${cnt }&query=${Query}&goodsCategory=${goodsCategory}" class="pagebutton">${cnt }</a>
 				</c:if>
 			</c:if>
 		</c:forEach>
 		<c:if test="${index<Math.ceil(Size/rowcount) }">
-			<a href="searchGoods.do?index=${index+1 }&query=${Query}&goodsCategory=${goodsCategory}" class="pagebutton">다음</a>
+			<a href="goods?index=${index+1 }&query=${Query}&goodsCategory=${goodsCategory}" class="pagebutton">다음</a>
 		</c:if>
-		<a href="searchGoods.do?index=${Math.ceil(Size/rowcount) }&query=${Query}&goodsCategory=${goodsCategory}" class="pagebutton">끝으로</a>
+		<a href="goods?index=${Math.ceil(Size/rowcount) }&query=${Query}&goodsCategory=${goodsCategory}" class="pagebutton">끝으로</a>
 	</div>
 	</c:if>
 </div>

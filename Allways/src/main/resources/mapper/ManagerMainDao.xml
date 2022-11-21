@@ -26,7 +26,7 @@
 		group by date(ordersDate) order by date(ordersDate);
 	</select>
 	
-	<select id="ManagerMainReview" resultType="com.allways.base.model.ManagerMainOrdersReviewDto">
+	<select id="ManagerMainReview" resultType="com.allways.base.model.managerMainOrdersReviewDto">
 		select or_customerId, oreviewStarrating, oreviewInitdate from ordersreview where oreviewDeletedate is null
 		order by oreviewInitdate desc;
 	</select>

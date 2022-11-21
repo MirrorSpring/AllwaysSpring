@@ -37,8 +37,19 @@ public class managerGoodsServiceImpl implements managerGoodsService {
 		}
 		
 		if (goodsCategory==null||goodsCategory.equals("")) {
-			goodsCategory="초";
+			goodsCategory="all";
 		}
+
+//		List<managerGoodsListDto> dtos=dao.ManagerViewAllGoods("%" + goodsName + "%");
+		
+//		if (goodsCategory.equals("all")) {
+//			System.out.println("%" + goodsName + "%");
+//			System.out.println(dtos.size());
+//			System.out.println(dtos.get(0).getGoodsName());
+//			dtos=dao.ManagerViewAllGoods("%" + goodsName + "%");
+//		} else {
+			List<managerGoodsListDto> dtos=dao.ManagerViewGoodsList(goodsCategory, "%" + goodsName + "%");
+//		}
 		
 		if (request.getParameter("index")!=null) {
 			index=(int)Float.parseFloat(request.getParameter("index"));
@@ -50,7 +61,7 @@ public class managerGoodsServiceImpl implements managerGoodsService {
 			pagepage=index/pagecount;
 		}
 		
-		List<managerGoodsListDto> dtos=dao.ManagerViewGoodsList(goodsCategory, "%" + goodsName + "%");
+		
 		
 		model.addAttribute("Dtos", dtos);
 		model.addAttribute("Size", dtos.size());
@@ -78,7 +89,7 @@ public class managerGoodsServiceImpl implements managerGoodsService {
         String uuid = UUID.randomUUID().toString();
         String extension = origName.substring(origName.lastIndexOf("."));
         String goodsImage = uuid + extension;
-        String savedPath = context.getRealPath("/") + goodsImage;
+        String savedPath = context.getRealPath("/") + "WEB-INF/views/Manager/image/goods/" + goodsImage;
         file.transferTo(new File(savedPath));
         
         dao.ManagerAddGoods(goodsName, goodsCategory, goodsPrice, goodsDetail, goodsImage);
@@ -103,6 +114,66 @@ public class managerGoodsServiceImpl implements managerGoodsService {
 		model.addAttribute("goodsCategory", goodsCategory);
 		model.addAttribute("goodsPrice", goodsPrice);
 		model.addAttribute("goodsDetail", goodsDetail);
+	}
+
+	@Override
+	public void ManagerGoodsDetail(HttpServletRequest request, Model model) throws Exception {
+		String goodsName=request.getParameter("goodsName");
+		managerGoodsListDto dto=dao.ManagerGoodsDetail(goodsName);
+		
+		model.addAttribute("dto", dto);
+		model.addAttribute("goodsOriginalName", goodsName);
+	}
+
+	@Override
+	public void ManagerCheckGoodsName2(HttpServletRequest request, Model model) throws Exception {
+		String goodsName=request.getParameter("goodsName");
+		String goodsOriginalName=request.getParameter("goodsOriginalName");
+		String goodsCategory=request.getParameter("goodsCategory");
+		int goodsPrice=Integer.parseInt(request.getParameter("goodsPrice"));
+		String goodsDetail=request.getParameter("goodsDetail");
+		managerGoodsListDto dto=new managerGoodsListDto(goodsName, goodsCategory, goodsPrice, goodsDetail);
+		
+		int check=dao.ManagerCheckGoodsName2(goodsName, goodsOriginalName);
+		
+		if (check==1) {
+			model.addAttribute("check", false);
+		} else {
+			model.addAttribute("check", true);
+		}
+		model.addAttribute("dto", dto);
+		model.addAttribute("goodsOriginalName", goodsOriginalName);
+	}
+
+	@Override
+	public void ManagerUpdateGoods(MultipartHttpServletRequest request, MultipartFile file) throws Exception {
+		HttpSession session=request.getSession();
+		ServletContext context=session.getServletContext();
+		
+		String goodsName=request.getParameter("goodsName");
+		int goodsPrice=Integer.parseInt(request.getParameter("goodsPrice"));
+		String goodsCategory=request.getParameter("goodsCategory");
+		String goodsDetail=request.getParameter("goodsDetail");
+		String goodsOriginalName=request.getParameter("goodsOriginalName");
+		
+		String origName = file.getOriginalFilename();
+		
+		if (origName!=null&&origName.equals("")!=true) {
+			String uuid = UUID.randomUUID().toString();
+			String extension = origName.substring(origName.lastIndexOf("."));
+			String goodsImage = uuid + extension;
+			String savedPath = context.getRealPath("/") + "WEB-INF/views/Manager/image/goods/" + goodsImage;
+			file.transferTo(new File(savedPath));
+			dao.ManagerUpdateGoods(goodsName, goodsCategory, goodsPrice, goodsDetail, goodsImage, goodsOriginalName);
+		} else {
+			dao.ManagerUpdateGoods2(goodsName, goodsCategory, goodsPrice, goodsDetail, goodsOriginalName);
+		}
+	}
+
+	@Override
+	public void ManagerDeleteGoods(HttpServletRequest request) throws Exception {
+		String goodsOriginalName=request.getParameter("goodsOriginalName");
+		dao.ManagerDeleteGoods(goodsOriginalName);
 	}
 
 }

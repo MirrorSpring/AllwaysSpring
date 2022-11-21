@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="com.allways.base.dao.managerReviewDao">
+
+	<select id="ManagerViewOrdersReviewList" resultType="com.allways.base.model.managerOrdersReviewDto">
+		select oreviewId, or_customerId, cakeName, goodsName, oreviewStarrating, oreviewInitdate
+		from cake, goods, ordersreview where or_cakeId=cakeId and or_goodsId=goodsId and oreviewDeletedate is null;
+	</select>
+	
+	<select id="ManagerSearchOrdersReview" resultType="com.allways.base.model.managerOrdersReviewDto">
+		select oreviewId, or_customerId, cakeName, goodsName, oreviewStarrating, oreviewInitdate
+		from cake, goods, ordersreview where or_cakeId=cakeId and or_goodsId=goodsId and oreviewDeletedate is null
+		and ${condition} like #{query} order by oreviewInitdate desc;
+	</select>
+	
+</mapper>

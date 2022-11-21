@@ -39,10 +39,10 @@ table tr.header{
 <fmt:setLocale value="ko_kr"/>
 <div align="center">
 	<h1 style="margin-bottom:3%;margin-top:3%"><b>리뷰 리스트</b></h1>
-	<form action="searchReview.do">
+	<form action="ordersReview">
 		<div align="center" style="margin-bottom:10px;padding:5px;width:90%">
 			<div style="width:20%;display:inline-block" align="left">
-				<input type="text" size="1" class="form-control" name="query" style="border-color:#a87878" value="${Query }">
+				<input type="text" size="1" class="form-control" name="query" style="border-color:#a87878" value="${query }">
 			</div>
 			<div style="width:25%;display:inline-block" align="left">
 				<select name="condition" style="border-color:#fdcdcd;border-radius:10px;height:90%">
