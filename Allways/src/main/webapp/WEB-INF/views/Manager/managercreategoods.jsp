@@ -60,14 +60,14 @@ input[type=file]::file-selector-button{
 			swal("추가상품 이름을 입력하세요",'','warning');
 			return;
 		} else{
-			form.action="checkGoodsName.do";
+			form.action="checkGoodsName";
 			form.submit();
 		}
 	}
 	
 	function cancelDo(){
 		var form=document.actionForm;
-		form.action="searchGoods.do";
+		form.action="goods";
 		form.submit();
 	}
 </script>
@@ -77,7 +77,7 @@ input[type=file]::file-selector-button{
 <body>
 <%@include file="managerHeader.jsp"%>
 <div align="center">
-<form action="addGoods.do" method="post" enctype="multipart/form-data" name="actionForm">
+<form action="addGoods" method="post" enctype="multipart/form-data" name="actionForm">
 	<input type="hidden" name="index" value="${index }">
 	<h1 style="margin-bottom:3%;margin-top:3%"><b>추가상품 추가</b></h1>
 	<div style="display: inline-block;width:60%">

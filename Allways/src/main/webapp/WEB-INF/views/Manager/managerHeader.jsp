@@ -31,7 +31,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="Mlist.do">옵션 리스트 관리</a></li>
             <li><a class="dropdown-item" href="cake">케이크 관리</a></li>
-            <li><a class="dropdown-item" href="searchGoods.do">추가 상품 관리</a></li>
+            <li><a class="dropdown-item" href="goods">추가 상품 관리</a></li>
           </ul>
         </li>
           <li class="nav-item">

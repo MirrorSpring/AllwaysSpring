@@ -31,7 +31,7 @@ public class managerController {
 		return "Manager/managerLogin";
 	}
 	
-	@RequestMapping("Manager/logintry")
+	@RequestMapping("/Manager/logintry")
 	public String logintry(HttpServletRequest request, Model model) throws Exception{
 		int check=loginservice.ManagerLogin(request, model);
 		if (check==1) {

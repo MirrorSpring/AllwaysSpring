@@ -46,12 +46,6 @@
 			</div>
 			<div style="width:25%;display:inline-block" align="left">
 				<select name="goodsCategory" style="border-color:#fdcdcd;border-radius:10px;height:90%">
-					<c:if test="${goodsCategory=='all' }">
-						<option selected value="all">전체보기</option>
-					</c:if>
-					<c:if test="${goodsCategory!='all' }">
-						<option selected value="all">전체보기</option>
-					</c:if>
 					<c:if test="${goodsCategory=='초' }">
 						<option selected value="초">초</option>
 					</c:if>
@@ -108,7 +102,7 @@
 		</table>
 	</div>
 	<div class="tablediv" align="right">
-		<a href="managercreategoods.jsp" style="color:#a87878;text-decoration:none">추가</a>
+		<a href="addgoodsview" style="color:#a87878;text-decoration:none">추가</a>
 	</div>
 	
 	<c:if test="${true }">

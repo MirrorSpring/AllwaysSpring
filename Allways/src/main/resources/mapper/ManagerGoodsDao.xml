@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="com.allways.base.dao.managerGoodsDao">
+
+	<select id="ManagerViewGoodsList" resultType="com.allways.base.model.managerGoodsListDto">
+		select goodsId, goodsName, goodsCategory, goodsPrice from goods
+		where goodsDeletedate is null and goodsCategory=#{goodsCategory}
+		and goodsName like #{goodsName}
+	</select>
+	
+	<insert id="ManagerAddGoods">
+		insert into goods (goodsName, goodsCategory, goodsPrice, goodsDetail, goodsImage, goodsInitdate)
+		values (#{goodsName}, #{goodsCategory}, #{goodsPrice}, #{goodsDetail}, #{goodsImage}, now());
+	</insert>
+	
+	<select id="ManagerCheckGoodsName" resultType="int">
+		select count(*) from goods where goodsName=#{goodsName}
+		and goodsDeletedate is null;
+	</select>
+
+</mapper>
