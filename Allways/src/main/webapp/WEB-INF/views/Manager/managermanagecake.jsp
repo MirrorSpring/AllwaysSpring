@@ -141,7 +141,7 @@ input[type=file]::file-selector-button{
 			사진 미리보기
 		</div>
 		<div>
-			<img src="${dto.cakeImage }" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
+			<img src="/image/cake/${dto.cakeImage }" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
 			<input type="hidden" name="cakeImage2" value="${dto.cakeImage }">
 		</div>
 		<div>

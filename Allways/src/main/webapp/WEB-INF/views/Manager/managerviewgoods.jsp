@@ -44,7 +44,7 @@
 				<input type="text" size="1" class="form-control" name="query" style="border-color:#a87878" value="${Query }">
 			</div>
 			<div style="width:25%;display:inline-block" align="left">
-				<select name="goodsCategory" style="border-color:#fdcdcd;border-radius:10px;height:90%">
+				<select name="goodsCategory2" style="border-color:#fdcdcd;border-radius:10px;height:90%">
 					<c:if test="${goodsCategory=='all' }">
 						<option selected value="all">전체보기</option>
 					</c:if>

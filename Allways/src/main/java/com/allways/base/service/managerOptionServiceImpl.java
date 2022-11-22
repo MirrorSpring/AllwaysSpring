@@ -33,6 +33,7 @@ public class managerOptionServiceImpl implements managerOptionService {
 		int pagepage=0;
 		
 		if (request.getParameter("index")!=null) {
+			if (request.getParameter("index").equals("")==false)
 			index=(int)Float.parseFloat(request.getParameter("index"));
 		}
 		
@@ -94,7 +95,7 @@ public class managerOptionServiceImpl implements managerOptionService {
         String uuid = UUID.randomUUID().toString();
         String extension = origName.substring(origName.lastIndexOf("."));
         String optionImage = uuid + extension;
-        String savedPath = context.getRealPath("/") + "WEB-INF/views/Manager/image/option/" + optionImage;
+        String savedPath = context.getRealPath("/") + "image/option/" + optionImage;
         file.transferTo(new File(savedPath));
         
         dao.ManagerAddOption(cakeoptionCategory, optionValue, optionPrice, optionImage);

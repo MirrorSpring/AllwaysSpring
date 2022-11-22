@@ -181,8 +181,7 @@ input[type=file]::file-selector-button{
 			사진 미리보기
 		</div>
 		<div>
-			<img src="/views/Manager/${dto.goodsImage }" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
-			<input type="hidden" name="goodsImage" value="${goodsImage }">
+			<img src="/image/goods/${dto.goodsImage }" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
 		</div>
 		<div>
 			<input type="button" class="btn" style="background:#ffffff;border-color:#a87878;color:#a87878" value="취소" onclick="cancelDo()">

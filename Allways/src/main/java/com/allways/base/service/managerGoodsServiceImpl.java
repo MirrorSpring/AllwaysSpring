@@ -25,7 +25,7 @@ public class managerGoodsServiceImpl implements managerGoodsService {
 
 	@Override
 	public void ManagerViewGoodsList(HttpServletRequest request, Model model) throws Exception {
-		String goodsCategory=request.getParameter("goodsCategory");
+		String goodsCategory=request.getParameter("goodsCategory2");
 		String goodsName=request.getParameter("query");
 		int index=1;
 		int rowcount=7;
@@ -49,6 +49,7 @@ public class managerGoodsServiceImpl implements managerGoodsService {
 		}
 		
 		if (request.getParameter("index")!=null) {
+			if (request.getParameter("index").equals("")==false)
 			index=(int)Float.parseFloat(request.getParameter("index"));
 		}
 		
@@ -86,7 +87,7 @@ public class managerGoodsServiceImpl implements managerGoodsService {
         String uuid = UUID.randomUUID().toString();
         String extension = origName.substring(origName.lastIndexOf("."));
         String goodsImage = uuid + extension;
-        String savedPath = context.getRealPath("/") + "WEB-INF/views/Manager/image/goods/" + goodsImage;
+        String savedPath = context.getRealPath("/") + "image/goods/" + goodsImage;
         file.transferTo(new File(savedPath));
         
         dao.ManagerAddGoods(goodsName, goodsCategory, goodsPrice, goodsDetail, goodsImage);

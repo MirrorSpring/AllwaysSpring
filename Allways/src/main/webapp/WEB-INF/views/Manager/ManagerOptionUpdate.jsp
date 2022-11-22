@@ -162,7 +162,7 @@ function previewFile() {
 			<input type="hidden" name="cakeoptionImage2" value="${cakeoptionImage}">
 		</c:if>
 		<c:if test="${check == false }"> 
-		<img src="/Allways/${cakeoptionImage}" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
+		<img src="/image/option/${cakeoptionImage}" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
 			<input type="hidden" name="cakeoptionImage2" value="${dto.cakeoptionImage}">	
 		</c:if>
 		</div>
