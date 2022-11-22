@@ -43,9 +43,6 @@ public class managerGoodsServiceImpl implements managerGoodsService {
 		List<managerGoodsListDto> dtos=dao.ManagerViewAllGoods("%" + goodsName + "%");
 		
 		if (goodsCategory.equals("all")) {
-			System.out.println("%" + goodsName + "%");
-			System.out.println(dtos.size());
-			System.out.println(dtos.get(0).getGoodsName());
 			dtos=dao.ManagerViewAllGoods("%" + goodsName + "%");
 		} else {
 			dtos=dao.ManagerViewGoodsList(goodsCategory, "%" + goodsName + "%");

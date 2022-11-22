@@ -181,7 +181,7 @@ input[type=file]::file-selector-button{
 			사진 미리보기
 		</div>
 		<div>
-			<img src="/Allways/${dto.goodsImage }" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
+			<img src="/views/Manager/${dto.goodsImage }" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
 			<input type="hidden" name="goodsImage" value="${goodsImage }">
 		</div>
 		<div>

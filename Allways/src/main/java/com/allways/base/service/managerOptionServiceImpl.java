@@ -115,6 +115,8 @@ public class managerOptionServiceImpl implements managerOptionService {
 		String cakeoptionValue=request.getParameter("cakeoptionValue");
 		int cakeoptionPrice=Integer.parseInt(request.getParameter("cakeoptionPrice"));
 		
+		System.out.println(cakeoptionValue);
+		
 		int check=dao.ManagerCheckOptionName2(cakeoptionValue, cakeoptionCategory, cakeoptionId);
 		
 		if (check==1) {

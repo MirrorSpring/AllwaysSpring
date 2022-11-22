@@ -36,7 +36,6 @@
 </head>
 <body>
 <%@include file="managerHeader.jsp"%>
-<fmt:setLocale value="ko_kr"/>
 <div align="center">
 	<h1 style="margin-bottom:3%;margin-top:3%"><b>추가상품 리스트</b></h1>
 	<form action="goods">
@@ -102,6 +101,7 @@
 					<td>${cnt.goodsId}</td>
 					<td>${cnt.goodsCategory}</td>
 					<td><a href="goodsDetail?goodsName=${cnt.goodsName }" class="tablebutton">${cnt.goodsName}</a></td>
+					<fmt:setLocale value="ko_kr"/>
 					<td><fmt:formatNumber value="${cnt.goodsPrice}" type="currency"/></td>
 				</tr>
 			</c:forEach>

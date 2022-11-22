@@ -121,7 +121,6 @@ function previewFile() {
 			옵션 이름 :
 		</div>
 			<div align="left" style="width:74%;height:20%;display:inline-block">
-					<input type="hidden" name="cakeoptionValue" value="${dto.cakeoptionValue}" >
 				<c:if test="${check == null }">
 					<input type="hidden" name="ko" value="0"/>
 					<input type="text" style="border-color:#FDCDCD" size="30" name="cakeoptionValue" value="${dto.cakeoptionValue}" ></c:if>
