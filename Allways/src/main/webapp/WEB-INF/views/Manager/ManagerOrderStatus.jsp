@@ -40,7 +40,7 @@
 			<th>주문취소</th>
 		</tr>	
 		</thead>
-			<c:forEach items = "${OrdersList}" var = "dto">
+			<c:forEach items = "${dto}" var = "dto">
 		<tr>
 			<td>${dto.ordersId}</td>
 			<td>${dto.ordersStatus}</td>
@@ -52,8 +52,8 @@
 			<td>${dto.ordersSalePrice}</td>
 			<td>${dto.ordersQuantity}</td>
 			<td>${dto.ordersPoint}</td>
-			<td><a href="Status.do?ordersId=${dto.ordersId}"><input type="button" value="선택"></a></td>
-			<td><a href="deleteOrder.do?ordersId=${dto.ordersId}"><input type="button" value="취소"></a></td>
+			<td><a href="ordersDetail?ordersId=${dto.ordersId}&ordersStatus=구매"><input type="button" value="선택"></a></td>
+			<td><a href="deleteOrder?ordersId=${dto.ordersId}"><input type="button" value="취소"></a></td>
 		</tr>
 			</c:forEach>
 			
@@ -78,7 +78,7 @@
 			<th>주문취소</th>
 		</tr>	
 		</thead>
-			<c:forEach items = "${OrdersList2}" var = "dto2">
+			<c:forEach items = "${dto2}" var = "dto2">
 		<tr>
 			<td>${dto2.ordersId}</td>
 			<td>${dto2.ordersStatus}</td>
@@ -90,8 +90,8 @@
 			<td>${dto2.ordersSalePrice}</td>
 			<td>${dto2.ordersQuantity}</td>
 			<td>${dto2.ordersPoint}</td>
-			<td><a href="Status.do?ordersId=${dto2.ordersId}"><input type="button" value="선택"></a></td>
-			<td><a href="deleteOrder.do?ordersId=${dto2.ordersId}"><input type="button" value="취소"></a></td>
+			<td><a href="ordersDetail?ordersId=${dto2.ordersId}&ordersStatus=제작중"><input type="button" value="선택"></a></td>
+			<td><a href="deleteOrder?ordersId=${dto2.ordersId}"><input type="button" value="취소"></a></td>
 		</tr>
 			</c:forEach>
 			
@@ -114,7 +114,7 @@
 			<th>제작선택</th>
 		</tr>	
 		</thead>
-			<c:forEach items = "${OrdersList3}" var = "dto3" begin="${(index-1)*rowcount }" end="${(index)*rowcount-1}">
+			<c:forEach items = "${dto3}" var = "dto3">
 		<tr>
 			<td>${dto3.ordersId}</td>
 			<td>${dto3.ordersStatus}</td>
@@ -126,7 +126,7 @@
 			<td>${dto3.ordersSalePrice}</td>
 			<td>${dto3.ordersQuantity}</td>
 			<td>${dto3.ordersPoint}</td>
-			<td><a href="Sold.do?ordersId=${dto3.ordersId}"><input type="button" value="선택"></a></td>
+			<td><a href="ordersDetail?ordersId=${dto3.ordersId}"><input type="button" value="선택"></a></td>
 		</tr>
 			</c:forEach>
 			<tr>
@@ -134,29 +134,5 @@
 			
 </table>
 </div>
-<c:if test="${Query==null }">
-	<div class="tablediv" align="center">
-		<a href="MorderStatus.do?index=1">처음으로</a>
-		<c:if test="${index!=1 }">
-			<a href="MorderStatus.do?index=${index-1 }">이전</a>
-		</c:if>
-		<c:forEach var="dto3" begin="${pagecount*pagepage+1}" end="${pagecount*(pagepage+1) }">
-			<c:if test="${dto3<=Math.ceil(Size/rowcount) }">
-				<c:if test="${dto3==index }">
-					<span style="display:inline">
-						<a href="MorderStatus.do?index=${dto3 }" style="font-size:1.3em">${dto3 }</a>
-					</span>
-				</c:if>
-				<c:if test="${dto3!=index }">
-					<a href="MorderStatus.do?index=${dto3 }" style="font-size:0.9em">${dto3 }</a>
-				</c:if>
-			</c:if>
-		</c:forEach>
-		<c:if test="${index<Math.ceil(Size/rowcount) }">
-			<a href="MorderStatus.do?index=${index+1 }">다음</a>
-		</c:if>
-		<a href="MorderStatus.do?index=${Math.ceil(Size/rowcount) }">끝으로</a>
-	</div>
-	</c:if>
 </body>
 </html>

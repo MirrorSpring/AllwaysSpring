@@ -76,7 +76,7 @@ a.tablebutton{
 	<div class="main">
 		<h2 class="inner">최근 매출</h2>
 		<div align="right" style="margin:1px">
-			<a href="MorderStatus.do" class="viewall">전체보기</a>
+			<a href="orders" class="viewall">전체보기</a>
 		</div>
 		<div class="inner">
 			<canvas id="PriceCanvas"></canvas>
@@ -85,7 +85,7 @@ a.tablebutton{
 	<div class="main">
 		<h2 class="inner">미처리 주문</h2>
 		<div align="right" style="margin:1px">
-			<a href="MorderStatus.do" class="viewall">전체보기</a>
+			<a href="orders" class="viewall">전체보기</a>
 		</div>
 		<div class="inner">
 			<table class="table">
@@ -109,7 +109,7 @@ a.tablebutton{
 	<div class="main">
 		<h2 class="inner">최근 주문 건수</h2>
 		<div align="right" style="margin:1px">
-			<a href="MorderStatus.do" class="viewall">전체보기</a>
+			<a href="orders" class="viewall">전체보기</a>
 		</div>
 		<div class="inner">
 			<canvas id="QuantityCanvas"></canvas>
