@@ -32,7 +32,7 @@ input[type=file]::file-selector-button{
 <script type="text/javascript">
 function Return(){
 		var upd = document.upd;
-		upd.action="return.do";
+		upd.action="cakeOption";
 		upd.submit();
 		upd.method = "post";
 		}
@@ -41,7 +41,7 @@ function Update(){
 		var Cek = upd.ko.value;
 		console.log(Cek);
 		if(Cek == 1){
-			upd.action="Update.do";
+			upd.action="cakeoptionUpdate";
 			upd.method = "post";
 			swal("수정이 완료되었습니다",'','success');
 			upd.submit();
@@ -56,16 +56,16 @@ function Update(){
 }
 function Delete(){
 		var upd = document.upd;
-		upd.action="MO_Delete.do";
+		upd.action="deleteOption";
 		swal("삭제가 완료되었습니다",'','success');
 		upd.submit();
 		upd.method = "post";
 		}
 function CHECKOPTION(){
 		var upd = document.upd;
-		upd.action="OUpdateCheck.do";
-		upd.submit();
+		upd.action="checkoptionName2";
 		upd.method = "post";
+		upd.submit();
 
 }
 function previewFile() {
@@ -98,16 +98,7 @@ function previewFile() {
 		</div>
 		<div align="left" style="width:74%;display:inline-block">
 			<div style="width:50%;display:inline-block">
-				<select name="option"  style="background:#ffffff;border-color:#a87878;color:#a87878">
-				<c:if test="${check == null }">
-					<option value="${cake_option.cakeoptionCategory}">${cake_option.cakeoptionCategory}</option>
-				</c:if>
-				<c:if test="${check == true }">
-					<option value="${option}">${option}</option>
-				</c:if>
-				<c:if test="${check == false }">
-					<option value="${option}">${option}</option>
-				</c:if>
+				<select name="cakeoptionCategory"  style="background:#ffffff;border-color:#a87878;color:#a87878">
 					<option value="size">size</option>
 					<option value="IcingColor">IcingColor</option>
 					<option value="BorderColor">BorderColor</option>
@@ -122,31 +113,25 @@ function previewFile() {
 		</div>
 		<div align="left" style="width:74%;height:20%;display:inline-block">
 			<div style="width:50%;display:inline-block">
-				<input type="hidden" style="border-color:#FDCDCD" name="optionId" value="${cake_option.cakeoptionId}" readonly/>
-				<c:if test="${check == null }">
-				<input type="text" style="border-color:#FDCDCD" size="30" name="optionId" value="${cake_option.cakeoptionId}" readonly/></c:if>
-				<c:if test="${check == true }">
-				<input type="text" style="border-color:#FDCDCD" size="30" name="optionId" value="${optionId}" readonly/></c:if>
-				<c:if test="${check == false }">
-				<input type="text" style="border-color:#FDCDCD" size="30" name="optionId" value="${optionId}" readonly/></c:if>
+				<input type="text" style="border-color:#FDCDCD" size="30" name="cakeoptionId" value="${dto.cakeoptionId}" readonly/>
 			</div>
 		</div>
 		<div align="left" style="width:20%;display:inline-block">
 			옵션 이름 :
 		</div>
 			<div align="left" style="width:74%;height:20%;display:inline-block">
-					<input type="hidden" name="optionName" value="${cake_option.cakeoptionValue}" >
+					<input type="hidden" name="cakeoptionValue" value="${dto.cakeoptionValue}" >
 				<c:if test="${check == null }">
 					<input type="hidden" name="ko" value="0"/>
-					<input type="text" style="border-color:#FDCDCD" size="30" name="optionName" value="${cake_option.cakeoptionValue}" ></c:if>
+					<input type="text" style="border-color:#FDCDCD" size="30" name="cakeoptionValue" value="${dto.cakeoptionValue}" ></c:if>
 				<c:if test="${check == true }">
 					<input type="hidden" name="ko" value="2"/>
-					<input type="text" style="border-color:#FDCDCD" size="30" name="optionName" value="${optionName}" >
+					<input type="text" style="border-color:#FDCDCD" size="30" name="cakeoptionValue" value="${dto.cakeoptionValue}" >
 				<br>
 				<span style = " font-size:1.0em;  color: red;"> 사용 불가능한 이름 입니다</span></c:if>
 				<c:if test="${check == false }">
 				<input type="hidden" name="ko" value="1"/>
-				<input type="text" style="border-color:#FDCDCD" size="30" name="optionName" value="${optionName}" >
+				<input type="text" style="border-color:#FDCDCD" size="30" name="cakeoptionValue" value="${dto.cakeoptionValue}" >
 		 		<br>
 		 		<span style = " font-size:1.0em;  color: blue;"> 사용 가능한 이름 입니다</span></c:if>
 			</div>
@@ -154,19 +139,13 @@ function previewFile() {
 			가격 이름 :
 		</div>
 			<div align="left" style="width:74%;height:20%;display:inline-block">
-				<input type="hidden" style="border-color:#FDCDCD" name="optionPrice" value="${cake_option.cakeoptionPrice}" >
-				<c:if test="${check == null }">
-				<input type="text" style="border-color:#FDCDCD" name="optionPrice" value="${cake_option.cakeoptionPrice}" ></c:if>
-				<c:if test="${check == true }"> 
-				<input type="text" style="border-color:#FDCDCD" name="optionPrice" value="${optionPrice}" ></c:if>
-				<c:if test="${check == false }"> 
-				<input type="text" style="border-color:#FDCDCD" name="optionPrice" value="${optionPrice}" ></c:if>	
+				<input type="text" style="border-color:#FDCDCD" name="cakeoptionPrice" value="${dto.cakeoptionPrice}" >
 			</div>
 			<div align="left" style="width:20%;display:inline-block">
 				사진
 			</div>
 			<div align="left" style="width:74%;display:inline-block">
-				<input type="file" name="cakeoptionImage" onchange="previewFile(event)">
+				<input type="file" name="optionImage" onchange="previewFile(event)">
 			</div>
 		</div>
 		<div style="display:inline-block;width:30%;height:50%" align="center">
@@ -175,16 +154,16 @@ function previewFile() {
 		</div>
 		<div>
 		<c:if test="${check == null }"> 
-		<img src="/Allways/${cake_option.cakeoptionImage}" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
-			<input type="hidden" name="cakeoptionImage" value="${cake_option.cakeoptionImage}">
+		<img src="/Allways/${dto.cakeoptionImage}" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
+			<input type="hidden" name="cakeoptionImage2" value="${dto.cakeoptionImage}">
 		</c:if>
 		<c:if test="${check == true }"> 
-		<img src="/Allways/${cakeoptionImage}" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
-			<input type="hidden" name="cakeoptionImage" value="${cakeoptionImage}">
+		<img src="/Allways/${dto.cakeoptionImage}" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
+			<input type="hidden" name="cakeoptionImage2" value="${cakeoptionImage}">
 		</c:if>
 		<c:if test="${check == false }"> 
 		<img src="/Allways/${cakeoptionImage}" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
-			<input type="hidden" name="cakeoptionImage" value="${cakeoptionImage}">	
+			<input type="hidden" name="cakeoptionImage2" value="${dto.cakeoptionImage}">	
 		</c:if>
 		</div>
 		<div align="center" style="width:74%;display:inline-block">

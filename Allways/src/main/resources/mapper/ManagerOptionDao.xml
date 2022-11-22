@@ -15,4 +15,38 @@
 		and cakeoptionDeletedate is null order by cakeoptionCategory DESC;
 	</select>
 	
+	<select id="ManagerCheckOptionName" resultType="int">
+		select count(*) from cakeoption where cakeoptionValue=#{optionValue}
+		and cakeoptionCategory=#{cakeoptionCategory} and cakeoptionDeletedate is null;
+	</select>
+	
+	<select id="ManagerCheckOptionName2" resultType="int">
+		select count(*) from cakeoption where cakeoptionValue=#{optionValue} and cakeoptionId!=#{cakeoptionId}
+		and cakeoptionCategory=#{cakeoptionCategory} and cakeoptionDeletedate is null;
+	</select>
+	
+	<insert id="ManagerAddOption">
+		insert into cakeoption (cakeoptionCategory, cakeoptionValue, cakeoptionPrice, cakeoptionImage, cakeoptionInitdate)
+		values (#{cakeoptionCategory}, #{cakeoptionValue}, #{cakeoptionPrice}, #{cakeoptionImage}, now());
+	</insert>
+	
+	<select id="ManagerOptionDetail" resultType="com.allways.base.model.managerOptionDto">
+		select cakeoptionId, cakeoptionCategory, cakeoptionValue, cakeoptionPrice, cakeoptionImage
+		from cakeoption where cakeoptionId=#{cakeoptionId};
+	</select>
+	
+	<update id="ManagerUpdateOption">
+		update cakeoption set cakeoptionCategory=#{cakeoptionCategory}, cakeoptionValue=#{cakeoptionValue},
+		cakeoptionPrice=#{cakeoptionPrice}, cakeoptionImage=#{cakeoptionImage}, cakeoptionUpdatedate=now() where cakeoptionId=#{cakeoptionId};
+	</update>
+	
+	<update id="ManagerUpdateOption2">
+		update cakeoption set cakeoptionCategory=#{cakeoptionCategory}, cakeoptionValue=#{cakeoptionValue},
+		cakeoptionPrice=#{cakeoptionPrice}, cakeoptionUpdatedate=now() where cakeoptionId=#{cakeoptionId};
+	</update>
+	
+	<update id="ManagerDeleteOption">
+		update cakeoption set cakeoptionDeletedate=now() where cakeoptionId=#{cakeoptionId}
+	</update>
+	
 </mapper>

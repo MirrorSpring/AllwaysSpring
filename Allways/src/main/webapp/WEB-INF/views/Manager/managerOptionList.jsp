@@ -37,7 +37,7 @@ function SELECT1() {
 }
 function Addoption(){
 		var Olist = document.Olist;
-		Olist.action="addList.do";
+		Olist.action="optionAddView";
 		Olist.submit();
 		}
 		
@@ -95,7 +95,7 @@ function Addoption(){
 			<c:forEach items = "${dto}" var = "dto" begin="${(index-1)*rowcount }" end="${(index)*rowcount-1}">
 			
 		<tr>
-			<td><a href="optionId.do?cakeoptionId=${dto.cakeoptionId}" class="tablebutton">${dto.cakeoptionId}</a></td>
+			<td><a href="optionDetail?cakeoptionId=${dto.cakeoptionId}" class="tablebutton">${dto.cakeoptionId}</a></td>
 			<td>${dto.cakeoptionCategory}</td>
 			<td>${dto.cakeoptionValue}</td>
 			<td><fmt:formatNumber value="${dto.cakeoptionPrice}" type="currency"/></td>
@@ -107,7 +107,7 @@ function Addoption(){
 <div class="tablediv" align="center">
 	<a href="cakeOption?index=1">처음으로</a>
 	<c:if test="${index!=1 }">
-		<a href="Mlist.do?index=${index-1 }">이전</a>
+		<a href="cakeOption?index=${index-1 }">이전</a>
 	</c:if>
 	<c:forEach var="dto" begin="${pagecount*pagepage+1}" end="${pagecount*(pagepage+1) }">
 		<c:if test="${dto<=Math.ceil(Size/rowcount) }">

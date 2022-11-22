@@ -34,12 +34,12 @@ var num = /^[0-9]*$/;
 document.optionPrice;
 function Return(){
 		var add = document.add;
-		add.action="return.do";
+		add.action="cakeOption";
 		add.submit();
 		}
 function CHECKOPTION(){
 		var add = document.add;
-		add.action="ONameCheck.do";
+		add.action="checkoptionName";
 		add.submit();
 
 }
@@ -54,7 +54,7 @@ function ADDOPTION() {
 		var Cek = add.ko.value;
 		console.log(Cek);
 		if(Cek == 1){
-			add.action="addOption.do";
+			add.action="addOption";
 			add.method = "post";
 			swal("추가가 완료되었습니다",'','success');
 			add.submit();
@@ -97,7 +97,7 @@ function previewFile() {
 			</div>
 		<div align="left" style="width:74%;display:inline-block">
 			<div style="width:50%;display:inline-block">
-				<select name="option" style="border-color:#fdcdcd">
+				<select name="cakeoptionCategory" style="border-color:#fdcdcd">
 					<option style="border-color:#fdcdcd" value="size">size</option>
 					<option style="border-color:#fdcdcd" value="IcingColor">IcingColor</option>
 					<option style="border-color:#fdcdcd" value="BorderColor">BorderColor</option>
@@ -117,7 +117,7 @@ function previewFile() {
 				옵션 이름 :
 		</div>
 			<div align="left" style="width:74%;height:20%;display:inline-block">
-			<input type="text" size="30" name="optionName" style="border-color:#fdcdcd" value="${optionName}" >
+			<input type="text" size="30" name="optionValue" style="border-color:#fdcdcd" value="${optionValue}" >
 		<c:if test="${check == null }">
 			<input type="hidden" name="ko" style="border-color:#fdcdcd" value="0"/></c:if>
 		<c:if test="${check == true }"> 
@@ -137,7 +137,7 @@ function previewFile() {
 			사진
 			</div>
 		<div align="left" style="width:74%;display:inline-block">	
-			<input type="file" name="cakeoptionImage" onchange="previewFile(event)">
+			<input type="file" name="optionImage" onchange="previewFile(event)">
 		</div>
 	</div>
 		<div style="display:inline-block;width:30%;height:50%" align="center">

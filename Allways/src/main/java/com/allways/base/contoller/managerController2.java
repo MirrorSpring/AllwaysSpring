@@ -90,4 +90,45 @@ public class managerController2 {
 		optionservice.ManagerViewOptionList(request, model);
 		return "Manager/managerOptionList";
 	}
+	
+	@RequestMapping("/Manager/optionAddView")
+	public String ManagerOptionAddView() throws Exception{
+		return "Manager/ManagerOptionAdd";
+	}
+	
+	@RequestMapping("/Manager/checkoptionName")
+	public String ManagerCheckOptionName(HttpServletRequest request, Model model) throws Exception{
+		optionservice.ManagerCheckOptionName(request, model);
+		return "Manager/ManagerOptionAdd";
+	}
+	
+	@RequestMapping("/Manager/addOption")
+	public String ManagerAddOption(MultipartHttpServletRequest request, @RequestParam("optionImage") MultipartFile file) throws Exception{
+		optionservice.ManagerAddOption(request, file);
+		return "redirect:cakeOption";
+	}
+	
+	@RequestMapping("/Manager/optionDetail")
+	public String ManagerOptionDetail(HttpServletRequest request, Model model) throws Exception{
+		optionservice.ManagerOptionDetail(request, model);
+		return "Manager/ManagerOptionUpdate";
+	}
+	
+	@RequestMapping("/Manager/checkoptionName2")
+	public String ManagerCheckOptionName2(HttpServletRequest request, Model model) throws Exception{
+		optionservice.ManagerCheckOptionName2(request, model);
+		return "Manager/ManagerOptionUpdate";
+	}
+	
+	@RequestMapping("/Manager/cakeoptionUpdate")
+	public String ManagerCakeOptionUpdate(MultipartHttpServletRequest request, @RequestParam("optionImage") MultipartFile file) throws Exception{
+		optionservice.ManagerUpdateOption(request, file);
+		return "redirect:cakeOption";
+	}
+	
+	@RequestMapping("/Manager/deleteOption")
+	public String ManagerDeleteOption(HttpServletRequest request) throws Exception{
+		optionservice.ManagerDeleteOption(request);
+		return "redirect:cakeOption";
+	}
 }
