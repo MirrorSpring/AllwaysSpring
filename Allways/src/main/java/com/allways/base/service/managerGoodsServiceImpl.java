@@ -40,16 +40,16 @@ public class managerGoodsServiceImpl implements managerGoodsService {
 			goodsCategory="all";
 		}
 
-//		List<managerGoodsListDto> dtos=dao.ManagerViewAllGoods("%" + goodsName + "%");
+		List<managerGoodsListDto> dtos=dao.ManagerViewAllGoods("%" + goodsName + "%");
 		
-//		if (goodsCategory.equals("all")) {
-//			System.out.println("%" + goodsName + "%");
-//			System.out.println(dtos.size());
-//			System.out.println(dtos.get(0).getGoodsName());
-//			dtos=dao.ManagerViewAllGoods("%" + goodsName + "%");
-//		} else {
-			List<managerGoodsListDto> dtos=dao.ManagerViewGoodsList(goodsCategory, "%" + goodsName + "%");
-//		}
+		if (goodsCategory.equals("all")) {
+			System.out.println("%" + goodsName + "%");
+			System.out.println(dtos.size());
+			System.out.println(dtos.get(0).getGoodsName());
+			dtos=dao.ManagerViewAllGoods("%" + goodsName + "%");
+		} else {
+			dtos=dao.ManagerViewGoodsList(goodsCategory, "%" + goodsName + "%");
+		}
 		
 		if (request.getParameter("index")!=null) {
 			index=(int)Float.parseFloat(request.getParameter("index"));
