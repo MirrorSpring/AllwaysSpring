@@ -30,4 +30,21 @@ public class customerController {
 			return "Customer/customerMain";
 		}
 	}
+	
+	@RequestMapping("/Customer/join")
+	public String CustomerJoin() throws Exception{
+		return "Customer/customerJoin";
+	}
+	
+	@RequestMapping("/Customer/idCheck")
+	public String CustomerIdCheck(HttpServletRequest request, Model model) throws Exception{
+		profileservice.CustomerCheckId(request, model);
+		return "Customer/customerJoin";
+	}
+	
+	@RequestMapping("/Customer/CustomerJoin")
+	public String Join(HttpServletRequest request) throws Exception{
+		profileservice.CustomerJoin(request);
+		return "redirect:login";
+	}
 }

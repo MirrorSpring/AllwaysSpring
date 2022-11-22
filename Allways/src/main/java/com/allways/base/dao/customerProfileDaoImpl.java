@@ -17,4 +17,16 @@ public class customerProfileDaoImpl implements customerProfileDao {
 		return sqlSession.selectOne(nameSpace + ".CustomerGetName");
 	}
 
+	@Override
+	public int CustomerCheckId(String customerId) throws Exception {
+		return sqlSession.selectOne(nameSpace + ".CustomerCheckId");
+	}
+
+	@Override
+	public void CustomerJoin(String customerId, String customerPw, String customerName, String customerGender,
+			String customerPhone, String customerEmail, String customerBirthday, String customerPostcode,
+			String customerAddress, String customerAddressDetail) throws Exception {
+		sqlSession.update(nameSpace + ".CustomerJoin");
+	}
+
 }
