@@ -31,7 +31,7 @@ input[type=file]::file-selector-button{
 <script type="text/javascript">
 function SELECT1() {
 	var Olist = document.Olist;
-	Olist.action="Mselect.do";
+	Olist.action="cakeOption";
 	Olist.submit();
 	
 }
@@ -46,23 +46,42 @@ function Addoption(){
 
 <div align="center">
 <form name="Olist" method="post" >
-	<select name="option" style="background:#ffffff;border-color:#a87878;color:#a87878">
-		<option value="">검색 유형</option>
-		<option value="cakeoptionId">번호</option>
-		<option value="cakeoptionCategory">카테고리</option>
-		<option value="cakeoptionValue">옵션</option>
-		<option value="cakeoptionPrice">가격</option>
+	<select name="condition" style="background:#ffffff;border-color:#a87878;color:#a87878">
+		<c:if test="${condition=='' }">
+			<option value="" selected>검색 유형</option>
+		</c:if>
+		<c:if test="${condition!='' }">
+			<option value="">검색 유형</option>
+		</c:if>
+		<c:if test="${condition=='cakeoptionId' }">
+			<option value="cakeoptionId" selected>번호</option>
+		</c:if>
+		<c:if test="${condition!='cakeoptionId' }">
+			<option value="cakeoptionId">번호</option>
+		</c:if>
+		<c:if test="${condition=='cakeoptionCategory' }">
+			<option value="cakeoptionCategory" selected>카테고리</option>
+		</c:if>
+		<c:if test="${condition!='cakeoptionCategory' }">
+			<option value="cakeoptionCategory">카테고리</option>
+		</c:if>
+		<c:if test="${condition=='cakeoptionValue' }">
+			<option value="cakeoptionValue" selected>옵션</option>
+		</c:if>
+		<c:if test="${condition!='cakeoptionValue' }">
+			<option value="cakeoptionValue">옵션</option>
+		</c:if>
+		<c:if test="${condition=='cakeoptionPrice' }">
+			<option value="cakeoptionPrice" selected>가격</option>
+		</c:if>
+		<c:if test="${condition!='cakeoptionPrice' }">
+			<option value="cakeoptionPrice">가격</option>
+		</c:if>
 	</select>
-	<script type="text/javascript">
-	const param__option = '${param.option}';
-	if(param__option) {
-		$('select[name="param__option"]').val('${param__option}');
-	}
-	</script>
-	<input type="hidden" style="border-color:#FDCDCD" name ="boardId" value="${param.boardId }"/>
-<input value="${param.Query }" style="border-color:#FDCDCD" type="text" name="Query" size="30">
-<input type="button" style="background:#ffffff;border-color:#a87878;color:#a87878" name="Select" value="검색" onclick="SELECT1()">
-<input type="button" style="background:#ffffff;border-color:#a87878;color:#a87878" name="add" value="추가" onclick="Addoption()" >
+	<input value="${query }" style="border-color:#FDCDCD" type="text" name="query" size="30">
+	<input type="button" style="background:#ffffff;border-color:#a87878;color:#a87878" name="Select" value="검색" onclick="SELECT1()">
+	<input type="button" style="background:#ffffff;border-color:#a87878;color:#a87878" name="add" value="추가" onclick="Addoption()" >
+</form>
 총 ${Size}건
 <div class="tablediv" >
 	<table  border="1" >
@@ -73,7 +92,7 @@ function Addoption(){
 			<th>옵션</th>
 			<th>가격</th>
 		</tr>	
-			<c:forEach items = "${OptionList}" var = "dto" begin="${(index-1)*rowcount }" end="${(index)*rowcount-1}">
+			<c:forEach items = "${dto}" var = "dto" begin="${(index-1)*rowcount }" end="${(index)*rowcount-1}">
 			
 		<tr>
 			<td><a href="optionId.do?cakeoptionId=${dto.cakeoptionId}" class="tablebutton">${dto.cakeoptionId}</a></td>
@@ -85,56 +104,29 @@ function Addoption(){
 			</thead>
 </table>
 </div>
-<c:if test="${Query==null }">
-	<div class="tablediv" align="center">
-		<a href="Mlist.do?index=1">처음으로</a>
-		<c:if test="${index!=1 }">
-			<a href="Mlist.do?index=${index-1 }">이전</a>
-		</c:if>
-		<c:forEach var="dto" begin="${pagecount*pagepage+1}" end="${pagecount*(pagepage+1) }">
-			<c:if test="${dto<=Math.ceil(Size/rowcount) }">
-				<c:if test="${dto==index }">
-					<span style="display:inline">
-						<a href="Mlist.do?index=${dto }" style="font-size:1.3em">${dto }</a>
-					</span>
-				</c:if>
-				<c:if test="${dto!=index }">
-					<a href="Mlist.do?index=${dto }" style="font-size:0.9em">${dto }</a>
-				</c:if>
-			</c:if>
-		</c:forEach>
-		<c:if test="${index<Math.ceil(Size/rowcount) }">
-			<a href="Mlist.do?index=${index+1 }">다음</a>
-		</c:if>
-		<a href="Mlist.do?index=${Math.ceil(Size/rowcount) }">끝으로</a>
-	</div>
+<div class="tablediv" align="center">
+	<a href="cakeOption?index=1">처음으로</a>
+	<c:if test="${index!=1 }">
+		<a href="Mlist.do?index=${index-1 }">이전</a>
 	</c:if>
-	
-	<c:if test="${Query!=null }">
-	<div class="tablediv" align="center">
-		<a href="Mselect.do?index=1&query=${Query}">처음으로</a>
-		<c:if test="${index!=1 }">
-			<a href="Mselect.do?index=${index-1 }&query=${Query}">이전</a>
-		</c:if>
-		<c:forEach var="cnt" begin="${pagecount*pagepage+1}" end="${pagecount*(pagepage+1) }">
-			<c:if test="${cnt<=Math.ceil(Size/rowcount) }">
-				<c:if test="${cnt==index }">
-					<span style="display:inline">
-						<a href="Mselect.do?index=${cnt }&query=${Query}" style="font-size:1.3em">${cnt }</a>
-					</span>
-				</c:if>
-				<c:if test="${cnt!=index }">
-					<a href="Mselect.do?index=${cnt }&query=${Query}" style="font-size:0.9em">${cnt }</a>
-				</c:if>
+	<c:forEach var="dto" begin="${pagecount*pagepage+1}" end="${pagecount*(pagepage+1) }">
+		<c:if test="${dto<=Math.ceil(Size/rowcount) }">
+			<c:if test="${dto==index }">
+				<span style="display:inline">
+					<a href="cakeOption?index=${dto }" style="font-size:1.3em">${dto }</a>
+				</span>
 			</c:if>
-		</c:forEach>
-		<c:if test="${index<Math.ceil(Size/rowcount) }">
-			<a href="Mselect.do?index=${index+1 }&query=${Query}">다음</a>
+			<c:if test="${dto!=index }">
+				<a href="cakeOption?index=${dto }" style="font-size:0.9em">${dto }</a>
+			</c:if>
 		</c:if>
-		<a href="Mselect.do?index=${Math.ceil(Size/rowcount) }&query=${Query}">끝으로</a>
-	</div>
+	</c:forEach>
+	<c:if test="${index<Math.ceil(Size/rowcount) }">
+		<a href="cakeOption?index=${index+1 }">다음</a>
 	</c:if>
-</form>
+	<a href="cakeOption?index=${Math.ceil(Size/rowcount) }">끝으로</a>
+</div>
+
 </div>
 </body>
 </html>

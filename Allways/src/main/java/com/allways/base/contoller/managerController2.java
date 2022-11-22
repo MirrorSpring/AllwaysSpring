@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.allways.base.service.managerGoodsService;
+import com.allways.base.service.managerOptionService;
 import com.allways.base.service.managerOrdersReviewService;
 
 @Controller
@@ -21,6 +22,9 @@ public class managerController2 {
 	
 	@Autowired
 	managerOrdersReviewService ordersreviewservice;
+	
+	@Autowired
+	managerOptionService optionservice;
 	
 	@RequestMapping("/Manager/goods")
 	public String ManagerViewGoods(HttpServletRequest request, Model model) throws Exception{
@@ -79,5 +83,11 @@ public class managerController2 {
 	public String ManagerReviewDetail(HttpServletRequest request, Model model) throws Exception{
 		ordersreviewservice.ManagerOrdersReviewDetail(model, request);
 		return "Manager/managerviewordersreviewdetail";
+	}
+	
+	@RequestMapping("/Manager/cakeOption")
+	public String ManagerCakeOptionList(HttpServletRequest request, Model model) throws Exception{
+		optionservice.ManagerViewOptionList(request, model);
+		return "Manager/managerOptionList";
 	}
 }

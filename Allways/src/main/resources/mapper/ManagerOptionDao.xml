@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="com.allways.base.dao.managerOptionDao">
+
+	<select id="ManagerViewOptionList" resultType="com.allways.base.model.managerOptionDto">
+		select cakeoptionId, cakeoptionCategory,cakeoptionValue,cakeoptionPrice from cakeoption
+		where cakeoptionDeletedate is null order by cakeoptionCategory DESC;
+	</select>
+	
+	<select id="ManagerSearchOption" resultType="com.allways.base.model.managerOptionDto">
+		select cakeoptionId, cakeoptionCategory,cakeoptionValue,cakeoptionPrice from cakeoption where ${condition} like #{query}
+		and cakeoptionDeletedate is null order by cakeoptionCategory DESC;
+	</select>
+	
+</mapper>
