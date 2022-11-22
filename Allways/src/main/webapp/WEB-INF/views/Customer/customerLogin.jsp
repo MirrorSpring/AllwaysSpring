@@ -55,7 +55,7 @@ input::placeholder {
 <script type="text/javascript">
 	function loginAction(){
 		var form = document.customerLogin;
-		form.action="customerLogin.do";
+		form.action="loginTry";
 		form.submit();
 	}
 	
@@ -78,7 +78,6 @@ input::placeholder {
 <script src="https://code.jquery.com/jquery3.1.1.min.js"></script>
 <script type="text/javascript">
 
-<script>
 Kakao.init('f671edc3fc17d4fe50018e3c23712b17'); //발급받은 키 중 javascript키를 사용해준다.
 console.log(Kakao.isInitialized()); // sdk초기화여부판단
 //카카오로그인
@@ -144,7 +143,7 @@ function kakaoLogout() {
 				<div class="col">
 				</div>
 				<div class="col">
-				<img src="./images/LOGO.png"><br></img>
+				<img src="/image/LOGO.png"><br></img>
 				<input style="padding-left: 20px;" id="IDandPW" type="text" name="customerId" placeholder="ID"><br>
 				<input style="padding-left: 20px;" id="IDandPW" type="password" name="customerPw" placeholder="PASSWORD"><br>
 				<button id="LoginBtn" type="button" name="Login" onclick="loginAction()">
