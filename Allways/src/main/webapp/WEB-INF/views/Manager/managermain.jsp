@@ -8,8 +8,8 @@
 <meta charset="UTF-8">
 <title>관리자 메인페이지</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-<link rel="shortcut icon" href="HeaderLogo2.png" sizes="180x180">
-<link rel="stylesheet" href="css/Table22.css">
+<link rel="stylesheet" href="/css/Table22.css">
+<link rel="shortcut icon" href="/image/HeaderLogo2.png" sizes="180x180">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 table tr.header{

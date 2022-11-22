@@ -9,7 +9,8 @@
 <meta charset="UTF-8">
 <title>주문현황</title>
 <%@include file="managerHeader.jsp"%>
-<link rel="stylesheet" href="css/Table22.css">
+<link rel="stylesheet" href="/css/Table22.css">
+<link rel="shortcut icon" href="/image/HeaderLogo2.png" sizes="180x180">
 </head>
 <body>
 <script type="text/javascript">

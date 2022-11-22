@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="managerstyle.css">
 <link rel="stylesheet" href="css/Table22.css">
+<link rel="stylesheet" href="/css/Table22.css">
+<link rel="shortcut icon" href="/image/HeaderLogo2.png" sizes="180x180">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style>
 div{
@@ -72,7 +74,7 @@ input[type=file]::file-selector-button{
 	}
 </script>
 
-<link rel="shortcut icon" href="./images/HeaderLogo2.png" sizes="180x180">
+<link rel="shortcut icon" href="/images/HeaderLogo2.png" sizes="180x180">
 </head>
 <body>
 <%@include file="managerHeader.jsp"%>

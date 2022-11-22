@@ -6,6 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/css/Table22.css">
+<link rel="shortcut icon" href="/image/HeaderLogo2.png" sizes="180x180">
 <%@include file="managerHeader.jsp"%>
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/Table22.css">

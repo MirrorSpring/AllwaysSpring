@@ -10,7 +10,7 @@
 <nav class="navbar navbar-expand-xl bg-pink py-3 py-lg-0 px-lg-5" style="background-color: #FDCDCD;">
   <div class="container-fluid">
    <a class="navbar-brand" href="home">
-      <img src="image/HeaderLogo2.png" style="padding-right: 60px; padding-left: 40px;height:60px">
+      <img src="/image/HeaderLogo2.png" style="padding-right: 60px; padding-left: 40px;height:60px">
     </a>
     <a class="navbar-brand" href="home">ALLways</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
