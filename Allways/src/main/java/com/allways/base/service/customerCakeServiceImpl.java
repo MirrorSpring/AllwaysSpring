@@ -168,4 +168,20 @@ public class customerCakeServiceImpl implements customerCakeService {
 		model.addAttribute("cartList", dto);
 	}
 
+	@Override
+	public void DeleteCart(HttpServletRequest request) throws Exception {
+		int ordersId=Integer.parseInt(request.getParameter("ordersId"));
+		dao.DeleteCart(ordersId);
+	}
+
+	@Override
+	public void DeleteCartList(HttpServletRequest request) throws Exception {
+		String[] strordersId=request.getParameterValues("ordersId");
+		
+		for (int i=0;i<strordersId.length;i++) {
+			dao.DeleteCart(Integer.parseInt(strordersId[i]));
+		}
+	}
+	
+
 }

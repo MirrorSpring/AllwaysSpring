@@ -14,4 +14,6 @@ public interface customerCakeService {
 	public void CustomerCakeCart(HttpServletRequest request) throws Exception;
 	public void CustomerQuickOrder(HttpServletRequest request, Model model) throws Exception;
 	public void GetCart(HttpServletRequest request, Model model) throws Exception;
+	public void DeleteCart(HttpServletRequest request) throws Exception;
+	public void DeleteCartList(HttpServletRequest request) throws Exception;
 }

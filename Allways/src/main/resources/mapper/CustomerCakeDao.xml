@@ -45,7 +45,7 @@
 	</select>
 	
 	<update id="UpdateSalesPrice">
-		update orders set ordersSalePrice = #{ordersSalePrice} where ordersId = #{ordersId}
+		update orders set ordersSalePrice = #{ordersSalePrice} where ordersId = #{ordersId};
 	</update>
 	
 	<select id="GetCart" resultType="com.allways.base.model.customerOrdersDto">
@@ -56,8 +56,12 @@
 	
 	<select id="GetCustomerInfo" resultType="com.allways.base.model.customerInfoDto">
 		select customerName, customerPhone, customerEmail, customerPostcode, customerAddress, customerAddressDetail
-		from customer where customerId=#{customerId}
+		from customer where customerId=#{customerId};
 	</select>
+	
+	<delete id="DeleteCart">
+		delete from orders where ordersId = #{ordersId};
+	</delete>
 	
 	<!-- 케이크 주문 프로세스 끝 -->
 

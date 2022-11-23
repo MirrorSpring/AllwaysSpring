@@ -44,5 +44,17 @@ public class customerController2 {
 		cakeservice.GetCart(request, model);
 		return "Customer/customerCart";
 	}
+	
+	@RequestMapping("/Customer/deleteCart")
+	public String DeleteCart(HttpServletRequest request) throws Exception{
+		cakeservice.DeleteCart(request);
+		return "redirect:cart";
+	}
+	
+	@RequestMapping("/Customer/deleteCartList")
+	public String DeleteCartList(HttpServletRequest request) throws Exception{
+		cakeservice.DeleteCartList(request);
+		return "redirect:cart";
+	}
 
 }

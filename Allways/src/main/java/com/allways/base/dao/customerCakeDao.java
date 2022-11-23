@@ -19,5 +19,6 @@ public interface customerCakeDao {
 	public void UpdateSalesPrice(int ordersSalePrice, int ordersId) throws Exception;
 	public customerInfoDto GetCustomerInfo(String customerId) throws Exception;
 	public List<customerOrdersDto> GetCart(String customerId) throws Exception;
+	public void DeleteCart(int ordersId) throws Exception;
 	
 }
