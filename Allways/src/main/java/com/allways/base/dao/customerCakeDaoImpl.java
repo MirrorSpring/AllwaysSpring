@@ -79,7 +79,7 @@ public class customerCakeDaoImpl implements customerCakeDao {
 
 	@Override
 	public void OrderCake(int ordersId, String ordersStatus, String o_customerId, int o_cakeId, int ordersSalePrice,
-			int ordersQuantity) throws Exception {
+			int ordersQuantity, int ordersPoint) throws Exception {
 		sqlSession.insert(nameSpace + ".OrderCake");
 	}
 

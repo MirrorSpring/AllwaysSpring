@@ -70,8 +70,8 @@
 	</select>
 	
 	<insert id="OrderCake">
-		insert into orders (ordersId, ordersStatus, o_customerId, o_cakeId, o_goodsId, ordersSalePrice, ordersQuantity, ordersDate)
-		values (#{ordersId}, #{ordersStatus}, #{o_customerId}, #{o_cakeId}, 1, #{ordersSalePrice}, #{ordersQuantity}, now());
+		insert into orders (ordersId, ordersStatus, o_customerId, o_cakeId, o_goodsId, ordersSalePrice, ordersQuantity, ordersPoint, ordersDate)
+		values (#{ordersId}, #{ordersStatus}, #{o_customerId}, #{o_cakeId}, 1, #{ordersSalePrice}, #{ordersQuantity}, #{ordersPoint}, now());
 	</insert>
 	
 	<!-- 케이크 주문 프로세스 끝 -->
