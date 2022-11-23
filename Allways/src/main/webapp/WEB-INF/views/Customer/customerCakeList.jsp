@@ -82,7 +82,7 @@ color: #766262;
 			<c:forEach items="${cakeList}" var="dto" begin="${(index - 1) * rowcount }" end="${(index) * rowcount - 1}">
 				<div class="col-lg-3 col-md-6" style="padding-bottom: 20px;" id="cakeList">
 					<div class="card" style="width: 20rem;">
-					<a href="customerCakeDetail.do?cakeId=${dto.cakeId}">
+					<a href="cakeDetail?cakeId=${dto.cakeId}">
 						<img src="/image/cake/${dto.cakeImage}" class="card-img-top"
 							alt="${dto.cakeId}">
 					</a>

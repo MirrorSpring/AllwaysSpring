@@ -9,4 +9,6 @@ import org.springframework.ui.Model;
 public interface customerCakeService {
 
 	public void CustomerCakeList(HttpServletRequest request, Model model) throws Exception;
+	public void CustomerCakeDetail(HttpServletRequest request, Model model) throws Exception;
+	public void CustomerCakeOption(Model model, HttpServletRequest request) throws Exception;
 }

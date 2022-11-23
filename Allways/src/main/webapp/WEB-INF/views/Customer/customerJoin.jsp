@@ -296,7 +296,7 @@
 				<div class="col">
 				</div>
 				<div class="col">
-					<img src="./images/Join.png" id="Join_image"><br>
+					<img src="/image/Join.png" id="Join_image"><br>
 					<br><h2 id="Join">J O I N</h2><br>
 					
 					<label id="label_design">ID</label>

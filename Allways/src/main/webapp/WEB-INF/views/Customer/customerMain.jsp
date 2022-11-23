@@ -73,22 +73,22 @@ function getGender(event) {
 <div id="testbox" style="width: 1497px;">
 	<div class="test">
 		<c:forEach items="${bestCakeList}" var="dto">
-			<div><a href="customerCakeDetail.do?cakeId=${dto.cakeId}"><img src="/image/cake/${dto.cakeImage}" style="padding-left: 20px;"></a></div>
+			<div><a href="cakeDetail?cakeId=${dto.cakeId}"><img src="/image/cake/${dto.cakeImage}" style="padding-left: 20px;"></a></div>
 		</c:forEach>
 		<c:forEach items="${bestCakeList}" var="dto">
-			<div><a href="customerCakeDetail.do?cakeId=${dto.cakeId}"><img src="/image/cake/${dto.cakeImage}" style="padding-left: 20px;"></a></div>
+			<div><a href="cakeDetail?cakeId=${dto.cakeId}"><img src="/image/cake/${dto.cakeImage}" style="padding-left: 20px;"></a></div>
 		</c:forEach>
 		<c:forEach items="${bestCakeList}" var="dto">
-			<div><a href="customerCakeDetail.do?cakeId=${dto.cakeId}"><img src="/image/cake/${dto.cakeImage}" style="padding-left: 20px;"></a></div>
+			<div><a href="cakeDetail?cakeId=${dto.cakeId}"><img src="/image/cake/${dto.cakeImage}" style="padding-left: 20px;"></a></div>
 		</c:forEach>
 		<c:forEach items="${bestCakeList}" var="dto">
-			<div><a href="customerCakeDetail.do?cakeId=${dto.cakeId}"><img src="/image/cake/${dto.cakeImage}" style="padding-left: 20px;"></a></div>
+			<div><a href="cakeDetail?cakeId=${dto.cakeId}"><img src="/image/cake/${dto.cakeImage}" style="padding-left: 20px;"></a></div>
 		</c:forEach>
 		
      <!--  clone  -->
       
 		<c:forEach items="${bestCakeList}" var="dto">
-			<div class="clone"><a href="customerCakeDetail.do?cakeId=${dto.cakeId}"><img src="/image/cake/${dto.cakeImage}"></a></div>
+			<div class="clone"><a href="cakeDetail?cakeId=${dto.cakeId}"><img src="/image/cake/${dto.cakeImage}"></a></div>
 		</c:forEach>
       
    </div>

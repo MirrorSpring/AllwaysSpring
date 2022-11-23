@@ -155,7 +155,7 @@ function signup() {
             </div>
          	   <div class="col-lg-6 text-right">
           	      <div class="d-inline-flex align-items-center">
-          	      	<a class="text-primary pl-2" href="CustomerJoin">
+          	      	<a class="text-primary pl-2" href="join">
           	              <i class="text-primary pl-2">JOIN</i>
           	        </a>
            	     	<a class="text-primary pl-2" href="login">
@@ -174,15 +174,15 @@ function signup() {
 	        </button>
 	        <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
 	            <div class="navbar-nav m-auto py-0">
-		            <a href="customerAbout.jsp" class="navbar-brand ml-lg-3">
+		            <a href="home" class="navbar-brand ml-lg-3">
 		       			 <img src="/image/HeaderLogo2.png"><!-- style="padding-left: 90px;" -->
 		        	</a>
-	                <a href="customerAbout.jsp" id="center" class="nav-item nav-link active">HOME</a>
+	                <a href="home" id="center" class="nav-item nav-link active">HOME</a>
 	                <a href="cake" id="center" class="nav-item nav-link active">CAKE</a>
 	                <a href="customerWriteList.do" id="center" class="nav-item nav-link">BOARD</a>
-	                <a href="customerLocation.do" id="center" class="nav-item nav-link">LOCATION</a>
+	                <a href="location" id="center" class="nav-item nav-link">LOCATION</a>
 	          		<!--   <a href="" id="center" class="nav-item nav-link" style="width: 300px;"></a> -->
-	                <a href="customerCartList.do" id="center" class="nav-item nav-link">CART</a>
+	                <a href="login" id="center" class="nav-item nav-link">CART</a>
 	                
 	               <%--  <div class="col-md-4 text-end" style="margin-right: 30px;">
 						<%if (session.getAttribute("ID") == null) { %>
@@ -244,13 +244,13 @@ function signup() {
 	        </button>
 	       	 	<div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
 	            <div class="navbar-nav m-auto py-0">
-		            <a href="customerAbout.jsp" class="navbar-brand ml-lg-3">
+		            <a href="home" class="navbar-brand ml-lg-3">
 		       			 <img src="/image/HeaderLogo2.png"><!--  style="padding-left: 90px;"></img> -->
 		        	</a>
-	                <a href="customerAbout.jsp" id="center" class="nav-item nav-link active">HOME</a>
+	                <a href="home" id="center" class="nav-item nav-link active">HOME</a>
 	                <a href="cake" id="center" class="nav-item nav-link active">CAKE</a>
 	                <a href="customerWriteList.do" id="center" class="nav-item nav-link">BOARD</a>
-	                <a href="customerLocation.do" id="center" class="nav-item nav-link" >LOCATION</a>
+	                <a href="location" id="center" class="nav-item nav-link" >LOCATION</a>
 	                <!-- <a href="" id="center" class="nav-item nav-link" style="width: 300px;"></a> -->
 	                <a href="customerCartList.do" id="center" class="nav-item nav-link">CART</a>
 	                

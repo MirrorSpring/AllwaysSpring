@@ -11,7 +11,7 @@
 	function login() {
 		alert('Available after login.');
 		var form = document.detail;
-		form.action = "customerLoginPage.do";
+		form.action = "login";
 		form.submit();
 	}
 
@@ -314,7 +314,7 @@ color: #FFFDFD;
 			<div class="col" align="center">
 			<br>
 				<div>
-					<img alt="" src="./cakeListImage/${cakeInfo.cakeImage}" width="500px">
+					<img alt="" src="/image/cake/${cakeInfo.cakeImage}" width="500px">
 				</div>
 				<div align="center">
 					<hr id="line2">
@@ -324,16 +324,16 @@ color: #FFFDFD;
 						style="padding-left: 100px; padding-top: 10px;">
 				</div><br>
 				<div id="cake_detail" align="left" style="margin-left: 60px;">
-					${cakeInfo.cakeDetail }
+					${cakeInfo.cakeDetail}
 				</div>
 			</div>
 			
 		<form action="" style="width: 768px;" name="detail" method = "get">
-			<div class="col" style="width: 768px;"><br><input type="hidden" name="cakeId" value="${cakeInfo.cakeId }">
-				<div id="cake_name" align="left"><input type="hidden" name="cakeName" value="${cakeInfo.cakeName }">
-					${cakeInfo.cakeName }
+			<div class="col" style="width: 768px;"><br><input type="hidden" name="cakeId" value="${cakeInfo.cakeId}">
+				<div id="cake_name" align="left"><input type="hidden" name="cakeName" value="${cakeInfo.cakeName}">
+					${cakeInfo.cakeName}
 				</div>
-				<div id="cake_name" align="left"><input type="hidden" name="cakePrice" value="${cakeInfo.cakePrice }">
+				<div id="cake_name" align="left"><input type="hidden" name="cakePrice" value="${cakeInfo.cakePrice}">
 					￦ <fmt:formatNumber value="${cakeInfo.cakePrice}"/>
 				</div>
 				<div>
@@ -360,20 +360,20 @@ color: #FFFDFD;
 						<tr align="center">
 							<c:forEach var="dto" items="${shapeList}">
 								<td>
-									<c:set var="i" value="${i+1 }"/>
+									<c:set var="i" value="${i+1}"/>
 										<input type="radio" id="shape${i}" name="shape" value="${dto.cakeoptionId}"><label for="shape${i}">${dto.cakeoptionValue}</label>
 										&nbsp;
 								</td>
 							</c:forEach>
 						</tr>
 						<tr align="center">
-							<c:forEach var="dto" items="${shapeList }">
+							<c:forEach var="dto" items="${shapeList}">
 								<td>
 									<c:if test="${dto.cakeoptionPrice ne 0 }">
 										<label id="option_price">
 										+ ￦ <fmt:formatNumber value="${dto.cakeoptionPrice}"/>
 										</label>&nbsp;
-										<input type = "hidden" name="shapePrice" value="${dto.cakeoptionPrice }">
+										<input type = "hidden" name="shapePrice" value="${dto.cakeoptionPrice}">
 									</c:if>						
 								</td>
 							</c:forEach>
@@ -391,20 +391,20 @@ color: #FFFDFD;
 						<tr align="center">
 							<c:forEach var="dto" items="${sizeList}">
 								<td>
-									<c:set var="i" value="${i+1 }"/>
+									<c:set var="i" value="${i+1}"/>
 										<input type="radio" id="size${i}" name="size" value="${dto.cakeoptionId}"><label for="size${i}">${dto.cakeoptionValue}</label>
 										&nbsp;
 								</td>
 							</c:forEach>
 						</tr>	
 						<tr align="center">
-							<c:forEach var="dto" items="${sizeList }">
+							<c:forEach var="dto" items="${sizeList}">
 								<td>
 									<c:if test="${dto.cakeoptionPrice ne 0 }">
 										<label id="option_price">
 										+ ￦ <fmt:formatNumber value="${dto.cakeoptionPrice}"/>
 										</label>
-										<input type = "hidden" name="sizePrice" value="${dto.cakeoptionPrice }">
+										<input type = "hidden" name="sizePrice" value="${dto.cakeoptionPrice}">
 									</c:if>
 								</td>
 							</c:forEach>
@@ -428,13 +428,13 @@ color: #FFFDFD;
 							</c:forEach>
 						</tr>	
 						<tr align="center">
-							<c:forEach var="dto" items="${flavorList }">
+							<c:forEach var="dto" items="${flavorList}">
 								<td>
 									<c:if test="${dto.cakeoptionPrice ne 0 }">
 										<label id="option_price">
 										+ ￦ <fmt:formatNumber value="${dto.cakeoptionPrice}"/>
 										</label>
-										<input type = "hidden" name="flavorPrice" value="${dto.cakeoptionPrice }">
+										<input type = "hidden" name="flavorPrice" value="${dto.cakeoptionPrice}">
 									</c:if>
 								</td>
 							</c:forEach>

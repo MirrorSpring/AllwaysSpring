@@ -20,5 +20,17 @@ public class customerController2 {
 		cakeservice.CustomerCakeList(request, model);
 		return "Customer/customerCakeList";
 	}
+	
+	@RequestMapping("/Customer/location")
+	public String CustomerLocation() throws Exception{
+		return "Customer/customerLocation";
+	}
+	
+	@RequestMapping("/Customer/cakeDetail")
+	public String CustomerCakeDetail(HttpServletRequest request, Model model) throws Exception{
+		cakeservice.CustomerCakeDetail(request, model);
+		cakeservice.CustomerCakeOption(model, request);
+		return "Customer/customerCakeDetail";
+	}
 
 }

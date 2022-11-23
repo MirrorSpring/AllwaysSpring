@@ -8,6 +8,7 @@ public class customerCakeDto {
 	String cakeImage;
 	int cakeLike;
 	int cakeViews;
+	String cakeDetail;
 	
 	public customerCakeDto() {
 		
@@ -29,6 +30,26 @@ public class customerCakeDto {
 		this.cakeImage = cakeImage;
 		this.cakeLike = cakeLike;
 		this.cakeViews = cakeViews;
+	}
+	
+	public customerCakeDto(int cakeId, String cakeName, int cakePrice, String cakeImage, int cakeLike, int cakeViews,
+			String cakeDetail) {
+		super();
+		this.cakeId = cakeId;
+		this.cakeName = cakeName;
+		this.cakePrice = cakePrice;
+		this.cakeImage = cakeImage;
+		this.cakeLike = cakeLike;
+		this.cakeViews = cakeViews;
+		this.cakeDetail = cakeDetail;
+	}
+
+	public String getCakeDetail() {
+		return cakeDetail;
+	}
+
+	public void setCakeDetail(String cakeDetail) {
+		this.cakeDetail = cakeDetail;
 	}
 
 	public int getCakeLike() {

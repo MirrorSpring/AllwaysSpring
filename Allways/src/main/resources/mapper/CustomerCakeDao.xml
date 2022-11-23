@@ -9,5 +9,15 @@
 		select cakeId, cakeName, cakePrice, cakeImage, cakeLike, cakeViews from cake
 		where cakeDeletedate is null order by ${sort1} ${sort2}
 	</select>
+	
+	<select id="CustomerCakeDetail" resultType="com.allways.base.model.customerCakeDto">
+		select cakeId, cakeName, cakePrice, cakeImage, cakeLike, cakeViews, cakeDetail from cake
+		where cakeId=#{cakeId};
+	</select>
+	
+	<select id="CustomerCakeOption" resultType="com.allways.base.model.customercakeOptionDto">
+		select cakeoptionId, cakeoptionCategory, cakeoptionValue, cakeoptionPrice from cakeoption
+		where cakeoptionCategory=#{cakeoptionCategory} and cakeoptionDeletedate is null
+	</select>
 
 </mapper>

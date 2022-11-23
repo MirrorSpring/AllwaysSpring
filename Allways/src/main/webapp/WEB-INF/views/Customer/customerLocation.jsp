@@ -48,7 +48,7 @@
 			<div class="row">
 				<div class="col"></div>
 				<div class="col">
-					<img src="./images/Amap.png" style="width:80px;height:80px; margin-top: 50px; margin-bottom: 5px;">
+					<img src="/image/Amap.png" style="width:80px;height:80px; margin-top: 50px; margin-bottom: 5px;">
 					<h1 align="center" id="title"> LOCATION </h1>
 						<p id="address">서울 강남구 강남대로 78길 8 한국빌딩 4F</p>
 				<div id="map" style="width:600px;height:500px; margin-top:3px; margin-left: 30px; margin-bottom: 40px;"></div>
