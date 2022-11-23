@@ -126,7 +126,7 @@ position: absolute;
 <script type="text/javascript">
 	function logout() {
 		var form = document.loginokay;
-		form.action = "customerAbout.do";
+		form.action = "logout";
 		form.submit();
 	}
 	
@@ -227,7 +227,7 @@ function signup() {
             </div>
             <div class="col-lg-6 text-right">
                 <div class="d-inline-flex align-items-center">
-                    <a class="text-primary pl-2" href="customerMypage.do">
+                    <a class="text-primary pl-2" href="myPage">
                         <i class="">${NAME}님 환영합니다!&nbsp;&nbsp;&nbsp;</i>
                     </a>
                     <input type="button" class="text-primary pl-2" onclick="logout()" value="LOGOUT">

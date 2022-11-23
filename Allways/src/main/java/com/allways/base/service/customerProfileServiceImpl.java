@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.allways.base.dao.customerProfileDao;
+import com.allways.base.model.customerInfoDto;
 
 @Service
 public class customerProfileServiceImpl implements customerProfileService {
@@ -68,6 +69,26 @@ public class customerProfileServiceImpl implements customerProfileService {
 		
 		dao.CustomerJoin(customerId, customerPw, customerName, customerGender, customerPhone, customerEmail, customerBirth, customerPostCode, customerAddress, customerAddressDetail);
 		
+	}
+
+	@Override
+	public void CustomerLogout(HttpServletRequest request) throws Exception {
+		HttpSession session=request.getSession();
+		session.invalidate();
+	}
+
+	@Override
+	public void CustomerMypage(HttpServletRequest request, Model model) throws Exception {
+		HttpSession session=request.getSession();
+		String customerId=(String) session.getAttribute("ID");
+		customerInfoDto dto=dao.CustomerMypage(customerId);
+		int idx = dto.getCustomerEmail().indexOf("@");
+		String customerEmailId = dto.getCustomerEmail().substring(0,idx);
+		String customerEmailDomain = dto.getCustomerEmail().substring(idx+1);
+		
+		model.addAttribute("USERINFO", dto);
+		model.addAttribute("EMAILID", customerEmailId);
+		model.addAttribute("EMAILDOMAIN", customerEmailDomain);
 	}
 
 }

@@ -11,4 +11,6 @@ public interface customerProfileService {
 	public boolean CustomerLogin(HttpServletRequest request, Model model) throws Exception;
 	public void CustomerCheckId(HttpServletRequest request, Model model) throws Exception;
 	public void CustomerJoin(HttpServletRequest request) throws Exception;
+	public void CustomerLogout(HttpServletRequest request) throws Exception;
+	public void CustomerMypage(HttpServletRequest request, Model model) throws Exception;
 }

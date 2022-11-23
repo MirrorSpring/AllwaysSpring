@@ -63,6 +63,17 @@
 		delete from orders where ordersId = #{ordersId};
 	</delete>
 	
+	<select id="GetSelectedOrder" resultType="com.allways.base.model.customerOrdersDto">
+		select c.cakeId, o.ordersId, c.cakeName, o.ordersQuantity, o.ordersSalePrice from cake c, orders o
+		where o.o_cakeId = c.cakeId and ordersStatus = '장바구니' and o.o_customerId = #{customerId}
+		and ordersPoint is null and ordersId= #{ordersId};
+	</select>
+	
+	<insert id="OrderCake">
+		insert into orders (ordersId, ordersStatus, o_customerId, o_cakeId, o_goodsId, ordersSalePrice, ordersQuantity, ordersDate)
+		values (#{ordersId}, #{ordersStatus}, #{o_customerId}, #{o_cakeId}, 1, #{ordersSalePrice}, #{ordersQuantity}, now());
+	</insert>
+	
 	<!-- 케이크 주문 프로세스 끝 -->
 
 </mapper>

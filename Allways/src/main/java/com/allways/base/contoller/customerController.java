@@ -57,4 +57,21 @@ public class customerController {
 		mainservice.CustomerBestCake(request, model);
 		return "Customer/customerMain";
 	}
+	
+	@RequestMapping("/Customer/logout")
+	public String CustomerLogout(HttpServletRequest requst) throws Exception{
+		profileservice.CustomerLogout(requst);
+		return "redirect:home";
+	}
+	
+	@RequestMapping("/Customer/myPage")
+	public String CustomerMyPage(HttpServletRequest request, Model model) throws Exception{
+		return "Customer/customerMypage";
+	}
+	
+	@RequestMapping("/Customer/updateInfo")
+	public String CustomerUpdateInfo(HttpServletRequest request, Model model) throws Exception{
+		profileservice.CustomerMypage(request, model);
+		return "Customer/customerMypageRevision";
+	}
 }

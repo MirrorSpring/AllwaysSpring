@@ -2,17 +2,35 @@ package com.allways.base.model;
 
 public class customerInfoDto {
 
+	String customerPw;
 	String customerName;
+	String customerGender;
 	String customerPhone;
+	String customerBirthday;
 	String customerEmail;
 	String customerPostcode;
 	String customerAddress;
 	String customerAddressDetail;
 
 	public customerInfoDto() {
-		
+
 	}
 	
+	public customerInfoDto(String customerPw, String customerName, String customerGender, String customerPhone,
+			String customerBirthday, String customerEmail, String customerPostcode, String customerAddress,
+			String customerAddressDetail) {
+		super();
+		this.customerPw = customerPw;
+		this.customerName = customerName;
+		this.customerGender = customerGender;
+		this.customerPhone = customerPhone;
+		this.customerBirthday = customerBirthday;
+		this.customerEmail = customerEmail;
+		this.customerPostcode = customerPostcode;
+		this.customerAddress = customerAddress;
+		this.customerAddressDetail = customerAddressDetail;
+	}
+
 	public customerInfoDto(String customerName, String customerPhone, String customerEmail, String customerPostcode,
 			String customerAddress, String customerAddressDetail) {
 		super();
@@ -22,6 +40,30 @@ public class customerInfoDto {
 		this.customerPostcode = customerPostcode;
 		this.customerAddress = customerAddress;
 		this.customerAddressDetail = customerAddressDetail;
+	}
+
+	public String getCustomerPw() {
+		return customerPw;
+	}
+
+	public void setCustomerPw(String customerPw) {
+		this.customerPw = customerPw;
+	}
+
+	public String getCustomerGender() {
+		return customerGender;
+	}
+
+	public void setCustomerGender(String customerGender) {
+		this.customerGender = customerGender;
+	}
+
+	public String getCustomerBirthday() {
+		return customerBirthday;
+	}
+
+	public void setCustomerBirthday(String customerBirthday) {
+		this.customerBirthday = customerBirthday;
 	}
 
 	public String getCustomerName() {

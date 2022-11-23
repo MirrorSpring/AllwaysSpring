@@ -22,4 +22,9 @@
 		values (#{customerId}, #{customerPw}, #{customerName}, #{customerGender}, #{customerPhone}, #{customerEmail}, #{customerBirthday}, #{customerPostcode}, #{customerAddress}, #{customerAddressDetail}, now())
 	</insert>
 	
+	<select id="CustomerMypage" resultType="com.allways.base.model.customerInfoDto">
+		select customerPw, customerName, customerGender, customerPhone, customerBirthday, customerEmail, customerPostcode, customerAddress, customerAddressDetail
+		from customer where customerId = #{customerId}
+	</select>
+	
 </mapper>

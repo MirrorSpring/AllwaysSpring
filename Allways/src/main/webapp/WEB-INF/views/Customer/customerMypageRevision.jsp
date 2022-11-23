@@ -276,7 +276,7 @@
 				<div class="col">
 				</div>
 				<div class="col">
-					<img src="./images/Join.png" id="Join_image"><br>
+					<img src="/image/Join.png" id="Join_image"><br>
 					<br><h2 id="Join">MYPAGE REVISION</h2><br>
 					
 					<label id="label_design">ID</label>
@@ -305,7 +305,7 @@
 					<input id="input_box" type="text" name="customerPhone" placeholder=" '-' 를 제외하고 숫자만 입력해주세요" value="${USERINFO.customerPhone}"><br><br>
 					
 					<label id="label_design">EMAIL</label>
-					<input id="email_first" type="text" name="email1" value="${USEREMAIL.customerEmailId}"> @ <input id="email_first" type="text" name="email2" value="${USEREMAIL.customerEmailDomain}" placeholder="직접 입력">
+					<input id="email_first" type="text" name="email1" value="${EMAILID}"> @ <input id="email_first" type="text" name="email2" value="${EMAILDOMAIN}" placeholder="직접 입력">
 						<select id="input_box" name="selectemail" style="margin-top: 5px;" onChange="selectEmail(this)">
 							<option value="" selected="selected">선택하세요</option>
 							<option value="naver.com">naver.com</option>

@@ -12,10 +12,10 @@ pageEncoding="UTF-8"%>
 function order(index){
 	var form = document.detail;
 	if (index == 1) {
-		form.action = "customerCartList.do";
+		form.action = "cart";
 	}
 	if (index == 2) {
-		form.action = "customerOrder.do";
+		form.action = "order";
 		alert("Order complete.")
 	}
 		form.submit();
@@ -98,16 +98,17 @@ color: #FFFDFD;
 		</tr>
 		</c:forEach>
 		
-		
+		<!-- 
 		<c:forEach items="${cakeInfo}" var="dto">
 		<tr align="center">
 			<td>${dto.cakeName }</td>
 			<td></td>
 			<td>￦ <fmt:formatNumber value="${dto.cakePrice}"/><input type="hidden" name="ordersSalePrice" value="${dto.cakePrice }"></td>
 			<!-- <td>2022-11-11</td> -->
+			<!-- 
 		</tr>
 		</c:forEach>
-		
+		 -->
 		
 	</table>
 </form>
@@ -132,7 +133,6 @@ color: #FFFDFD;
 
 <div align="center" style="padding-right: 190px;">
 	<table>
-	<c:forEach items="${customerInfo }" var="dto">
 		<tr>
 			<td width="150px;">Orderer Name</td>
 			<td>${dto.customerName }</td>
@@ -149,7 +149,6 @@ color: #FFFDFD;
 			<td>Orderer Address</td>
 			<td>${dto.customerPostcode} ${dto.customerAddress} ${dto.customerAddressDetail}</td>
 		</tr>
-	</c:forEach>
 	</table>
 </div><br>
 

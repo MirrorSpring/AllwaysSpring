@@ -2,6 +2,7 @@ package com.allways.base.model;
 
 public class customerOrdersDto {
 
+	int cakeId;
 	int ordersId;
 	String cakeName;
 	int ordersQuantity;
@@ -17,6 +18,23 @@ public class customerOrdersDto {
 		this.cakeName = cakeName;
 		this.ordersQuantity = ordersQuantity;
 		this.ordersSalePrice = ordersSalePrice;
+	}
+
+	public customerOrdersDto(int cakeId, int ordersId, String cakeName, int ordersQuantity, int ordersSalePrice) {
+		super();
+		this.cakeId = cakeId;
+		this.ordersId = ordersId;
+		this.cakeName = cakeName;
+		this.ordersQuantity = ordersQuantity;
+		this.ordersSalePrice = ordersSalePrice;
+	}
+
+	public int getCakeId() {
+		return cakeId;
+	}
+
+	public void setCakeId(int cakeId) {
+		this.cakeId = cakeId;
 	}
 
 	public int getOrdersId() {

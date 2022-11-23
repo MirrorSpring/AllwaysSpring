@@ -72,4 +72,15 @@ public class customerCakeDaoImpl implements customerCakeDao {
 		sqlSession.delete(nameSpace + ".DeleteCart");
 	}
 
+	@Override
+	public customerOrdersDto GetSelectedOrder(String customerId, int ordersId) throws Exception {
+		return sqlSession.selectOne(nameSpace + ".GetSelectedOrder");
+	}
+
+	@Override
+	public void OrderCake(int ordersId, String ordersStatus, String o_customerId, int o_cakeId, int ordersSalePrice,
+			int ordersQuantity) throws Exception {
+		sqlSession.insert(nameSpace + ".OrderCake");
+	}
+
 }

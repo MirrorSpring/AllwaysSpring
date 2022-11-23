@@ -97,7 +97,7 @@ function revision(index){
 		var form = document.customerMypage;
 		
 		if(index==1){
-		form.action="customerRevision.do";
+		form.action="updateInfo";
 		}
 		
 		if(index==2){
@@ -135,7 +135,7 @@ function orderlist(){
 				
 				</div>
 				<div class="col">
-					<img src="./images/Amypage.png" id="Join_image" style="margin-top: 30px;"><br>
+					<img src="/image/Amypage.png" id="Join_image" style="margin-top: 30px;"><br>
 					<br><h2 id="Join">MYPAGE</h2><br>
 					
 					<button id="LoginBtn" type="button" name="Revision" onclick="revision(1)">
