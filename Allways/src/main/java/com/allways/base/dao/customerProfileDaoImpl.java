@@ -1,8 +1,12 @@
 package com.allways.base.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.allways.base.model.customerInfoDto;
+import com.allways.base.model.customerOrdersDto;
+
 
 public class customerProfileDaoImpl implements customerProfileDao {
 
@@ -46,6 +50,11 @@ public class customerProfileDaoImpl implements customerProfileDao {
 	@Override
 	public void CustomerDelete(String customerId) throws Exception {
 		sqlSession.update(nameSpace + ".CustomerDelete");
+	}
+
+	@Override
+	public List<customerOrdersDto> ViewMyOrder(String customerId) {
+		return sqlSession.selectList(nameSpace + ".ViewMyOrder");
 	}
 
 }

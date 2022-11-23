@@ -36,7 +36,7 @@ div{
 		</div>
 		<div align="left" style="width:74%;display:inline-block">
 			<div style="width:50%;display:inline-block">
-				${DTO.or_cakeName }
+				${DTO.cakeName }
 			</div>
 			<div style="display:inline-block">
 				작성자: 
@@ -74,7 +74,7 @@ div{
 			사진
 		</div>
 		<div>
-			<img src="/Allways/Customer/reviewImageFile/${DTO.oreviewImage }" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
+			<img src="/image/review/${DTO.oreviewImage }" id="preview" height="200" width="200" style="display:block;margin:20px;border-radius:10px;">
 		</div>
 		<div>
 			<input type="button" class="btn" style="background:#ffffff;border-color:#a87878;color:#a87878" value="뒤로" onclick="cancelDo()">

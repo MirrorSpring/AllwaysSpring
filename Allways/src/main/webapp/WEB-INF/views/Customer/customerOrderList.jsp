@@ -32,13 +32,13 @@
 					<c:if test="${arrsize != 0 }">
 						<tbody>
 							<tr>
-								<td>${dto.ROWNUM}</td>
+								<td>${dto.rownum}</td>
 								<td>${dto.cakeName}</td>
 								<td>${dto.o_customerId}</td>
 								<td><fmt:formatNumber value="${dto.ordersSalePrice}"/></td>
 								<td>${dto.ordersQuantity}</td>
 								<td>${dto.ordersDate}</td>
-								<td><a href = "customerWriteReview.jsp?ordersId=${dto.ordersId }&o_cakeId=${dto.o_cakeId}"><button type = "button">리뷰작성</button></a>
+								<td><a href = "writereview?ordersId=${dto.ordersId }&o_cakeId=${dto.o_cakeId}"><button type = "button">리뷰작성</button></a>
 							</tr>
 						</tbody>
 					</c:if>
@@ -61,18 +61,18 @@
 					</c:if>
 				
 					<c:if test="${index != 1 }">
-						<a href="customerOrdersList.do?index=${index-1 }">이전</a>&nbsp;
+						<a href="MyOrder?index=${index-1 }">이전</a>&nbsp;
 					</c:if> 
 			
 					<c:forEach var="cnt" begin="${pagecount * pagepage + 1}" end="${pagecount * (pagepage + 1)}">
 						<c:if test="${cnt <= Math.ceil(arrsize / rowcount)}">
 						
 							<c:if test="${cnt == index }">
-								<a href="customerOrdersList.do?index=${cnt }" style="font-size:1.3em">[${cnt }]</a>
+								<a href="MyOrder?index=${cnt }" style="font-size:1.3em">[${cnt }]</a>
 							</c:if>
 					
 							<c:if test = "${cnt != index }">
-								<a href="customerOrdersList.do?index=${cnt }" style="font-size:0.9em">[${cnt }]</a>&nbsp;
+								<a href="MyOrder?index=${cnt }" style="font-size:0.9em">[${cnt }]</a>&nbsp;
 							</c:if>
 							
 						</c:if>
@@ -85,7 +85,7 @@
 					</c:if>
 					
 					<c:if test="${index < Math.ceil(arrsize / rowcount)}">
-						<a href="customerOrdersList.do?index=${index+1 }">다음</a>&nbsp;
+						<a href="MyOrder?index=${index+1 }">다음</a>&nbsp;
 					</c:if>
 					
 				</td>

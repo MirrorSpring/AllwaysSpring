@@ -88,85 +88,87 @@ public class customerCakeServiceImpl implements customerCakeService {
 			pagepage = index / pagecount - 1;
 		} else {
 			pagepage = index / pagecount;
-
-			model.addAttribute("shapeList", shape);
-			model.addAttribute("sizeList", size);
-			model.addAttribute("flavorList", flavor);
-
-			request.setAttribute("Size", 0);
-			request.setAttribute("maxpage", maxpage);
-			request.setAttribute("index", index);
-			request.setAttribute("rowcount", rowcount);
-			request.setAttribute("pagecount", pagecount);
-			request.setAttribute("pagepage", pagepage);
 		}
+		
+		model.addAttribute("shapeList", shape);
+		model.addAttribute("sizeList", size);
+		model.addAttribute("flavorList", flavor);
+
+		request.setAttribute("Size", 0);
+		request.setAttribute("maxpage", maxpage);
+		request.setAttribute("index", index);
+		request.setAttribute("rowcount", rowcount);
+		request.setAttribute("pagecount", pagecount);
+		request.setAttribute("pagepage", pagepage);
+
 	}
 
 	@Override
 	public void CustomerCakeCart(HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
 		String customerId = (String) session.getAttribute("ID");
-		
+
 		int cakeId = Integer.parseInt(request.getParameter("cakeId"));
 		int cakePrice = Integer.parseInt(request.getParameter("cakePrice"));
 		int ordersQuantity = Integer.parseInt(request.getParameter("ordersQuantity"));
 		int shape = Integer.parseInt(request.getParameter("shape"));
 		int size = Integer.parseInt(request.getParameter("size"));
 		int flavor = Integer.parseInt(request.getParameter("flavor"));
-		int[] option = {shape, size, flavor};
+		int[] option = { shape, size, flavor };
 		String detailoptionLettering = request.getParameter("detailoptionLettering");
 		String detailoptionPickupDate = request.getParameter("detailoptionPickupDate");
-		
+
 		dao.CustomerAddCart("장바구니", customerId, cakeId, cakePrice, ordersQuantity);
-		
-		int ordersId=dao.GetOrdersId("장바구니", customerId);
-		
-		for (int i=0;i<option.length;i++) {
-			dao.CustomerAddDetailOption(ordersId, option[i], customerId, cakeId, ordersId, detailoptionLettering, detailoptionPickupDate);
+
+		int ordersId = dao.GetOrdersId("장바구니", customerId);
+
+		for (int i = 0; i < option.length; i++) {
+			dao.CustomerAddDetailOption(ordersId, option[i], customerId, cakeId, ordersId, detailoptionLettering,
+					detailoptionPickupDate);
 		}
-		
-		int price=dao.GetOptionPrice("장바구니", ordersId);
-		dao.UpdateSalesPrice((cakePrice+price)*ordersQuantity, ordersId);
-		
+
+		int price = dao.GetOptionPrice("장바구니", ordersId);
+		dao.UpdateSalesPrice((cakePrice + price) * ordersQuantity, ordersId);
+
 	}
 
 	@Override
 	public void GetCart(HttpServletRequest request, Model model) throws Exception {
-		HttpSession session=request.getSession();
-		String customerId=(String)session.getAttribute("ID");
-		List<customerOrdersDto> dto=dao.GetCart(customerId);
-		
+		HttpSession session = request.getSession();
+		String customerId = (String) session.getAttribute("ID");
+		List<customerOrdersDto> dto = dao.GetCart(customerId);
+
 		model.addAttribute("cartList", dto);
 	}
 
 	@Override
 	public void DeleteCart(HttpServletRequest request) throws Exception {
-		int ordersId=Integer.parseInt(request.getParameter("ordersId"));
+		int ordersId = Integer.parseInt(request.getParameter("ordersId"));
 		dao.DeleteCart(ordersId);
 	}
 
 	@Override
 	public void DeleteCartList(HttpServletRequest request) throws Exception {
-		String[] strordersId=request.getParameterValues("ordersId");
-		
-		for (int i=0;i<strordersId.length;i++) {
+		String[] strordersId = request.getParameterValues("ordersId");
+
+		for (int i = 0; i < strordersId.length; i++) {
 			dao.DeleteCart(Integer.parseInt(strordersId[i]));
 		}
 	}
 
 	@Override
 	public void CakeOrderPage(HttpServletRequest request, Model model) throws Exception {
-		HttpSession session=request.getSession();
-		String customerId=(String)session.getAttribute("ID");
-		String[] strordersId=request.getParameterValues("ordersId");
+		HttpSession session = request.getSession();
+		String customerId = (String) session.getAttribute("ID");
+		String[] strordersId = request.getParameterValues("ordersId");
 		List<customerOrdersDto> dtos = new ArrayList<customerOrdersDto>();
-		customerInfoDto cdto=dao.GetCustomerInfo(customerId);
-		
-		for (int i=0;i<strordersId.length;i++) {
-			customerOrdersDto dto=dao.GetSelectedOrder(customerId, Integer.parseInt(strordersId[i]));
+		customerInfoDto cdto = dao.GetCustomerInfo(customerId);
+
+		for (int i = 0; i < strordersId.length; i++) {
+			customerOrdersDto dto = dao.GetSelectedOrder(customerId, Integer.parseInt(strordersId[i]));
 			dtos.add(dto);
 		}
-		
+
 		model.addAttribute("orderList", dtos);
 		model.addAttribute("dto", cdto);
 	}
@@ -174,19 +176,20 @@ public class customerCakeServiceImpl implements customerCakeService {
 	@Override
 	public void OrderCake(HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
-		
+
 		String customerId = (String) session.getAttribute("ID");
-		
+
 		String[] ordersId = request.getParameterValues("ordersId");
 		String[] cakeId = request.getParameterValues("cakeId");
 		String[] ordersSalePrice = request.getParameterValues("ordersSalePrice");
 		String[] ordersQuantity = request.getParameterValues("ordersQuantity");
-		
-		for (int i=0;i<ordersId.length;i++) {
-			dao.OrderCake(Integer.parseInt(ordersId[i]), "구매", customerId, Integer.parseInt(cakeId[i]), Integer.parseInt(ordersSalePrice[i]), Integer.parseInt(ordersQuantity[i]), Integer.parseInt(ordersSalePrice[i])/10);
-			dao.addPoint(Integer.parseInt(ordersSalePrice[i])/10, Integer.parseInt(ordersId[i]));
+
+		for (int i = 0; i < ordersId.length; i++) {
+			dao.OrderCake(Integer.parseInt(ordersId[i]), "구매", customerId, Integer.parseInt(cakeId[i]),
+					Integer.parseInt(ordersSalePrice[i]), Integer.parseInt(ordersQuantity[i]),
+					Integer.parseInt(ordersSalePrice[i]) / 10);
+			dao.addPoint(Integer.parseInt(ordersSalePrice[i]) / 10, Integer.parseInt(ordersId[i]));
 		}
 	}
-	
 
 }

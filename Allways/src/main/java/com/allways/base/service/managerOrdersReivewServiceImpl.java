@@ -44,10 +44,13 @@ public class managerOrdersReivewServiceImpl implements managerOrdersReviewServic
 		
 		List<managerOrdersReviewDto> dtos=dao.ManagerViewOrdersReviewList();
 		
-		if (condition!=null) {
+		if (condition!=null&&condition.equals("")==false) {
 			dtos=dao.ManagerSearchOrdersReview(condition, "%" + query + "%");
+		} else {
+			dtos=dao.ManagerViewOrdersReviewList();
 		}
 		
+		model.addAttribute("Dtos", dtos);
 		model.addAttribute("condition", condition);
 		model.addAttribute("query", query);
 		model.addAttribute("Size", dtos.size());

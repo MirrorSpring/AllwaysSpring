@@ -82,7 +82,7 @@ public class managerController2 {
 	@RequestMapping("/Manager/reviewDetail")
 	public String ManagerReviewDetail(HttpServletRequest request, Model model) throws Exception{
 		ordersreviewservice.ManagerOrdersReviewDetail(model, request);
-		return "Manager/managerviewordersreviewdetail";
+		return "Manager/mangerviewordersreviewdetail";
 	}
 	
 	@RequestMapping("/Manager/cakeOption")

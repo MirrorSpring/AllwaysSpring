@@ -2,11 +2,15 @@ package com.allways.base.model;
 
 public class customerOrdersDto {
 
-	int cakeId;
+	int rownum;
 	int ordersId;
+	int cakeId;
 	String cakeName;
-	int ordersQuantity;
+	String o_customerId;
 	int ordersSalePrice;
+	int ordersQuantity;
+	String ordersDate;
+	int o_cakeId;
 	
 	public customerOrdersDto() {
 		
@@ -27,6 +31,51 @@ public class customerOrdersDto {
 		this.cakeName = cakeName;
 		this.ordersQuantity = ordersQuantity;
 		this.ordersSalePrice = ordersSalePrice;
+	}
+	
+	public customerOrdersDto(int rownum, int ordersId, String cakeName, String o_customerId, int ordersSalePrice,
+			int ordersQuantity, String ordersDate, int o_cakeId) {
+		super();
+		this.rownum = rownum;
+		this.ordersId = ordersId;
+		this.cakeName = cakeName;
+		this.o_customerId = o_customerId;
+		this.ordersSalePrice = ordersSalePrice;
+		this.ordersQuantity = ordersQuantity;
+		this.ordersDate = ordersDate;
+		this.o_cakeId = o_cakeId;
+	}
+
+	public int getRownum() {
+		return rownum;
+	}
+
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
+
+	public String getO_customerId() {
+		return o_customerId;
+	}
+
+	public void setO_customerId(String o_customerId) {
+		this.o_customerId = o_customerId;
+	}
+
+	public String getOrdersDate() {
+		return ordersDate;
+	}
+
+	public void setOrdersDate(String ordersDate) {
+		this.ordersDate = ordersDate;
+	}
+
+	public int getO_cakeId() {
+		return o_cakeId;
+	}
+
+	public void setO_cakeId(int o_cakeId) {
+		this.o_cakeId = o_cakeId;
 	}
 
 	public int getCakeId() {

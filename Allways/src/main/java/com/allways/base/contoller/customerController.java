@@ -86,4 +86,10 @@ public class customerController {
 		profileservice.CustomerDelete(request);
 		return "redirect:home";
 	}
+	
+	@RequestMapping("/Customer/MyOrder")
+	public String CustomerMyOrder(HttpServletRequest request, Model model) throws Exception{
+		profileservice.CustomerViewMyOrder(request, model);
+		return "Customer/customerOrderList";
+	}
 }

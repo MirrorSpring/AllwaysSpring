@@ -37,4 +37,12 @@
 		update customer set customerDeletedate=now() where customerId=#{customerId};
 	</update>
 	
+	<select id="ViewMyOrder" resultType="com.allways.base.model.customerOrdersDto">
+		select @rownum:=@rownum+1 as rownum, o.ordersId, ANY_VALUE(c.cakeName) as cakeName,
+		ANY_VALUE(o.o_customerId) as o_customerId, ANY_VALUE(o.ordersSalePrice) as ordersSalePrice,
+		ANY_VALUE(o.ordersQuantity) as ordersQuantity, ANY_VALUE(o.ordersDate) as ordersDate, ANY_VALUE(o_cakeId) as o_cakeId
+		from orders o, cake c where (@rownum:=0)=0 and o.ordersReviewstatus is null and o.o_customerId = #{customerId} and o.ordersStatus = '제작완료'
+		and o.o_cakeId = c.cakeId group by o.ordersId;
+	</select>
+	
 </mapper>

@@ -1,6 +1,9 @@
 package com.allways.base.dao;
 
+import java.util.List;
+
 import com.allways.base.model.customerInfoDto;
+import com.allways.base.model.customerOrdersDto;
 
 public interface customerProfileDao {
 
@@ -21,4 +24,6 @@ public interface customerProfileDao {
 			String customerAddress, String customerAddressDetail) throws Exception;
 	
 	public void CustomerDelete(String customerId) throws Exception;
+	
+	public List<customerOrdersDto> ViewMyOrder(String customerId);
 }

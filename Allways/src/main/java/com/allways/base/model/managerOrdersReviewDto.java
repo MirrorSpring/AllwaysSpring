@@ -7,15 +7,19 @@ public class managerOrdersReviewDto {
 	int oreviewId;
 	String or_customerId;
 	String or_customerName;
+	String cakeName;
+	String goodsName;
 	String or_cakeName;
 	String or_goodsName;
-	String oreviewContent;
 	int oreviewStarrating;
+	String oreviewContent;
 	String oreviewImage;
-	
+	int ordersId;
+	int o_cakeId;
+
 	Timestamp oreviewInitdate;
 	Timestamp oreviewUpadatedate;
-	
+
 	public managerOrdersReviewDto(int oreviewId, String or_customerId, String or_customerName, String or_cakeName,
 			String or_goodsName, String oreviewContent, int oreviewStarrating, String oreviewImage,
 			Timestamp oreviewInitdate, Timestamp oreviewUpadatedate) {
@@ -38,7 +42,7 @@ public class managerOrdersReviewDto {
 		this.oreviewStarrating = oreviewStarrating;
 		this.oreviewInitdate = oreviewInitdate;
 	}
-	
+
 	public managerOrdersReviewDto(int oreviewId, String or_customerId, String or_cakeName, String or_goodsName,
 			int oreviewStarrating, Timestamp oreviewInitdate) {
 		super();
@@ -48,6 +52,59 @@ public class managerOrdersReviewDto {
 		this.or_goodsName = or_goodsName;
 		this.oreviewStarrating = oreviewStarrating;
 		this.oreviewInitdate = oreviewInitdate;
+	}
+	
+	public managerOrdersReviewDto(int ordersId, int o_cakeId) {
+		super();
+		this.ordersId = ordersId;
+		this.o_cakeId = o_cakeId;
+	}
+	
+	public managerOrdersReviewDto(int oreviewId, String or_customerId, String cakeName, String goodsName,
+			int oreviewStarrating, String oreviewContent, String oreviewImage, Timestamp oreviewInitdate,
+			Timestamp oreviewUpadatedate) {
+		super();
+		this.oreviewId = oreviewId;
+		this.or_customerId = or_customerId;
+		this.cakeName = cakeName;
+		this.goodsName = goodsName;
+		this.oreviewStarrating = oreviewStarrating;
+		this.oreviewContent = oreviewContent;
+		this.oreviewImage = oreviewImage;
+		this.oreviewInitdate = oreviewInitdate;
+		this.oreviewUpadatedate = oreviewUpadatedate;
+	}
+
+	public String getCakeName() {
+		return cakeName;
+	}
+
+	public void setCakeName(String cakeName) {
+		this.cakeName = cakeName;
+	}
+
+	public String getGoodsName() {
+		return goodsName;
+	}
+
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
+	}
+
+	public int getOrdersId() {
+		return ordersId;
+	}
+
+	public void setOrdersId(int ordersId) {
+		this.ordersId = ordersId;
+	}
+
+	public int getO_cakeId() {
+		return o_cakeId;
+	}
+
+	public void setO_cakeId(int o_cakeId) {
+		this.o_cakeId = o_cakeId;
 	}
 
 	public String getOr_goodsName() {
@@ -69,51 +126,65 @@ public class managerOrdersReviewDto {
 	public int getOreviewId() {
 		return oreviewId;
 	}
+
 	public void setOreviewId(int oreviewId) {
 		this.oreviewId = oreviewId;
 	}
+
 	public String getOr_customerId() {
 		return or_customerId;
 	}
+
 	public void setOr_customerId(String or_customerId) {
 		this.or_customerId = or_customerId;
 	}
+
 	public String getOr_customerName() {
 		return or_customerName;
 	}
+
 	public void setOr_customerName(String or_customerName) {
 		this.or_customerName = or_customerName;
 	}
+
 	public String getOr_cakeName() {
 		return or_cakeName;
 	}
+
 	public void setOr_cakeName(String or_cakeName) {
 		this.or_cakeName = or_cakeName;
 	}
+
 	public String getOreviewContent() {
 		return oreviewContent;
 	}
+
 	public void setOreviewContent(String oreviewContent) {
 		this.oreviewContent = oreviewContent;
 	}
+
 	public int getOreviewStarrating() {
 		return oreviewStarrating;
 	}
+
 	public void setOreviewStarrating(int oreviewStarrating) {
 		this.oreviewStarrating = oreviewStarrating;
 	}
+
 	public Timestamp getOreviewInitdate() {
 		return oreviewInitdate;
 	}
+
 	public void setOreviewInitdate(Timestamp oreviewInitdate) {
 		this.oreviewInitdate = oreviewInitdate;
 	}
+
 	public Timestamp getOreviewUpadatedate() {
 		return oreviewUpadatedate;
 	}
+
 	public void setOreviewUpadatedate(Timestamp oreviewUpadatedate) {
 		this.oreviewUpadatedate = oreviewUpadatedate;
 	}
-	
-	
+
 }
