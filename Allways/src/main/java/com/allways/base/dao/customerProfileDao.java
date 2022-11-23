@@ -26,4 +26,10 @@ public interface customerProfileDao {
 	public void CustomerDelete(String customerId) throws Exception;
 	
 	public List<customerOrdersDto> ViewMyOrder(String customerId);
+	
+	public String FindID(String customerName, String customerBirthday, String customerPhone, String customerEmail) throws Exception;
+	
+	public int FindPw(String customerId, String customerName, String customerBirthday, String customerPhone, String customerEmail) throws Exception;
+	
+	public void ResetPw(String customerPw, String customerId) throws Exception;
 }

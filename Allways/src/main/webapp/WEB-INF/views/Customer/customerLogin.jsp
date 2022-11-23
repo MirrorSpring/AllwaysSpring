@@ -173,10 +173,10 @@ function kakaoLogout() {
 			
 								
 				<a href="join" id="TextColor">ALLWAYS 첫 방문이신가요? ▶ JOIN</a><br>
-				<a href="customerFindId.jsp" id="TextColor" >ID/PASSWORD를 잊어버리셨나요? ▶ ID찾기 / </a>
-				<a href="customerFindPw.jsp" id="TextColor" >PASSWORD 찾기</a><br>
+				<a href="FindId" id="TextColor" >ID/PASSWORD를 잊어버리셨나요? ▶ ID찾기 / </a>
+				<a href="FindPw" id="TextColor" >PASSWORD 찾기</a><br>
 				
-				<a href="customerAbout.jsp" id="TextColor" style="font-size: 21px;">GO HOME</a>
+				<a href="home" id="TextColor" style="font-size: 21px;">GO HOME</a>
 				
 				</div>
 			<div class="col">

@@ -16,4 +16,7 @@ public interface customerProfileService {
 	public void CustomerUpdate(HttpServletRequest request) throws Exception;
 	public void CustomerDelete(HttpServletRequest request) throws Exception;
 	public void CustomerViewMyOrder(HttpServletRequest request, Model model);
+	public void CustomerFindId(HttpServletRequest request, Model model) throws Exception;
+	public void CustomerFindPw(HttpServletRequest request, Model model) throws Exception;
+	public void CustomerResetPw(HttpServletRequest request) throws Exception;
 }

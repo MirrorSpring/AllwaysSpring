@@ -261,10 +261,10 @@
 			return;
 		}
 
-		if(form.codecheck.value != 1){
-			alert("이메일 인증을 해주세요");
-			return;
-		}
+		//if(form.codecheck.value != 1){
+		//	alert("이메일 인증을 해주세요");
+		//	return;
+		//}
 		
 		form.submit();
 	}
@@ -325,13 +325,13 @@
 </head>
 <body>
 
-<form action="customerFindId.do" name="customerFindId" method="post" style="height: 1000px;">
+<form action="showId" name="customerFindId" method="post" style="height: 1000px;">
 		<div class="container text-center">
 			<div class="row">
 				<div class="col">
 				</div>
 				<div class="col">
-					<img src="./images/find.png" id="Join_image"><br>
+					<img src="/image/find.png" id="Join_image"><br>
 					<br><h2 id="Join">FIND YOUR ID</h2><br>
 					
 					<label id="label_design">NAME</label>
@@ -352,6 +352,7 @@
 							<option value="gmail.com">daum.net</option>
 							<option value="1">직접 입력</option>
 						</select>
+						<!--  
 					<input type="button" id="send_box" value="인증번호 보내기"><br><br>
 					
 					
@@ -370,6 +371,7 @@
 					<input type="hidden" id="email_certify_num" >
 					
 					<input type="hidden" id="codecheck" name="codecheck" value="">
+					-->
 					
 					<input id="join_button" style="margin-top: 30px" type="button" name="find" value="FIND" onclick="findAction()">			
 				</div>

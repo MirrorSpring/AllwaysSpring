@@ -153,4 +153,42 @@ public class customerProfileServiceImpl implements customerProfileService {
 		request.setAttribute("pagepage", pagepage);
 	}
 
+	@Override
+	public void CustomerFindId(HttpServletRequest request, Model model) throws Exception {
+		String customerName=request.getParameter("customerName");
+		String customerBirthday=request.getParameter("customerBirth");
+		String customerPhone=request.getParameter("customerPhone");
+		String customerEmail=request.getParameter("email1") + "@" + request.getParameter("email2");
+		
+		String customerId=dao.FindID(customerName, customerBirthday, customerPhone, customerEmail);
+		model.addAttribute("CUSTOMERID", customerId);
+		model.addAttribute("CUSTOMERNAME", customerName);
+	}
+
+	@Override
+	public void CustomerFindPw(HttpServletRequest request, Model model) throws Exception {
+		String customerId=request.getParameter("customerId");
+		String customerName=request.getParameter("customerName");
+		String customerBirthday=request.getParameter("customerBirth");
+		String customerPhone=request.getParameter("customerPhone");
+		String customerEmail=request.getParameter("email1") + "@" + request.getParameter("email2");
+		
+		int check=dao.FindPw(customerId, customerName, customerBirthday, customerPhone, customerEmail);
+		
+		if (check==1) {
+			model.addAttribute("USERCHECK", true);
+			model.addAttribute("USERID", customerId);
+		} else {
+			model.addAttribute("USERCHECK", false);
+		}
+	}
+
+	@Override
+	public void CustomerResetPw(HttpServletRequest request) throws Exception {
+		String customerPw=request.getParameter("password");
+		String customerId=request.getParameter("customerId");
+		
+		dao.ResetPw(customerPw, customerId);
+	}
+
 }

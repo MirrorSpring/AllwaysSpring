@@ -57,4 +57,21 @@ public class customerProfileDaoImpl implements customerProfileDao {
 		return sqlSession.selectList(nameSpace + ".ViewMyOrder");
 	}
 
+	@Override
+	public String FindID(String customerName, String customerBirthday, String customerPhone, String customerEmail)
+			throws Exception {
+		return sqlSession.selectOne(nameSpace + ".FindID");
+	}
+
+	@Override
+	public int FindPw(String customerId, String customerName, String customerBirthday, String customerPhone,
+			String customerEmail) throws Exception {
+		return sqlSession.selectOne(nameSpace + ".FindPw");
+	}
+
+	@Override
+	public void ResetPw(String customerPw, String customerId) throws Exception {
+		sqlSession.update(nameSpace + ".ResetPw");
+	}
+
 }

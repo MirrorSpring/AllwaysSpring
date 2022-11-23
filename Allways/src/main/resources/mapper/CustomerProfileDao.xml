@@ -45,4 +45,18 @@
 		and o.o_cakeId = c.cakeId group by o.ordersId;
 	</select>
 	
+	<select id="FindID" resultType="string">
+		select customerId from customer where customerName = #{customerName} and customerBirthday = #{customerBirthday}
+		and customerPhone = #{customerPhone} and customerEmail = #{customerEmail}  and customerDeletedate is null limit 1;
+	</select>
+	
+	<select id="FindPw" resultType="int">
+		select count(*) from customer where customerId=#{customerId} and customerName = #{customerName} and customerBirthday = #{customerBirthday}
+		and customerPhone = #{customerPhone} and customerEmail = #{customerEmail}  and customerDeletedate is null limit 1;
+	</select>
+	
+	<update id="ResetPw">
+		update customer set customerPw=#{customerPw} where customerId=#{customerId};
+	</update>
+	
 </mapper>

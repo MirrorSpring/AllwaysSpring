@@ -77,19 +77,19 @@
 		}
 		
 		alert("변경되었습니다.");
-		form.action="customerPwReset.do";
+		form.action="resetpw";
 		form.submit();
 	}
 	
 	function join(){
 		var form = document.customerShowPw;
-		form.action="customerJoin.jsp";
+		form.action="join";
 		form.submit();
 	}
 	
 	function home(){
 		var form = document.customerShowPw;
-		form.action="customerAbout.do";
+		form.action="home";
 		form.submit();
 	}
 	
@@ -147,7 +147,7 @@
 				<div class="col">
 				</div>
 				<div class="col">
-					<img style="margin-top: 30px;" src="./images/Join.png" id="Join_image"><br>
+					<img style="margin-top: 30px;" src="/image/Join.png" id="Join_image"><br>
 					<br><h2 id="Join"></h2><br>
 						
 						<c:if test="${USERCHECK==false}">

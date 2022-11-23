@@ -92,4 +92,32 @@ public class customerController {
 		profileservice.CustomerViewMyOrder(request, model);
 		return "Customer/customerOrderList";
 	}
+	
+	@RequestMapping("/Customer/FindId")
+	public String CustomerFindId() throws Exception{
+		return "Customer/customerFindId";
+	}
+	
+	@RequestMapping("/Customer/showId")
+	public String CustomerShowId(HttpServletRequest request, Model model) throws Exception{
+		profileservice.CustomerFindId(request, model);
+		return "Customer/customerShowId";
+	}
+	
+	@RequestMapping("/Customer/FindPw")
+	public String CustomerFindPw() throws Exception{
+		return "Customer/customerFindPw";
+	}
+	
+	@RequestMapping("/Customer/pwreset")
+	public String CustomerShowPw(HttpServletRequest request, Model model) throws Exception{
+		profileservice.CustomerFindPw(request, model);
+		return "Customer/customerShowPw";
+	}
+	
+	@RequestMapping("/Customer/resetpw")
+	public String CustomerResetPw(HttpServletRequest request) throws Exception{
+		profileservice.CustomerResetPw(request);
+		return "redirect:login";
+	}
 }
