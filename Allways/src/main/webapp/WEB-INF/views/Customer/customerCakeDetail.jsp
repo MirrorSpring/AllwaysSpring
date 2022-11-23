@@ -528,7 +528,7 @@ color: #FFFDFD;
 						<c:if test="${Size==0 }">
 							<td colspan="5" align="center"> 리뷰가 없습니다.</td>
 						</c:if>
-						<td>${dto.rowNum }</td>
+						<td>${dto.rownum }</td>
 						<td>${dto.oreviewContent }</td>
 						<td>
 							<c:forEach begin = "1" end = "${dto.oreviewStarrating }">
@@ -555,18 +555,18 @@ color: #FFFDFD;
 					</c:if>
 				
 					<c:if test="${index != 1 }">
-						<a href="customerCakeDetail.do?index=${index-1 }">이전</a>&nbsp;
+						<a href="cakeDetail?index=${index-1 }">이전</a>&nbsp;
 					</c:if> 
 			
 					<c:forEach var="cnt" begin="${pagecount * pagepage + 1}" end="${pagecount * (pagepage + 1)}">
 						<c:if test="${cnt <= Math.ceil(arrsize / rowcount)}">
 						
 							<c:if test="${cnt == index }">
-								<a href="customerOrdersReview.do?index=${cnt }" style="font-size:1.3em">[${cnt }]</a>
+								<a href="cakeDetail?index=${cnt }" style="font-size:1.3em">[${cnt }]</a>
 							</c:if>
 					
 							<c:if test = "${cnt != index }">
-								<a href="customerOrdersReview.do?index=${cnt }" style="font-size:0.9em">[${cnt }]</a>&nbsp;
+								<a href="cakeDetail?index=${cnt }" style="font-size:0.9em">[${cnt }]</a>&nbsp;
 							</c:if>
 							
 						</c:if>

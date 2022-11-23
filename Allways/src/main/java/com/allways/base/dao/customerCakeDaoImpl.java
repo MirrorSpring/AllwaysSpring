@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.allways.base.model.customerCakeDto;
 import com.allways.base.model.customerInfoDto;
 import com.allways.base.model.customerOrdersDto;
+import com.allways.base.model.customerOrdersReviewDto;
 import com.allways.base.model.customercakeOptionDto;
 
 public class customerCakeDaoImpl implements customerCakeDao {
@@ -86,6 +87,11 @@ public class customerCakeDaoImpl implements customerCakeDao {
 	@Override
 	public void addPoint(int ordersPoint, int ordersId) throws Exception {
 		sqlSession.update(nameSpace + ".addPoint");
+	}
+
+	@Override
+	public List<customerOrdersReviewDto> ShowReview(int cakeId) throws Exception {
+		return sqlSession.selectList(nameSpace + ".ShowReview");
 	}
 
 }

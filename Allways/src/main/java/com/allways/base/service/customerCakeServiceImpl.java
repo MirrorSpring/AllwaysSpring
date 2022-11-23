@@ -14,6 +14,7 @@ import com.allways.base.dao.customerCakeDao;
 import com.allways.base.model.customerCakeDto;
 import com.allways.base.model.customerInfoDto;
 import com.allways.base.model.customerOrdersDto;
+import com.allways.base.model.customerOrdersReviewDto;
 import com.allways.base.model.customercakeOptionDto;
 
 @Service
@@ -62,14 +63,15 @@ public class customerCakeServiceImpl implements customerCakeService {
 
 	@Override
 	public void CustomerCakeDetail(HttpServletRequest request, Model model) throws Exception {
-		int cakeId = Integer.parseInt(request.getParameter("cakeId"));
-		customerCakeDto dto = dao.CustomerCakeDetail(cakeId);
-
-		model.addAttribute("cakeInfo", dto);
+		
 	}
 
 	@Override
 	public void CustomerCakeOption(Model model, HttpServletRequest request) throws Exception {
+		int cakeId = Integer.parseInt(request.getParameter("cakeId"));
+		customerCakeDto dto = dao.CustomerCakeDetail(cakeId);
+		List<customerOrdersReviewDto> rdto=dao.ShowReview(cakeId);
+
 		List<customercakeOptionDto> size = dao.CustomerCakeOption("Size");
 		List<customercakeOptionDto> shape = dao.CustomerCakeOption("Shape");
 		List<customercakeOptionDto> flavor = dao.CustomerCakeOption("Flavor");
@@ -93,13 +95,15 @@ public class customerCakeServiceImpl implements customerCakeService {
 		model.addAttribute("shapeList", shape);
 		model.addAttribute("sizeList", size);
 		model.addAttribute("flavorList", flavor);
-
-		request.setAttribute("Size", 0);
-		request.setAttribute("maxpage", maxpage);
-		request.setAttribute("index", index);
-		request.setAttribute("rowcount", rowcount);
-		request.setAttribute("pagecount", pagecount);
-		request.setAttribute("pagepage", pagepage);
+		model.addAttribute("cakeInfo", dto);
+		model.addAttribute("reviewList", rdto);
+		model.addAttribute("Size", rdto.size());
+		
+		model.addAttribute("maxpage", maxpage);
+		model.addAttribute("index", index);
+		model.addAttribute("rowcount", rowcount);
+		model.addAttribute("pagecount", pagecount);
+		model.addAttribute("pagepage", pagepage);
 
 	}
 

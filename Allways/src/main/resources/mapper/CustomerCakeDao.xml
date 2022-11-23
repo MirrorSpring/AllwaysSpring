@@ -20,6 +20,12 @@
 		where cakeoptionCategory=#{cakeoptionCategory} and cakeoptionDeletedate is null
 	</select>
 	
+	<select id="ShowReview" resultType="com.allways.base.model.customerOrdersReviewDto">
+		select * from (select row_number() over(order by oreviewId) as rownum,
+		or_customerId, oreviewContent, oreviewInitdate, oreviewImage, oreviewStarrating, or_cakeId from ordersreview  order by oreviewId desc) o
+		where o.or_cakeId = #{cakeId} order by o.oreviewInitdate desc;
+	</select>
+	
 	<!-- 케이크 주문 프로세스 시작 -->
 	
 	<insert id="CustomerAddCart">

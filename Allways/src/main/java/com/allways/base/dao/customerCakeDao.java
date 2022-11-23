@@ -5,6 +5,7 @@ import java.util.List;
 import com.allways.base.model.customerCakeDto;
 import com.allways.base.model.customerInfoDto;
 import com.allways.base.model.customerOrdersDto;
+import com.allways.base.model.customerOrdersReviewDto;
 import com.allways.base.model.customercakeOptionDto;
 
 public interface customerCakeDao {
@@ -23,5 +24,6 @@ public interface customerCakeDao {
 	public customerOrdersDto GetSelectedOrder(String customerId, int ordersId) throws Exception;
 	public void OrderCake(int ordersId, String ordersStatus, String o_customerId, int o_cakeId, int ordersSalePrice, int ordersQuantity, int ordersPoint) throws Exception;
 	public void addPoint(int ordersPoint, int ordersId) throws Exception;
+	public List<customerOrdersReviewDto> ShowReview(int cakeId) throws Exception;
 	
 }
