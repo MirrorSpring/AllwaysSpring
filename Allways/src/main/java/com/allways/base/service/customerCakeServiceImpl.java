@@ -184,6 +184,7 @@ public class customerCakeServiceImpl implements customerCakeService {
 		
 		for (int i=0;i<ordersId.length;i++) {
 			dao.OrderCake(Integer.parseInt(ordersId[i]), "구매", customerId, Integer.parseInt(cakeId[i]), Integer.parseInt(ordersSalePrice[i]), Integer.parseInt(ordersQuantity[i]), Integer.parseInt(ordersSalePrice[i])/10);
+			dao.addPoint(Integer.parseInt(ordersSalePrice[i])/10, Integer.parseInt(ordersId[i]));
 		}
 	}
 	

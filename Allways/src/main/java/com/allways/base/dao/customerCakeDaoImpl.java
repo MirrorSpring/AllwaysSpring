@@ -83,4 +83,9 @@ public class customerCakeDaoImpl implements customerCakeDao {
 		sqlSession.insert(nameSpace + ".OrderCake");
 	}
 
+	@Override
+	public void addPoint(int ordersPoint, int ordersId) throws Exception {
+		sqlSession.update(nameSpace + ".addPoint");
+	}
+
 }
