@@ -48,7 +48,7 @@
 				return;
 			}
 			alert("set in cartlist.");
-			form.action = "customerCakeCart.do";
+			form.action = "addCart";
 		}
 		if (index == 2) {
 			if (form.detailoptionPickupDate.value.length == 0) {
@@ -483,11 +483,9 @@ color: #FFFDFD;
 						<c:choose>
 							<c:when test="${ID != null }">
 								<td><button type = "button" id="util_box" onclick = "mySubmit(1)">Cart</button></td>
-								<td><button type = "button" id="util_box" onclick = "mySubmit(2)">Buy Now</button></td>
 							</c:when>
 							<c:otherwise>
 								<td><button type = "button" id="util_box" onclick = "login()">Cart</button></td>
-								<td><button type = "button" id="util_box" onclick = "login()">Buy Now</button></td>
 							</c:otherwise>
 						</c:choose>
 						</tr>
@@ -527,6 +525,9 @@ color: #FFFDFD;
 			<c:if test="${dto != null }">
 				<tbody>
 					<tr>
+						<c:if test="${Size==0 }">
+							<td colspan="5" align="center"> 리뷰가 없습니다.</td>
+						</c:if>
 						<td>${dto.rowNum }</td>
 						<td>${dto.oreviewContent }</td>
 						<td>

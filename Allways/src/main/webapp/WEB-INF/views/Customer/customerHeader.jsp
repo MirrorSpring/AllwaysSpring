@@ -252,7 +252,7 @@ function signup() {
 	                <a href="customerWriteList.do" id="center" class="nav-item nav-link">BOARD</a>
 	                <a href="location" id="center" class="nav-item nav-link" >LOCATION</a>
 	                <!-- <a href="" id="center" class="nav-item nav-link" style="width: 300px;"></a> -->
-	                <a href="customerCartList.do" id="center" class="nav-item nav-link">CART</a>
+	                <a href="cart" id="center" class="nav-item nav-link">CART</a>
 	                
 	              
 						<%-- <%if (session.getAttribute("ID") == null) { %>

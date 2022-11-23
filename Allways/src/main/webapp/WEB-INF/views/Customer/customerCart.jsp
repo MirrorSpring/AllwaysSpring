@@ -15,7 +15,7 @@ function mySubmit(index){
 		form.action = "customerCartSelectDelete.do";
 	}
 	if (index == 2) {
-		form.action = "customerCakeList.do";
+		form.action = "cake";
 	}
 	if (index == 3) {
 		form.action = "customerOrderPage.do";
@@ -83,7 +83,7 @@ let basket = {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./CSS/cart.css" />
+<link rel="stylesheet" href="/css/cart.css" />
 <meta charset="UTF-8">
 <style type="text/css">
 #page_name{

@@ -32,5 +32,17 @@ public class customerController2 {
 		cakeservice.CustomerCakeOption(model, request);
 		return "Customer/customerCakeDetail";
 	}
+	
+	@RequestMapping("/Customer/addCart")
+	public String CustomerAddCart(HttpServletRequest request) throws Exception{
+		cakeservice.CustomerCakeCart(request);
+		return "redirect:cart";
+	}
+	
+	@RequestMapping("/Customer/cart")
+	public String CustomerCart(HttpServletRequest request, Model model) throws Exception{
+		cakeservice.GetCart(request, model);
+		return "Customer/customerCart";
+	}
 
 }

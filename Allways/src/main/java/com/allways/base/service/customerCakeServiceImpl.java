@@ -3,6 +3,7 @@ package com.allways.base.service;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,8 @@ import org.springframework.ui.Model;
 
 import com.allways.base.dao.customerCakeDao;
 import com.allways.base.model.customerCakeDto;
+import com.allways.base.model.customerInfoDto;
+import com.allways.base.model.customerOrdersDto;
 import com.allways.base.model.customercakeOptionDto;
 
 @Service
@@ -72,7 +75,7 @@ public class customerCakeServiceImpl implements customerCakeService {
 		int index = 1; // 시작 페이지 번호
 		int rowcount = 10; // 한 페이지에 출력할 리스트 개수
 		int pagecount = 10; // 한 페이지에 출력할 페이지 개수
-		int pagepage = 0; // ??
+		int pagepage = 0; // 몇 페이지부터 몇 페이지까지 출력할지
 
 		int maxpage = (0 % rowcount) != 0 ? (0 / rowcount) + 1 : (0 / rowcount);
 
@@ -89,12 +92,80 @@ public class customerCakeServiceImpl implements customerCakeService {
 			model.addAttribute("sizeList", size);
 			model.addAttribute("flavorList", flavor);
 
+			request.setAttribute("Size", 0);
 			request.setAttribute("maxpage", maxpage);
 			request.setAttribute("index", index);
 			request.setAttribute("rowcount", rowcount);
 			request.setAttribute("pagecount", pagecount);
 			request.setAttribute("pagepage", pagepage);
 		}
+	}
+
+	@Override
+	public void CustomerCakeCart(HttpServletRequest request) throws Exception {
+		HttpSession session = request.getSession();
+		String customerId = (String) session.getAttribute("ID");
+		
+		int cakeId = Integer.parseInt(request.getParameter("cakeId"));
+		int cakePrice = Integer.parseInt(request.getParameter("cakePrice"));
+		int ordersQuantity = Integer.parseInt(request.getParameter("ordersQuantity"));
+		int shape = Integer.parseInt(request.getParameter("shape"));
+		int size = Integer.parseInt(request.getParameter("size"));
+		int flavor = Integer.parseInt(request.getParameter("flavor"));
+		int[] option = {shape, size, flavor};
+		String detailoptionLettering = request.getParameter("detailoptionLettering");
+		String detailoptionPickupDate = request.getParameter("detailoptionPickupDate");
+		
+		dao.CustomerAddCart("장바구니", customerId, cakeId, cakePrice, ordersQuantity);
+		
+		int ordersId=dao.GetOrdersId("장바구니", customerId);
+		
+		for (int i=0;i<option.length;i++) {
+			dao.CustomerAddDetailOption(ordersId, option[i], customerId, cakeId, ordersId, detailoptionLettering, detailoptionPickupDate);
+		}
+		
+		int price=dao.GetOptionPrice("장바구니", ordersId);
+		dao.UpdateSalesPrice((cakePrice+price)*ordersQuantity, ordersId);
+		
+	}
+
+	@Override
+	public void CustomerQuickOrder(HttpServletRequest request, Model model) throws Exception {
+		HttpSession session = request.getSession();
+		String customerId = (String) session.getAttribute("ID");
+		
+		int cakeId = Integer.parseInt(request.getParameter("cakeId"));
+		int cakePrice = Integer.parseInt(request.getParameter("cakePrice"));
+		int ordersQuantity = Integer.parseInt(request.getParameter("ordersQuantity"));
+		int shape = Integer.parseInt(request.getParameter("shape"));
+		int size = Integer.parseInt(request.getParameter("size"));
+		int flavor = Integer.parseInt(request.getParameter("flavor"));
+		int[] option = {shape, size, flavor};
+		String detailoptionLettering = request.getParameter("detailoptionLettering");
+		String detailoptionPickupDate = request.getParameter("detailoptionPickupDate");
+		
+		dao.CustomerAddCart("구매", customerId, cakeId, cakePrice, ordersQuantity);
+		
+		int ordersId=dao.GetOrdersId("구매", customerId);
+		
+		for (int i=0;i<option.length;i++) {
+			dao.CustomerAddDetailOption(ordersId, option[i], customerId, cakeId, ordersId, detailoptionLettering, detailoptionPickupDate);
+		}
+		
+		int price=dao.GetOptionPrice("구매", ordersId);
+		dao.UpdateSalesPrice((cakePrice+price)*ordersQuantity, ordersId);
+		
+		customerInfoDto cdto=dao.GetCustomerInfo(customerId);
+		model.addAttribute("customerInfo", cdto);
+	}
+
+	@Override
+	public void GetCart(HttpServletRequest request, Model model) throws Exception {
+		HttpSession session=request.getSession();
+		String customerId=(String)session.getAttribute("ID");
+		List<customerOrdersDto> dto=dao.GetCart(customerId);
+		
+		model.addAttribute("cartList", dto);
 	}
 
 }
