@@ -247,7 +247,7 @@
 		}
 		
 		alert("정보가 수정되었습니다.");
-		form.action = "mypageUpdate.do";
+		form.action = "updateInfoAction";
 		form.submit();
 	}
 	
@@ -260,7 +260,7 @@
             alert("취소되었습니다.");
         } else {
             alert("탍퇴되었습니다.");
-            form.action = "deleteAction.do";
+            form.action = "delete";
             form.submit();
         }
     }

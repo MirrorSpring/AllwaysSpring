@@ -27,4 +27,14 @@
 		from customer where customerId = #{customerId}
 	</select>
 	
+	<update id="CustomerUpdate">
+		update customer set customerPw=#{customerPw}, customerName=#{customerName}, customerGender=#{customerGender},
+		customerPhone=#{customerPhone}, customerBirthday=#{customerBirthday}, customerEmail=#{customerEmail}, customerPostcode=#{customerPostcode},
+		customerAddress=#{customerAddress}, customerAddressDetail=#{customerAddressDetail}, customerUpdatedate=now() where customerId= #{customerId};
+	</update>
+	
+	<update id="CustomerDelete">
+		update customer set customerDeletedate=now() where customerId=#{customerId};
+	</update>
+	
 </mapper>

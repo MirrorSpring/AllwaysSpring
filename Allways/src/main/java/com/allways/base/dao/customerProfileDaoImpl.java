@@ -36,4 +36,16 @@ public class customerProfileDaoImpl implements customerProfileDao {
 		return sqlSession.selectOne(nameSpace + ".CustomerMypage");
 	}
 
+	@Override
+	public void CustomerUpdate(String customerId, String customerPw, String customerName, String customerGender,
+			String customerPhone, String customerEmail, String customerBirthday, String customerPostcode,
+			String customerAddress, String customerAddressDetail) throws Exception {
+		sqlSession.update(nameSpace + ".CustomerUpdate");
+	}
+
+	@Override
+	public void CustomerDelete(String customerId) throws Exception {
+		sqlSession.update(nameSpace + ".CustomerDelete");
+	}
+
 }

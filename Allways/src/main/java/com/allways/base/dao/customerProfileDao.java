@@ -15,4 +15,10 @@ public interface customerProfileDao {
 			String customerAddress, String customerAddressDetail) throws Exception;
 	
 	public customerInfoDto CustomerMypage(String customerId) throws Exception;
+	
+	public void CustomerUpdate(String customerId, String customerPw, String customerName, String customerGender,
+			String customerPhone, String customerEmail, String customerBirthday, String customerPostcode,
+			String customerAddress, String customerAddressDetail) throws Exception;
+	
+	public void CustomerDelete(String customerId) throws Exception;
 }

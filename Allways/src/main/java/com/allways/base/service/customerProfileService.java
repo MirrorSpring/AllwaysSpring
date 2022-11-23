@@ -13,4 +13,6 @@ public interface customerProfileService {
 	public void CustomerJoin(HttpServletRequest request) throws Exception;
 	public void CustomerLogout(HttpServletRequest request) throws Exception;
 	public void CustomerMypage(HttpServletRequest request, Model model) throws Exception;
+	public void CustomerUpdate(HttpServletRequest request) throws Exception;
+	public void CustomerDelete(HttpServletRequest request) throws Exception;
 }

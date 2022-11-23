@@ -91,4 +91,32 @@ public class customerProfileServiceImpl implements customerProfileService {
 		model.addAttribute("EMAILDOMAIN", customerEmailDomain);
 	}
 
+	@Override
+	public void CustomerUpdate(HttpServletRequest request) throws Exception {
+		HttpSession session=request.getSession();
+		String customerId=(String)session.getAttribute("ID");
+		String customerPw=request.getParameter("customerPw");
+		String customerName=request.getParameter("customerName");
+		String customerGender=request.getParameter("customerGender");
+		String customerPhone=request.getParameter("customerPhone");
+		String customerEmail=request.getParameter("email1") + "@" + request.getParameter("email2");
+		String customerBirthday=request.getParameter("customerBirth");
+		String customerPostcode=request.getParameter("postcode");
+		String customerAddress=request.getParameter("address");
+		String customerAddressDetail=request.getParameter("addressDetail");
+		
+		dao.CustomerUpdate(customerId, customerPw, customerName, customerGender, customerPhone, customerEmail, customerBirthday, customerPostcode, customerAddress, customerAddressDetail);
+		
+		
+	}
+
+	@Override
+	public void CustomerDelete(HttpServletRequest request) throws Exception {
+		HttpSession session=request.getSession();
+		String customerId=(String) session.getAttribute("ID");
+		
+		dao.CustomerDelete(customerId);
+		session.invalidate();
+	}
+
 }

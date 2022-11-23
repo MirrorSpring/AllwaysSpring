@@ -74,4 +74,16 @@ public class customerController {
 		profileservice.CustomerMypage(request, model);
 		return "Customer/customerMypageRevision";
 	}
+	
+	@RequestMapping("/Customer/updateInfoAction")
+	public String CustomerUpdate(HttpServletRequest request) throws Exception{
+		profileservice.CustomerUpdate(request);
+		return "redirect:home";
+	}
+	
+	@RequestMapping("/Customer/delete")
+	public String CustomerDelete(HttpServletRequest request) throws Exception{
+		profileservice.CustomerDelete(request);
+		return "redirect:home";
+	}
 }
