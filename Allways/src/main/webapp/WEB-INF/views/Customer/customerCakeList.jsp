@@ -83,7 +83,7 @@ color: #766262;
 				<div class="col-lg-3 col-md-6" style="padding-bottom: 20px;" id="cakeList">
 					<div class="card" style="width: 20rem;">
 					<a href="customerCakeDetail.do?cakeId=${dto.cakeId}">
-						<img src="./cakeListImage/${dto.cakeImage}" class="card-img-top"
+						<img src="/image/cake/${dto.cakeImage}" class="card-img-top"
 							alt="${dto.cakeId}">
 					</a>
 						<div class="card-body">
@@ -115,18 +115,18 @@ color: #766262;
 						</c:if>
 					
 						<c:if test="${index != 1 }">
-							<a href="customerCakeList.do?index=${index-1 }&sort1=${sort1}&sort2=${sort2}">이전</a>&nbsp;
+							<a href="cake?index=${index-1 }&sort1=${sort1}&sort2=${sort2}">이전</a>&nbsp;
 						</c:if> 
 				
 						<c:forEach var="cnt" begin="${pagecount * pagepage + 1}" end="${pagecount * (pagepage + 1)}">
 							<c:if test="${cnt <= Math.ceil(arrsize / rowcount)}">
 							
 								<c:if test="${cnt == index }">
-									<a href="customerCakeList.do?index=${cnt }&sort1=${sort1}&sort2=${sort2}" style="font-size:1.3em">[${cnt }]</a>
+									<a href="cake.do?index=${cnt }&sort1=${sort1}&sort2=${sort2}" style="font-size:1.3em">[${cnt }]</a>
 								</c:if>
 						
 								<c:if test = "${cnt != index }">
-									<a href="customerCakeList.do?index=${cnt }&sort1=${sort1}&sort2=${sort2}" style="font-size:0.9em">[${cnt }]</a>&nbsp;
+									<a href="cake.do?index=${cnt }&sort1=${sort1}&sort2=${sort2}" style="font-size:0.9em">[${cnt }]</a>&nbsp;
 								</c:if>
 								
 							</c:if>
@@ -137,7 +137,7 @@ color: #766262;
 						</c:if>
 						
 						<c:if test="${index < Math.ceil(arrsize / rowcount)}">
-							<a href="customerCakeList.do?index=${index+1 }&sort1=${sort1}&sort2=${sort2}">다음</a>&nbsp;
+							<a href="cake.do?index=${index+1 }&sort1=${sort1}&sort2=${sort2}">다음</a>&nbsp;
 						</c:if>
 						
 					</td>

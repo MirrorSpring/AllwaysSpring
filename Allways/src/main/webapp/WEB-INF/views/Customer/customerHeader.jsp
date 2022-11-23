@@ -17,6 +17,7 @@
 
    <!-- Favicon -->
 <link href="../img/favicon.ico" rel="icon">
+<link rel="shortcut icon" href="/image/HeaderLogo2.png" sizes="180x180">
 
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -152,15 +153,15 @@ function signup() {
                     <small><i class="fa fa-envelope mr-2"></i>allwayscake@example.com</small>
                 </div>
             </div>
-            <div class="col-lg-6 text-right">
-                <div class="d-inline-flex align-items-center">
-                	<a class="text-primary pl-2" href="customerJoinPage.do">
-                        <i class="text-primary pl-2">JOIN</i>
-                    </a>
-                	<a class="text-primary pl-2" href="customerLoginPage.do">
+         	   <div class="col-lg-6 text-right">
+          	      <div class="d-inline-flex align-items-center">
+          	      	<a class="text-primary pl-2" href="CustomerJoin">
+          	              <i class="text-primary pl-2">JOIN</i>
+          	        </a>
+           	     	<a class="text-primary pl-2" href="login">
                         <i class="text-primary pl-2">LOGIN</i>
                     </a>
-                </div>
+               	 </div>
             </div>
         </div>
     </div>
@@ -174,10 +175,10 @@ function signup() {
 	        <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
 	            <div class="navbar-nav m-auto py-0">
 		            <a href="customerAbout.jsp" class="navbar-brand ml-lg-3">
-		       			 <img src="./images/HeaderLogo.png"><!-- style="padding-left: 90px;" -->
+		       			 <img src="/image/HeaderLogo2.png"><!-- style="padding-left: 90px;" -->
 		        	</a>
 	                <a href="customerAbout.jsp" id="center" class="nav-item nav-link active">HOME</a>
-	                <a href="customerCakeList.do" id="center" class="nav-item nav-link active">CAKE</a>
+	                <a href="cake" id="center" class="nav-item nav-link active">CAKE</a>
 	                <a href="customerWriteList.do" id="center" class="nav-item nav-link">BOARD</a>
 	                <a href="customerLocation.do" id="center" class="nav-item nav-link">LOCATION</a>
 	          		<!--   <a href="" id="center" class="nav-item nav-link" style="width: 300px;"></a> -->
@@ -244,10 +245,10 @@ function signup() {
 	       	 	<div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
 	            <div class="navbar-nav m-auto py-0">
 		            <a href="customerAbout.jsp" class="navbar-brand ml-lg-3">
-		       			 <img src="./images/HeaderLogo.png"><!--  style="padding-left: 90px;"></img> -->
+		       			 <img src="/image/HeaderLogo2.png"><!--  style="padding-left: 90px;"></img> -->
 		        	</a>
 	                <a href="customerAbout.jsp" id="center" class="nav-item nav-link active">HOME</a>
-	                <a href="customerCakeList.do" id="center" class="nav-item nav-link active">CAKE</a>
+	                <a href="cake" id="center" class="nav-item nav-link active">CAKE</a>
 	                <a href="customerWriteList.do" id="center" class="nav-item nav-link">BOARD</a>
 	                <a href="customerLocation.do" id="center" class="nav-item nav-link" >LOCATION</a>
 	                <!-- <a href="" id="center" class="nav-item nav-link" style="width: 300px;"></a> -->

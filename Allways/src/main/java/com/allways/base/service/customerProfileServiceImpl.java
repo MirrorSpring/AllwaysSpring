@@ -26,8 +26,8 @@ public class customerProfileServiceImpl implements customerProfileService {
 			model.addAttribute("CHECK", false);
 			return false;
 		}
-		session.setAttribute("Name", dao.CustomerGetName(customerId));
-		session.setAttribute("customerId", customerId);
+		session.setAttribute("NAME", dao.CustomerGetName(customerId));
+		session.setAttribute("ID", customerId);
 		return true;
 	}
 

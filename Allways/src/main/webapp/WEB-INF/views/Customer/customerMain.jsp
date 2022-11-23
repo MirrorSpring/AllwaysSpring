@@ -6,7 +6,8 @@
   <title>Main</title>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="CSS/style.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="shortcut icon" href="/image/HeaderLogo2.png" sizes="180x180">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -72,22 +73,22 @@ function getGender(event) {
 <div id="testbox" style="width: 1497px;">
 	<div class="test">
 		<c:forEach items="${bestCakeList}" var="dto">
-			<div><a href="customerCakeDetail.do?cakeId=${dto.cakeId}"><img src="./cakeListImage/${dto.cakeImage}" style="padding-left: 20px;"></a></div>
+			<div><a href="customerCakeDetail.do?cakeId=${dto.cakeId}"><img src="/image/cake/${dto.cakeImage}" style="padding-left: 20px;"></a></div>
 		</c:forEach>
 		<c:forEach items="${bestCakeList}" var="dto">
-			<div><a href="customerCakeDetail.do?cakeId=${dto.cakeId}"><img src="./cakeListImage/${dto.cakeImage}" style="padding-left: 20px;"></a></div>
+			<div><a href="customerCakeDetail.do?cakeId=${dto.cakeId}"><img src="/image/cake/${dto.cakeImage}" style="padding-left: 20px;"></a></div>
 		</c:forEach>
 		<c:forEach items="${bestCakeList}" var="dto">
-			<div><a href="customerCakeDetail.do?cakeId=${dto.cakeId}"><img src="./cakeListImage/${dto.cakeImage}" style="padding-left: 20px;"></a></div>
+			<div><a href="customerCakeDetail.do?cakeId=${dto.cakeId}"><img src="/image/cake/${dto.cakeImage}" style="padding-left: 20px;"></a></div>
 		</c:forEach>
 		<c:forEach items="${bestCakeList}" var="dto">
-			<div><a href="customerCakeDetail.do?cakeId=${dto.cakeId}"><img src="./cakeListImage/${dto.cakeImage}" style="padding-left: 20px;"></a></div>
+			<div><a href="customerCakeDetail.do?cakeId=${dto.cakeId}"><img src="/image/cake/${dto.cakeImage}" style="padding-left: 20px;"></a></div>
 		</c:forEach>
 		
      <!--  clone  -->
       
 		<c:forEach items="${bestCakeList}" var="dto">
-			<div class="clone"><a href="customerCakeDetail.do?cakeId=${dto.cakeId}"><img src="./cakeListImage/${dto.cakeImage}"></a></div>
+			<div class="clone"><a href="customerCakeDetail.do?cakeId=${dto.cakeId}"><img src="/image/cake/${dto.cakeImage}"></a></div>
 		</c:forEach>
       
    </div>
@@ -100,13 +101,13 @@ function getGender(event) {
 				<div class="col">
 				</div>
 				<div class="col1" style="padding-top: 100px; padding-right: 200px;">
-					<img src="./images/Title1.png" /><br>
+					<img src="/image/Title1.png" /><br>
 				</div>
 				<div class="col2" style="padding-left: 220px; padding-top: 7px;">
-					<img src="./images/Title2.png" /><br>
+					<img src="/image/Title2.png" /><br>
 				</div>
 				<div class="col2" style="padding-left: 220px; padding-top: 50px; padding-right: 90px;">
-					<img src="./images/About.png" /><br>
+					<img src="/image/About.png" /><br>
 				</div>
 	
 				<div class="col2" id="font" style="padding-left: 210px; padding-top: 1000px; padding-right: 430px; padding-bottom: 700px">

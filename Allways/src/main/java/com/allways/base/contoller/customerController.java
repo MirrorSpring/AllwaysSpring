@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.allways.base.service.customerMainService;
 import com.allways.base.service.customerProfileService;
 
 @Controller
@@ -14,6 +15,9 @@ public class customerController {
 	
 	@Autowired
 	customerProfileService profileservice;
+	
+	@Autowired
+	customerMainService mainservice;
 
 	@RequestMapping("/Customer/login")
 	public String CustomerLoginView() {
@@ -27,7 +31,7 @@ public class customerController {
 		if (check==false) {
 			return "Customer/customerLogin";
 		} else {
-			return "Customer/customerMain";
+			return "redirect:home";
 		}
 	}
 	
@@ -46,5 +50,11 @@ public class customerController {
 	public String Join(HttpServletRequest request) throws Exception{
 		profileservice.CustomerJoin(request);
 		return "redirect:login";
+	}
+	
+	@RequestMapping("/Customer/home")
+	public String CustomerMain(HttpServletRequest request,Model model) throws Exception{
+		mainservice.CustomerBestCake(request, model);
+		return "Customer/customerMain";
 	}
 }
