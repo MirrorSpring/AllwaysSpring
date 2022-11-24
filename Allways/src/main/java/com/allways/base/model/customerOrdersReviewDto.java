@@ -16,6 +16,14 @@ public class customerOrdersReviewDto {
 		
 	}
 
+	public customerOrdersReviewDto(int rownum, String or_customerId, String oreviewContent, Timestamp oreviewInitdate) {
+		super();
+		this.rownum = rownum;
+		this.or_customerId = or_customerId;
+		this.oreviewContent = oreviewContent;
+		this.oreviewInitdate = oreviewInitdate;
+	}
+
 	public customerOrdersReviewDto(int rownum, String or_customerId, String oreviewContent, Timestamp oreviewInitdate,
 			String oreviewImage, int oreviewStarrating, int or_cakeId) {
 		super();

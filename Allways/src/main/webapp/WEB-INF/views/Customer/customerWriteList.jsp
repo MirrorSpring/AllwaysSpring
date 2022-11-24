@@ -42,7 +42,7 @@ function login(customerId) {
 
 function searchList() {
 	var form = document.myform;
-	form.action = "customerWriteList.do";
+	form.action = "write";
 	form.submit();
 }
 
@@ -70,13 +70,13 @@ function next(commentId, index) {
 				
 				<tr>
 					<td>
-						<a href = "customerWriteList.do"><button type = "button" name = "buttons" id="button_group">BOARD</button></a>&nbsp;
+						<a href = "write"><button type = "button" name = "buttons" id="button_group">BOARD</button></a>&nbsp;
 					</td>
 					<td>
-						<a href = "customerOrdersReview.do"><button type = "button" name = "buttons" id="button_group">REVIEW</button></a>&nbsp;
+						<a href = "review"><button type = "button" name = "buttons" id="button_group">REVIEW</button></a>&nbsp;
 					</td>
 					<td>
-						<a href = "customerQuestionList.do"><button type = "button" name = "buttons" id="button_group">Q&A</button></a>
+						<a href = ""><button type = "button" name = "buttons" id="button_group">Q&A</button></a>
 					</td>
 				</tr>
 				

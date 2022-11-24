@@ -12,4 +12,5 @@ public interface customerReviewService {
 
 	public void WriteReview(MultipartHttpServletRequest request, MultipartFile file) throws Exception;
 	public void PrepareReview(HttpServletRequest request, Model model) throws Exception;
+	public void ReviewList(HttpServletRequest request, Model model) throws Exception;
 }

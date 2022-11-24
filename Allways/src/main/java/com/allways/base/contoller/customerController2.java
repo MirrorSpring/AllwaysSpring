@@ -87,5 +87,11 @@ public class customerController2 {
 		reviewservice.WriteReview(request, file);
 		return "redirect:MyOrder";
 	}
+	
+	@RequestMapping("/Customer/review")
+	public String CustomerReviewList(HttpServletRequest request, Model model) throws Exception{
+		reviewservice.ReviewList(request, model);
+		return "Customer/customerOrderReview";
+	}
 
 }

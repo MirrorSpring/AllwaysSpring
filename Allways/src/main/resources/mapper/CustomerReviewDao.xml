@@ -9,4 +9,10 @@
 		insert into ordersreview (or_customerId, or_ordersId, or_ordersStatus, oreviewContent, oreviewStarRating, oreviewImage, or_cakeId, oreviewInitdate, or_goodsId)
 		values (#{or_customerId}, #{or_ordersId}, "제작완료", #{oreviewContent}, #{oreviewStarRating}, #{oreviewImage}, #{or_cakeId}, now(), 1);
 	</insert>
+	
+	<select id="ReviewList" resultType="com.allways.base.model.customerOrdersReviewDto">
+		select @rownum:=@rownum+1, o.or_customerId, o.oreviewContent, o.oreviewInitdate from ordersreview o
+		where (@rownum:=0)=0 and #{condition} like #{query} and oreviewDeletedate is null order by #{sort} desc;
+	</select>
+	
 </mapper>
