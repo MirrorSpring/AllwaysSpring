@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.allways.base.service.customerBoardService;
 import com.allways.base.service.customerMainService;
 import com.allways.base.service.customerProfileService;
 
@@ -18,6 +19,9 @@ public class customerController {
 	
 	@Autowired
 	customerMainService mainservice;
+	
+	@Autowired
+	customerBoardService boardservice;
 
 	@RequestMapping("/Customer/login")
 	public String CustomerLoginView() {
@@ -125,5 +129,40 @@ public class customerController {
 	public String CustomerMyPoint(HttpServletRequest request, Model model) throws Exception{
 		profileservice.CustomerMyPoint(request, model);
 		return "Customer/customerMypoint";
+	}
+	
+	@RequestMapping("/Customer/board")
+	public String CustomerBoard(HttpServletRequest request, Model model) throws Exception{
+		boardservice.CustomerBoardList(request, model);
+		return "Customer/customerWriteList";
+	}
+	
+	@RequestMapping("/Customer/write")
+	public String WriteView() throws Exception{
+		return "Customer/customerBoardWrite";
+	}
+	
+	@RequestMapping("/Customer/writeBoard")
+	public String WriteBoard(HttpServletRequest request) throws Exception{
+		boardservice.CustomerWriteBoard(request);
+		return "redirect:board";
+	}
+	
+	@RequestMapping("/Customer/boardDetail")
+	public String BoardDetail(HttpServletRequest request, Model model) throws Exception{
+		boardservice.CustomerBoardDetail(request, model);
+		return "Customer/customerBoardDetail";
+	}
+	
+	@RequestMapping("/Customer/writeComment")
+	public String WriteComment(HttpServletRequest request, Model model) throws Exception{
+		boardservice.CustomerWriteComment(request, model);
+		return "redirect:board";
+	}
+	
+	@RequestMapping("/Customer/deleteBoard")
+	public String CustomerDeleteBoard(HttpServletRequest request) throws Exception{
+		boardservice.CustomerDeleteBoard(request);
+		return "redirect:board";
 	}
 }

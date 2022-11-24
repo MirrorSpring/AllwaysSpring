@@ -155,10 +155,10 @@ function signup() {
             </div>
          	   <div class="col-lg-6 text-right">
           	      <div class="d-inline-flex align-items-center">
-          	      	<a class="text-primary pl-2" href="join">
+          	      	<a class="text-primary pl-2" href="join" style="margin:10px">
           	              <i class="text-primary pl-2">JOIN</i>
           	        </a>
-           	     	<a class="text-primary pl-2" href="login">
+           	     	<a class="text-primary pl-2" href="login" style="margin:10px">
                         <i class="text-primary pl-2">LOGIN</i>
                     </a>
                	 </div>
@@ -179,7 +179,7 @@ function signup() {
 		        	</a>
 	                <a href="home" id="center" class="nav-item nav-link active">HOME</a>
 	                <a href="cake" id="center" class="nav-item nav-link active">CAKE</a>
-	                <a href="customerWriteList.do" id="center" class="nav-item nav-link">BOARD</a>
+	                <a href="board" id="center" class="nav-item nav-link">BOARD</a>
 	                <a href="location" id="center" class="nav-item nav-link">LOCATION</a>
 	          		<!--   <a href="" id="center" class="nav-item nav-link" style="width: 300px;"></a> -->
 	                <a href="login" id="center" class="nav-item nav-link">CART</a>
@@ -249,7 +249,7 @@ function signup() {
 		        	</a>
 	                <a href="home" id="center" class="nav-item nav-link active">HOME</a>
 	                <a href="cake" id="center" class="nav-item nav-link active">CAKE</a>
-	                <a href="customerWriteList.do" id="center" class="nav-item nav-link">BOARD</a>
+	                <a href="board" id="center" class="nav-item nav-link">BOARD</a>
 	                <a href="location" id="center" class="nav-item nav-link" >LOCATION</a>
 	                <!-- <a href="" id="center" class="nav-item nav-link" style="width: 300px;"></a> -->
 	                <a href="cart" id="center" class="nav-item nav-link">CART</a>

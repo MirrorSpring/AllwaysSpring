@@ -34,7 +34,7 @@ function writeComment() {
 		form.writeContent.focus();
 		return;
 	}else {
-			form.action = "customerWriteComment.do";
+			form.action = "writeComment";
 			form.submit();
 	}
 		
@@ -84,13 +84,13 @@ function writeComment() {
 								<c:choose>
 									<c:when test="${dto.distinguish == 2 }">
 										<c:choose>
-											<c:when test="${CUSTOMERID == dto.w_customerId }">
+											<c:when test="${ID == dto.w_customerId }">
 												<tbody>
 											        <tr>
 											          <td width="300">&nbsp;&nbsp;↳ ${dto.writeContent }</td>
 											          <td width="110">${dto.customerName }</td>
 											          <td width="120">${dto.writeInitdate }</td>
-											          <td><a href = "customerBoardReCommentDelete.do?recommentId=${dto.recommentId }&writeId=${boardDetail.writeId}">X</a></td>
+											          <td><a href = "deleteBoard?recommentId=${dto.recommentId }&writeId=${boardDetail.writeId}">X</a></td>
 											        </tr>
 										      </tbody>
 											</c:when>
@@ -109,13 +109,13 @@ function writeComment() {
 									
 									<c:otherwise>
 										<c:choose>
-											<c:when test="${CUSTOMERID == dto.w_customerId }">
+											<c:when test="${ID == dto.w_customerId }">
 												<tbody>
 											        <tr>
 											          <td width="300">${dto.writeContent }</td>
 											          <td width="110">${dto.customerName }</td>
 											          <td width="120">${dto.writeInitdate }</td>
-											          <td><a href = "customerBoardCommentDelete.do?WRITEID=${dto.writeId }&writeId=${boardDetail.writeId}">X</a></td>
+											          <td><a href = "deleteBoard?&writeId=${boardDetail.writeId}">X</a></td>
 											        </tr>
 										      </tbody>
 											</c:when>
@@ -140,7 +140,7 @@ function writeComment() {
 								<c:choose>
 									<c:when test="${dto.distinguish == 2 }">
 										<c:choose>
-											<c:when test="${CUSTOMERID == dto.w_customerId }">
+											<c:when test="${ID == dto.w_customerId }">
 												<tbody>
 											        <tr>
 											          <td width="300">&nbsp;&nbsp;↳ 삭제된 글 입니다.</td>
@@ -164,7 +164,7 @@ function writeComment() {
 									
 									<c:otherwise>
 										<c:choose>
-											<c:when test="${CUSTOMERID == dto.w_customerId }">
+											<c:when test="${ID == dto.w_customerId }">
 												<tbody>
 											        <tr>
 											          <td width="300">삭제된 글 입니다.</td>
@@ -200,10 +200,10 @@ function writeComment() {
 		<form name = "myform" method = "post">
 			<input type = "hidden" name = "writeId" value = "${boardDetail.writeId}">
 			<input type = "text" name = "writeContent" size = "65" placeholder="답글 작성란">
-			<c:if test="${CUSTOMERID == null }">
+			<c:if test="${ID == null }">
 				<button type = "button" onclick = "alert('로그인 후 이용 가능합니다.')">OK</button>
 			</c:if>
-			<c:if test="${CUSTOMERID != null }">
+			<c:if test="${ID != null }">
 				<button type = "button" onclick = "writeComment()">OK</button>
 			</c:if>
 		</form>

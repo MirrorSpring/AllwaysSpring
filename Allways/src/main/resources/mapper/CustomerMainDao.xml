@@ -6,7 +6,7 @@
 <mapper namespace="com.allways.base.dao.customerMainDao">
 
 	<select id="CustomerBestCake" resultType="com.allways.base.model.customerCakeDto">
-		select cakeId, cakeName, cakePrice, cakeImage from cake
+		select cakeId, cakeName, cakePrice, cakeImage from cake where cakeDeletedate is null
 		order by cakeLike desc limit 8;
 	</select>
 

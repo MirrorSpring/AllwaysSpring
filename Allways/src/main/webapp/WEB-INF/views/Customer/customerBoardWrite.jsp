@@ -52,7 +52,7 @@ function writeAction(){
 		
 	}else {
 		alert("게시글이 등록 되었습니다.");
-		form.action = "customerBoardWrite.do";
+		form.action = "writeBoard";
 		form.submit();
 	}
 	
@@ -64,7 +64,7 @@ function writeAction(){
 <body>
 
 <%@include file="customerHeader.jsp" %>
-
+<!-- 
 <div align="center" style = "margin-top: 110px">
 		<form name = "list" method = "post">
 			<table>
@@ -84,7 +84,7 @@ function writeAction(){
 			</table>
 		</form>
 	</div>
-
+ -->
 	<form class="mb-3" name="myform" id="myform" method="post">
 	
 		<div align="center" style = "margin-top: 100px;">

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="com.allways.base.dao.customerBoardDao">
+
+	<select id="BoardList" resultType="com.allways.base.model.customerBoardDto">
+		select * from (
+		select row_number() over(order by commentId) as rownum,
+		writeTitle, writeContent, w_customerId, writeInitdate, distinguish, writeId, writeDeletedate, commentId
+		from `write` where ${condition} like #{query} order by commentId desc, writeInitdate asc) w;
+	</select>
+	
+	<select id="WriteId" resultType="int">
+		select max(writeId) from `write`;
+	</select>
+	
+	<insert id="WriteBoard">
+		insert into `write` (w_customerId, commentId, distinguish, writeTitle, writeContent, writeInitdate)
+		values (#{w_customerId}, #{commentId}, 0, #{writeTitle}, #{writeContent}, now());
+	</insert>
+	
+	<select id="BoardDetail" resultType="com.allways.base.model.customerBoardDto">
+		select w.writeId, c.customerName, w.writeTitle, w.writeContent, w.writeInitdate
+		from `write` w, customer c where w.w_customerId = c.customerId and w.writeId = #{writeId};
+	</select>
+	
+	<select id="BoardComment" resultType="com.allways.base.model.customerBoardDto">
+		select * from (
+		select row_number() over(order by commentId) as rownum, c.customerName,
+		w.writeContent, w.writeInitdate, w.w_customerId, distinguish, recommentId, writeDeletedate, writeId
+		from `write` w, customer c 
+		where commentId = #{commentId} and distinguish > 0 and w.w_customerId = c.customerId
+		order by recommentId) w;
+	</select>
+	 
+	 <insert id="WriteComment">
+	 	insert into `write` (w_customerId, distinguish, commentId, recommentId, writeContent, writeInitdate)
+	 	values (#{w_customerId}, 1, #{commentId}, 0, #{writeContent}, now());
+	 </insert>
+	 
+	 <update id="DeleteBoard">
+	 	update `write` set writeDeletedate = now() where writeId = #{writeId};
+	 </update>
+	
+</mapper>
