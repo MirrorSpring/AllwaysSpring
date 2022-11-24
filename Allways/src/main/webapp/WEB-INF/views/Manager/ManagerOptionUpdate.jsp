@@ -101,11 +101,8 @@ function previewFile() {
 			<div style="width:50%;display:inline-block">
 				<select name="cakeoptionCategory"  style="background:#ffffff;border-color:#a87878;color:#a87878">
 					<option value="size">size</option>
-					<option value="IcingColor">IcingColor</option>
-					<option value="BorderColor">BorderColor</option>
 					<option value="Flavor">Flavor</option>
-					<option value="MassageColor">MassageColor</option>
-					<option value="Box">Box</option>
+					<option value="Shape">Shape</option>
 				</select>
 			</div>
 		</div>

@@ -17,7 +17,7 @@
 	
 	<select id="CustomerCakeOption" resultType="com.allways.base.model.customercakeOptionDto">
 		select cakeoptionId, cakeoptionCategory, cakeoptionValue, cakeoptionPrice from cakeoption
-		where cakeoptionCategory=#{cakeoptionCategory} and cakeoptionDeletedate is null
+		where cakeoptionCategory=#{cakeoptionCategory} and cakeoptionDeletedate is null order by cakeOptionPrice asc;
 	</select>
 	
 	<select id="ShowReview" resultType="com.allways.base.model.customerOrdersReviewDto">
@@ -82,6 +82,11 @@
 	
 	<update id="addPoint">
 		update orders set ordersPoint=#{ordersPoint} where ordersId=#{ordersId} and ordersStatus='구매';
+		
+	</update>
+	
+	<update id="addPoint2">
+		update orders set ordersPoint=0 where ordersId=#{ordersId} and ordersStatus='장바구니';
 	</update>
 	
 	<!-- 케이크 주문 프로세스 끝 -->

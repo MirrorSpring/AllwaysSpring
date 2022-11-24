@@ -70,10 +70,10 @@ color: #766262;
 		    Sort
 		  </button>
 		  <ul class="dropdown-menu">
-		  	<li><a class="dropdown-item" href="customerCakeList.do?sort1=cakePrice&sort2=asc&index=${index }">Price Row - High</a></li>
-		    <li><a class="dropdown-item" href="customerCakeList.do?sort1=cakePrice&sort2=desc&index=${index }">Price High - Row</a></li>
-		    <li><a class="dropdown-item" href="customerCakeList.do?sort1=cakeLike&sort2=desc&index=${index }">Likes</a></li>
-		    <li><a class="dropdown-item" href="customerCakeList.do?sort1=cakeViews&sort2=desc&index=${index }">Views</a></li>
+		  	<li><a class="dropdown-item" href="cake?sort1=cakePrice&sort2=asc&index=${index }">Price Row - High</a></li>
+		    <li><a class="dropdown-item" href="cake?sort1=cakePrice&sort2=desc&index=${index }">Price High - Row</a></li>
+		    <li><a class="dropdown-item" href="cake?sort1=cakeLike&sort2=desc&index=${index }">Likes</a></li>
+		    <li><a class="dropdown-item" href="cake?sort1=cakeViews&sort2=desc&index=${index }">Views</a></li>
 		  </ul>
 		</div>
 
@@ -122,11 +122,11 @@ color: #766262;
 							<c:if test="${cnt <= Math.ceil(arrsize / rowcount)}">
 							
 								<c:if test="${cnt == index }">
-									<a href="cake.do?index=${cnt }&sort1=${sort1}&sort2=${sort2}" style="font-size:1.3em">[${cnt }]</a>
+									<a href="cake?index=${cnt }&sort1=${sort1}&sort2=${sort2}" style="font-size:1.3em">[${cnt }]</a>
 								</c:if>
 						
 								<c:if test = "${cnt != index }">
-									<a href="cake.do?index=${cnt }&sort1=${sort1}&sort2=${sort2}" style="font-size:0.9em">[${cnt }]</a>&nbsp;
+									<a href="cake?index=${cnt }&sort1=${sort1}&sort2=${sort2}" style="font-size:0.9em">[${cnt }]</a>&nbsp;
 								</c:if>
 								
 							</c:if>
@@ -137,7 +137,7 @@ color: #766262;
 						</c:if>
 						
 						<c:if test="${index < Math.ceil(arrsize / rowcount)}">
-							<a href="cake.do?index=${index+1 }&sort1=${sort1}&sort2=${sort2}">다음</a>&nbsp;
+							<a href="cake?index=${index+1 }&sort1=${sort1}&sort2=${sort2}">다음</a>&nbsp;
 						</c:if>
 						
 					</td>

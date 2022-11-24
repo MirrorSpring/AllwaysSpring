@@ -92,13 +92,17 @@ public class managerOptionServiceImpl implements managerOptionService {
 		String optionPrice=request.getParameter("optionPrice");
 		
 		String origName = file.getOriginalFilename();
-        String uuid = UUID.randomUUID().toString();
-        String extension = origName.substring(origName.lastIndexOf("."));
-        String optionImage = uuid + extension;
-        String savedPath = context.getRealPath("/") + "image/option/" + optionImage;
-        file.transferTo(new File(savedPath));
+		if (origName==null||origName.equals("")==true) {
+			dao.ManagerAddOption(cakeoptionCategory, optionValue, optionPrice, null);
+		} else {
+			String uuid = UUID.randomUUID().toString();
+			String extension = origName.substring(origName.lastIndexOf("."));
+			String optionImage = uuid + extension;
+			String savedPath = context.getRealPath("/") + "image/option/" + optionImage;
+			file.transferTo(new File(savedPath));
+			dao.ManagerAddOption(cakeoptionCategory, optionValue, optionPrice, optionImage);
+		}
         
-        dao.ManagerAddOption(cakeoptionCategory, optionValue, optionPrice, optionImage);
 	}
 
 	@Override

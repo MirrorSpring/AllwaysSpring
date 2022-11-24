@@ -94,4 +94,9 @@ public class customerCakeDaoImpl implements customerCakeDao {
 		return sqlSession.selectList(nameSpace + ".ShowReview");
 	}
 
+	@Override
+	public void addPoint2(int ordersId) throws Exception {
+		sqlSession.update(nameSpace + ".addPoint2");
+	}
+
 }

@@ -27,7 +27,7 @@ public class customerCakeServiceImpl implements customerCakeService {
 		String sort1 = request.getParameter("sort1");
 		String sort2 = request.getParameter("sort2");
 		int index = 1;
-		int rowcount = 7;
+		int rowcount = 8;
 		int pagecount = 5;
 		int pagepage = 0;
 
@@ -54,7 +54,7 @@ public class customerCakeServiceImpl implements customerCakeService {
 		List<customerCakeDto> dtos = dao.CustomerCakeList(sort1, sort2);
 
 		model.addAttribute("cakeList", dtos);
-		model.addAttribute("Size", dtos.size());
+		model.addAttribute("arrsize", dtos.size());
 		model.addAttribute("index", index);
 		model.addAttribute("rowcount", rowcount);
 		model.addAttribute("pagecount", pagecount);
@@ -193,6 +193,7 @@ public class customerCakeServiceImpl implements customerCakeService {
 					Integer.parseInt(ordersSalePrice[i]), Integer.parseInt(ordersQuantity[i]),
 					Integer.parseInt(ordersSalePrice[i]) / 10);
 			dao.addPoint(Integer.parseInt(ordersSalePrice[i]) / 10, Integer.parseInt(ordersId[i]));
+			dao.addPoint2(Integer.parseInt(ordersId[i]));
 		}
 	}
 
