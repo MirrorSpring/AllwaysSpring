@@ -31,7 +31,7 @@
 	
 	<insert id="ManagerAddStatus">
 		insert into orders (ordersId, ordersStatus,o_customerId,o_cakeId,o_goodsId,ordersSalePrice,ordersQuantity,ordersPoint)
-		values (#{ordersId}, '제작중', #{o_customerId}, #{o_cakeId}, #{o_goodsId}, #{ordersSalePrice}, #{ordersQuantity}, #{ordersPoint});
+		values (#{ordersId}, '제작중', #{o_customerId}, #{o_cakeId}, #{o_goodsId}, #{ordersSalePrice}, #{ordersQuantity}, 0);
 	</insert>
 	
 	<update id="ManagerAlterStatus">
@@ -40,7 +40,7 @@
 	
 	<insert id="ManagerAddStatus2">
 		insert into orders (ordersId, ordersStatus,o_customerId,o_cakeId,o_goodsId,ordersSalePrice,ordersQuantity,ordersPoint)
-		values (#{ordersId}, '제작완료', #{o_customerId}, #{o_cakeId}, #{o_goodsId}, #{ordersSalePrice}, #{ordersQuantity}, #{ordersPoint});
+		values (#{ordersId}, '제작완료', #{o_customerId}, #{o_cakeId}, #{o_goodsId}, #{ordersSalePrice}, #{ordersQuantity}, 0);
 	</insert>
 	
 	<update id="ManagerAlterStatus2">

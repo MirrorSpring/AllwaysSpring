@@ -120,4 +120,10 @@ public class customerController {
 		profileservice.CustomerResetPw(request);
 		return "redirect:login";
 	}
+	
+	@RequestMapping("/Customer/myPoint")
+	public String CustomerMyPoint(HttpServletRequest request, Model model) throws Exception{
+		profileservice.CustomerMyPoint(request, model);
+		return "Customer/customerMypoint";
+	}
 }

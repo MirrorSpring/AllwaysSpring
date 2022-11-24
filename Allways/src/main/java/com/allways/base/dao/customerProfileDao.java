@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.allways.base.model.customerInfoDto;
 import com.allways.base.model.customerOrdersDto;
+import com.allways.base.model.customerPointDto;
 
 public interface customerProfileDao {
 
@@ -32,4 +33,8 @@ public interface customerProfileDao {
 	public int FindPw(String customerId, String customerName, String customerBirthday, String customerPhone, String customerEmail) throws Exception;
 	
 	public void ResetPw(String customerPw, String customerId) throws Exception;
+	
+	public List<customerPointDto> MyPoint(String customerId) throws Exception;
+	
+	public int TotalPoint(String customerId) throws Exception;
 }

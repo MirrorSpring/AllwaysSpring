@@ -19,4 +19,5 @@ public interface customerProfileService {
 	public void CustomerFindId(HttpServletRequest request, Model model) throws Exception;
 	public void CustomerFindPw(HttpServletRequest request, Model model) throws Exception;
 	public void CustomerResetPw(HttpServletRequest request) throws Exception;
+	public void CustomerMyPoint(HttpServletRequest request, Model model) throws Exception;
 }

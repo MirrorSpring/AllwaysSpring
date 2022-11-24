@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import com.allways.base.dao.customerProfileDao;
 import com.allways.base.model.customerInfoDto;
 import com.allways.base.model.customerOrdersDto;
+import com.allways.base.model.customerPointDto;
 
 @Service
 public class customerProfileServiceImpl implements customerProfileService {
@@ -146,11 +147,11 @@ public class customerProfileServiceImpl implements customerProfileService {
 		List<customerOrdersDto> dtos=dao.ViewMyOrder(customerId);
 		model.addAttribute("orderList", dtos);
 		model.addAttribute("arrsize", dtos.size());
-		request.setAttribute("maxpage", maxpage);
-		request.setAttribute("index", index);
-		request.setAttribute("rowcount", rowcount);
-		request.setAttribute("pagecount", pagecount);
-		request.setAttribute("pagepage", pagepage);
+		model.addAttribute("maxpage", maxpage);
+		model.addAttribute("index", index);
+		model.addAttribute("rowcount", rowcount);
+		model.addAttribute("pagecount", pagecount);
+		model.addAttribute("pagepage", pagepage);
 	}
 
 	@Override
@@ -185,10 +186,43 @@ public class customerProfileServiceImpl implements customerProfileService {
 
 	@Override
 	public void CustomerResetPw(HttpServletRequest request) throws Exception {
-		String customerPw=request.getParameter("password");
+		String customerPw=request.getParameter("customerPw");
 		String customerId=request.getParameter("customerId");
 		
 		dao.ResetPw(customerPw, customerId);
+	}
+
+	@Override
+	public void CustomerMyPoint(HttpServletRequest request, Model model) throws Exception {
+		HttpSession session=request.getSession();
+		String customerId=(String) session.getAttribute("ID");
+		List<customerPointDto> dto=dao.MyPoint(customerId);
+		int totalpoint=dao.TotalPoint(customerId);
+		int index = 1; // 시작 페이지 번호
+		int rowcount = 10; // 한 페이지에 출력할 리스트 개수
+		int pagecount = 10; // 한 페이지에 출력할 페이지 개수
+		int pagepage = 0; // 몇 페이지부터 몇 페이지까지 출력할지
+
+		int maxpage = (0 % rowcount) != 0 ? (0 / rowcount) + 1 : (0 / rowcount);
+
+		if (request.getParameter("index") != null) {
+			index = (int) Float.parseFloat(request.getParameter("index"));
+		}
+
+		if (index % pagecount == 0) {
+			pagepage = index / pagecount - 1;
+		} else {
+			pagepage = index / pagecount;
+		}
+		
+		model.addAttribute("myPointList", dto);
+		model.addAttribute("arrsize", dto.size());
+		model.addAttribute("maxpage", maxpage);
+		model.addAttribute("index", index);
+		model.addAttribute("rowcount", rowcount);
+		model.addAttribute("pagecount", pagecount);
+		model.addAttribute("pagepage", pagepage);
+		model.addAttribute("totalPoint", totalpoint);
 	}
 
 }

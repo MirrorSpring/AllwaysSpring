@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.allways.base.model.customerInfoDto;
 import com.allways.base.model.customerOrdersDto;
+import com.allways.base.model.customerPointDto;
 
 
 public class customerProfileDaoImpl implements customerProfileDao {
@@ -72,6 +73,17 @@ public class customerProfileDaoImpl implements customerProfileDao {
 	@Override
 	public void ResetPw(String customerPw, String customerId) throws Exception {
 		sqlSession.update(nameSpace + ".ResetPw");
+	}
+
+	@Override
+	public List<customerPointDto> MyPoint(String customerId) throws Exception {
+		
+		return sqlSession.selectList(nameSpace + ".MyPoint");
+	}
+
+	@Override
+	public int TotalPoint(String customerId) throws Exception {
+		return sqlSession.selectOne(nameSpace + ".TotalPoint");
 	}
 
 }

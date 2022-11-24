@@ -59,4 +59,13 @@
 		update customer set customerPw=#{customerPw} where customerId=#{customerId};
 	</update>
 	
+	<select id="MyPoint" resultType="com.allways.base.model.customerPointDto">
+		select c.cakeName, o.ordersSalePrice, o.ordersQuantity, o.ordersPoint from orders o, cake c
+		where o.o_cakeId = c.cakeId and o.o_customerId = #{customerId}
+		and o.ordersPoint > 0 order by o.ordersDate desc;
+	</select>
+	
+	<select id="TotalPoint" resultType="int">
+		select sum(ordersPoint) from orders where o_customerId=#{customerId};
+	</select>
 </mapper>

@@ -33,7 +33,7 @@ public class managerOrdersDaoImpl implements managerOrdersDao {
 
 	@Override
 	public void ManagerAddStatus(int ordersId, String o_customerId, int o_cakeId, int o_goodsId,
-			int ordersSalePrice, int ordersQuantity, int ordersPoint) throws Exception {
+			int ordersSalePrice, int ordersQuantity) throws Exception {
 		sqlSession.insert(nameSpace + ".ManagerAddStatus");
 	}
 
@@ -44,7 +44,7 @@ public class managerOrdersDaoImpl implements managerOrdersDao {
 
 	@Override
 	public void ManagerAddStatus2(int ordersId, String o_customerId, int o_cakeId, int o_goodsId, int ordersSalePrice,
-			int ordersQuantity, int ordersPoint) throws Exception {
+			int ordersQuantity) throws Exception {
 		sqlSession.insert(nameSpace + ".ManagerAddStatus2");
 	}
 

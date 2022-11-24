@@ -49,13 +49,12 @@ public class managerOrdersServiceImpl implements managerOrdersService {
 		int o_goodsId=Integer.parseInt(request.getParameter("o_goodsId"));
 		int ordersSalePrice=Integer.parseInt(request.getParameter("ordersSalePrice"));
 		int ordersQuantity=Integer.parseInt(request.getParameter("ordersQuantity"));
-		int ordersPoint=Integer.parseInt(request.getParameter("ordersPoint"));
 		
 		if (ordersStatus.equals("구매")) {
-			dao.ManagerAddStatus(ordersId, o_customerId, o_cakeId, o_goodsId, ordersSalePrice, ordersQuantity, ordersPoint);
+			dao.ManagerAddStatus(ordersId, o_customerId, o_cakeId, o_goodsId, ordersSalePrice, ordersQuantity);
 			dao.ManagerAlterStatus(ordersId);
 		} else if(ordersStatus.equals("제작중")) {
-			dao.ManagerAddStatus2(ordersId, o_customerId, o_cakeId, o_goodsId, ordersSalePrice, ordersQuantity, ordersPoint);
+			dao.ManagerAddStatus2(ordersId, o_customerId, o_cakeId, o_goodsId, ordersSalePrice, ordersQuantity);
 			dao.ManagerAlterStatus2(ordersId);
 		}
 	}

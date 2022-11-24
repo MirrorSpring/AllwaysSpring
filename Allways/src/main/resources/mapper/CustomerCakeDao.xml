@@ -81,7 +81,7 @@
 	</insert>
 	
 	<update id="addPoint">
-		update orders set ordersPoint=#{ordersPoint} where ordersId=#{ordersId}
+		update orders set ordersPoint=#{ordersPoint} where ordersId=#{ordersId} and ordersStatus='구매';
 	</update>
 	
 	<!-- 케이크 주문 프로세스 끝 -->
