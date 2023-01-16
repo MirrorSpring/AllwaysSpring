@@ -7,7 +7,12 @@
 
 	<select id="ManagerCakeList" resultType="com.allways.base.model.managerCakeListDto">
 		select cakeId, cakeName, cakePrice, cakeViews, cakeLike from cake
-		where cakeDeletedate is null and cakeName like #{cakeName};
+		where cakeDeletedate is null and cakeName like #{cakeName} limit #{a}, #{b};
+	</select>
+	
+	<select id="CakeCount" resultType="int">
+		select count(*) from cake
+		where cakeDeletedate is null and cakeName like #{cakeName}
 	</select>
 	
 	<insert id="ManagerAddCake">

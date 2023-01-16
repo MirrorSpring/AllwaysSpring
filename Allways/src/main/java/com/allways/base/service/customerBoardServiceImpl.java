@@ -14,14 +14,14 @@ import com.allways.base.model.customerBoardDto;
 
 @Service
 public class customerBoardServiceImpl implements customerBoardService {
-	
+
 	@Autowired
 	customerBoardDao dao;
 
 	@Override
 	public void CustomerBoardList(HttpServletRequest request, Model model) throws Exception {
-		String condition=request.getParameter("combo");
-		String query=request.getParameter("searchContent");
+		String condition = request.getParameter("combo");
+		String query = request.getParameter("searchContent");
 		int index = 1; // 시작 페이지 번호
 		int rowcount = 10; // 한 페이지에 출력할 리스트 개수
 		int pagecount = 10; // 한 페이지에 출력할 페이지 개수
@@ -38,19 +38,21 @@ public class customerBoardServiceImpl implements customerBoardService {
 		} else {
 			pagepage = index / pagecount;
 		}
-		
-		if (condition==null||condition.equals("")==true) {
-			condition="writeTitle";
+
+		if (condition == null || condition.equals("") == true) {
+			condition = "writeTitle";
+		}
+
+		if (query == null) {
+			query = "";
 		}
 		
-		if (query==null) {
-			query="";
-		}
-		
-		List<customerBoardDto> dto=dao.BoardList(condition, "%" + query + "%");
-		
+		int size=dao.BoardCount(condition, query);
+
+		List<customerBoardDto> dto = dao.BoardList(condition, "%" + query + "%", (index - 1) * 5, 5);
+
 		model.addAttribute("writeList", dto);
-		model.addAttribute("arrsize", dto.size());
+		model.addAttribute("arrsize", size);
 		model.addAttribute("maxpage", maxpage);
 		model.addAttribute("index", index);
 		model.addAttribute("rowcount", rowcount);
@@ -60,22 +62,22 @@ public class customerBoardServiceImpl implements customerBoardService {
 
 	@Override
 	public void CustomerWriteBoard(HttpServletRequest request) throws Exception {
-		HttpSession session=request.getSession();
-		String w_customerId=(String) session.getAttribute("ID");
-		String writeTitle=request.getParameter("writeTitle");
-		String writeContent=request.getParameter("writeContent");
-		
-		int commentId=dao.WriteId();
-		
-		dao.WriteBoard(w_customerId, commentId+1, writeTitle, writeContent);
+		HttpSession session = request.getSession();
+		String w_customerId = (String) session.getAttribute("ID");
+		String writeTitle = request.getParameter("writeTitle");
+		String writeContent = request.getParameter("writeContent");
+
+		int commentId = dao.WriteId();
+
+		dao.WriteBoard(w_customerId, commentId + 1, writeTitle, writeContent);
 	}
 
 	@Override
 	public void CustomerBoardDetail(HttpServletRequest request, Model model) throws Exception {
-		int writeId=Integer.parseInt(request.getParameter("writeId"));
-		customerBoardDto dto=dao.BoardDetail(writeId);
-		List<customerBoardDto> dto2=dao.BoardComment(writeId);
-		
+		int writeId = Integer.parseInt(request.getParameter("writeId"));
+		customerBoardDto dto = dao.BoardDetail(writeId);
+		List<customerBoardDto> dto2 = dao.BoardComment(writeId);
+
 		model.addAttribute("boardDetail", dto);
 		model.addAttribute("boardComment", dto2);
 		model.addAttribute("boardlength", dto2.size());
@@ -83,12 +85,11 @@ public class customerBoardServiceImpl implements customerBoardService {
 
 	@Override
 	public void CustomerWriteComment(HttpServletRequest request, Model model) throws Exception {
-		HttpSession session=request.getSession();
-		String customerId=(String) session.getAttribute("ID");
-		int commentId=Integer.parseInt(request.getParameter("writeId"));
-		String writeContent=request.getParameter("writeContent");
+		HttpSession session = request.getSession();
+		String customerId = (String) session.getAttribute("ID");
+		int commentId = Integer.parseInt(request.getParameter("writeId"));
+		String writeContent = request.getParameter("writeContent");
 
-		
 		dao.WriteComment(customerId, commentId, writeContent);
 		model.addAttribute("writeId", commentId);
 
@@ -96,9 +97,8 @@ public class customerBoardServiceImpl implements customerBoardService {
 
 	@Override
 	public void CustomerDeleteBoard(HttpServletRequest request) throws Exception {
-		int writeId=Integer.parseInt(request.getParameter("writeId"));
+		int writeId = Integer.parseInt(request.getParameter("writeId"));
 		dao.DeleteBoard(writeId);
 	}
-	
 
 }

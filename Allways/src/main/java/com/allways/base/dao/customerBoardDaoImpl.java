@@ -12,7 +12,7 @@ public class customerBoardDaoImpl implements customerBoardDao {
 	String nameSpace="com.allways.base.dao.customerBoardDao";
 
 	@Override
-	public List<customerBoardDto> BoardList(String condition, String query) throws Exception {
+	public List<customerBoardDto> BoardList(String condition, String query, int a, int b) throws Exception {
 		return sqlSession.selectList(nameSpace + ".BoardList");
 	}
 
@@ -45,6 +45,12 @@ public class customerBoardDaoImpl implements customerBoardDao {
 	@Override
 	public void DeleteBoard(int writeId) throws Exception {
 		sqlSession.update(nameSpace + ".DeleteBoard");
+	}
+
+	@Override
+	public int BoardCount(String condition, String query) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(nameSpace + ".BoardCount");
 	}
 
 }

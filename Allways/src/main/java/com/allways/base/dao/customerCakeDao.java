@@ -10,7 +10,7 @@ import com.allways.base.model.customercakeOptionDto;
 
 public interface customerCakeDao {
 	
-	public List<customerCakeDto> CustomerCakeList(String sort1, String sort2) throws Exception;
+	public List<customerCakeDto> CustomerCakeList(String sort1, String sort2, int a, int b) throws Exception;
 	public customerCakeDto CustomerCakeDetail(int cakeId) throws Exception;
 	public List<customercakeOptionDto> CustomerCakeOption(String cakeoptionCategory) throws Exception;
 	public void CustomerAddCart(String ordersStatus, String o_customerId, int o_cakeId, int ordersSalePrice, int ordersQuantity) throws Exception;
@@ -26,5 +26,6 @@ public interface customerCakeDao {
 	public void addPoint(int ordersPoint, int ordersId) throws Exception;
 	public List<customerOrdersReviewDto> ShowReview(int cakeId) throws Exception;
 	public void addPoint2(int ordersId) throws Exception;
+	public int CakeCount(String sort1, String sort2) throws Exception;
 	
 }

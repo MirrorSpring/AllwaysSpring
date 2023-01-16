@@ -7,13 +7,13 @@
 
 	<select id="ManagerViewOrdersReviewList" resultType="com.allways.base.model.managerOrdersReviewDto">
 		select oreviewId, or_customerId, cakeName, goodsName, oreviewStarrating, oreviewInitdate
-		from cake, goods, ordersreview where or_cakeId=cakeId and or_goodsId=goodsId and oreviewDeletedate is null;
+		from cake, goods, ordersreview where or_cakeId=cakeId and or_goodsId=goodsId and oreviewDeletedate is null limit #{a}, #{b};
 	</select>
 	
 	<select id="ManagerSearchOrdersReview" resultType="com.allways.base.model.managerOrdersReviewDto">
 		select oreviewId, or_customerId, cakeName, goodsName, oreviewStarrating, oreviewInitdate
 		from cake, goods, ordersreview where or_cakeId=cakeId and or_goodsId=goodsId and oreviewDeletedate is null
-		and ${condition} like #{query} order by oreviewInitdate desc;
+		and ${condition} like #{query} order by oreviewInitdate desc limit #{a}, #{b};
 	</select>
 	
 	<select id="ManagerOrdersReviewDetail" resultType="com.allways.base.model.managerOrdersReviewDto">

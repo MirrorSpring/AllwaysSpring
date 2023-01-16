@@ -16,7 +16,7 @@ public class customerCakeDaoImpl implements customerCakeDao {
 	String nameSpace="com.allways.base.dao.customerCakeDao";
 	
 	@Override
-	public List<customerCakeDto> CustomerCakeList(String sort1, String sort2)
+	public List<customerCakeDto> CustomerCakeList(String sort1, String sort2, int a, int b)
 			throws Exception {
 		return sqlSession.selectList(nameSpace + ".CustomerCakeList");
 	}
@@ -97,6 +97,12 @@ public class customerCakeDaoImpl implements customerCakeDao {
 	@Override
 	public void addPoint2(int ordersId) throws Exception {
 		sqlSession.update(nameSpace + ".addPoint2");
+	}
+
+	@Override
+	public int CakeCount(String sort1, String sort2) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(nameSpace + ".CakeCount");
 	}
 
 }

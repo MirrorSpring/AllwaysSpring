@@ -79,7 +79,7 @@ color: #766262;
 
 		<div class="row" style="padding-left: 35px; margin-right: 0px;">
 			
-			<c:forEach items="${cakeList}" var="dto" begin="${(index - 1) * rowcount }" end="${(index) * rowcount - 1}">
+			<c:forEach items="${cakeList}" var="dto" begin="0" end="8">
 				<div class="col-lg-3 col-md-6" style="padding-bottom: 20px;" id="cakeList">
 					<div class="card" style="width: 20rem;">
 					<a href="cakeDetail?cakeId=${dto.cakeId}">

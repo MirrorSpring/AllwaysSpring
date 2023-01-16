@@ -13,7 +13,7 @@
 	
 	<select id="ManagerMakeXaxis" resultType="string">
 		select concat(month(ordersDate), '/', day(ordersDate)) from orders where ordersStatus='구매' and ordersDate>=curdate()-5
-		group by date(ordersDate);
+		group by date(ordersDate) order by date(ordersDate);
 	</select>
 	
 	<select id="ManagerMakeSale" resultType="int">

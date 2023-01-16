@@ -7,6 +7,11 @@
 
 	<select id="CustomerCakeList" resultType="com.allways.base.model.customerCakeDto">
 		select cakeId, cakeName, cakePrice, cakeImage, cakeLike, cakeViews from cake
+		where cakeDeletedate is null order by ${sort1} ${sort2} limit #{a}, #{b}
+	</select>
+	
+	<select id="CakeCount" resultType="int">
+		select count(*) from cake
 		where cakeDeletedate is null order by ${sort1} ${sort2}
 	</select>
 	

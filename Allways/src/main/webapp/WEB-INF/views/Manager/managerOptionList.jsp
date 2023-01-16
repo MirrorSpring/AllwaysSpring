@@ -92,7 +92,7 @@ function Addoption(){
 			<th>옵션</th>
 			<th>가격</th>
 		</tr>	
-			<c:forEach items = "${dto}" var = "dto" begin="${(index-1)*rowcount }" end="${(index)*rowcount-1}">
+			<c:forEach items = "${dto}" var = "dto" begin="0" end="${dto.size()}">
 			
 		<tr>
 			<td><a href="optionDetail?cakeoptionId=${dto.cakeoptionId}" class="tablebutton">${dto.cakeoptionId}</a></td>
@@ -109,7 +109,7 @@ function Addoption(){
 	<c:if test="${index!=1 }">
 		<a href="cakeOption?index=${index-1 }">이전</a>
 	</c:if>
-	<c:forEach var="dto" begin="${pagecount*pagepage+1}" end="${pagecount*(pagepage+1) }">
+	<c:forEach var="dto" begin="1" end="${Math.ceil(Size/5)}">
 		<c:if test="${dto<=Math.ceil(Size/rowcount) }">
 			<c:if test="${dto==index }">
 				<span style="display:inline">

@@ -12,13 +12,13 @@ public class managerOptionDaoImpl implements managerOptionDao {
 	public static String nameSpace="com.allways.base.dao.managerOptionDao";
 	
 	@Override
-	public List<managerOptionDto> ManagerViewOptionList() throws Exception {
+	public List<managerOptionDto> ManagerViewOptionList(int a, int b) throws Exception {
 		System.out.println("success");
 		return sqlSession.selectList(nameSpace + ".ManagerViewOptionList");
 	}
 
 	@Override
-	public List<managerOptionDto> ManagerSearchOption(String condition, String query) throws Exception {
+	public List<managerOptionDto> ManagerSearchOption(String condition, String query, int a, int b) throws Exception {
 		return sqlSession.selectList(nameSpace + ".ManagerSearchOption");
 	}
 
@@ -58,6 +58,18 @@ public class managerOptionDaoImpl implements managerOptionDao {
 	@Override
 	public void ManagerDeleteOption(int cakeoptionId) throws Exception {
 		sqlSession.update(nameSpace + ".ManagerDeleteOption");
+	}
+
+	@Override
+	public int OptionCount() throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(nameSpace + ".OptionCount");
+	}
+
+	@Override
+	public int SearchCount(String condition, String query) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(nameSpace + ".SearchCount");
 	}
 
 }

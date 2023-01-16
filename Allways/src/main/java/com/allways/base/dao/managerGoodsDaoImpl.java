@@ -12,7 +12,7 @@ public class managerGoodsDaoImpl implements managerGoodsDao {
 	public static String nameSpace="com.allways.base.dao.managerGoodsDao";
 	
 	@Override
-	public List<managerGoodsListDto> ManagerViewGoodsList(String goodsCategory, String goodsName) throws Exception {
+	public List<managerGoodsListDto> ManagerViewGoodsList(String goodsCategory, String goodsName, int a, int b) throws Exception {
 		return sqlSession.selectList(nameSpace + ".ManagerViewGoodsList");
 	}
 
@@ -57,6 +57,12 @@ public class managerGoodsDaoImpl implements managerGoodsDao {
 	@Override
 	public void ManagerDeleteGoods(String goodsOriginalName) throws Exception {
 		sqlSession.update(nameSpace + ".ManagerDeleteGoods");
+	}
+
+	@Override
+	public int GoodsCount(String goodsCategory, String goodsName) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(nameSpace + ".GoodsCount");
 	}
 
 }

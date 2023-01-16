@@ -8,12 +8,18 @@
 	<select id="ManagerViewGoodsList" resultType="com.allways.base.model.managerGoodsListDto">
 		select goodsId, goodsName, goodsCategory, goodsPrice from goods
 		where goodsDeletedate is null and goodsCategory=#{goodsCategory}
+		and goodsName like #{goodsName} limit #{a}, #{b};
+	</select>
+	
+	<select id="GoodsCount" resultType="int">
+		select goodsId, goodsName, goodsCategory, goodsPrice from goods
+		where goodsDeletedate is null and goodsCategory=#{goodsCategory}
 		and goodsName like #{goodsName}
 	</select>
 	
 	<select id="ManagerViewAllGoods" resultType="com.allways.base.model.managerGoodsListDto">
 		select goodsId, goodsName, goodsCategory, goodsPrice from goods
-		where goodsDeletedate is null and goodsName like #{goodsName};
+		where goodsDeletedate is null and goodsName like #{goodsName} limit #{a}, #{b};
 	</select>
 	
 	<insert id="ManagerAddGoods">

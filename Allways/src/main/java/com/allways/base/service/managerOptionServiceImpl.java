@@ -51,11 +51,12 @@ public class managerOptionServiceImpl implements managerOptionService {
 			condition="cakeoptionId";
 			query="";
 		}
+		int size=dao.SearchCount(condition, query);
 		
-		List<managerOptionDto> dto=dao.ManagerSearchOption(condition, "%" + query + "%");
+		List<managerOptionDto> dto=dao.ManagerSearchOption(condition, "%" + query + "%", (index-1)*5,5);
 		
 		model.addAttribute("dto", dto);
-		model.addAttribute("Size", dto.size());
+		model.addAttribute("Size", size);
 		
 		model.addAttribute("index", index);
 		model.addAttribute("rowcount", rowcount);

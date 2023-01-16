@@ -96,7 +96,7 @@
 					<td colspan="4" align="center">검색 결과가 없습니다.</td>
 				</tr>
 			</c:if>
-			<c:forEach var="cnt" items="${Dtos}" begin="${(index-1)*rowcount }" end="${(index)*rowcount-1}">
+			<c:forEach var="cnt" items="${Dtos}" begin="0" end="${dto.size()}">
 				<tr>
 					<td>${cnt.goodsId}</td>
 					<td>${cnt.goodsCategory}</td>
@@ -117,7 +117,7 @@
 		<c:if test="${index!=1 }">
 			<a href="goods?index=${index-1 }&query=${Query}&goodsCategory=${goodsCategory}" class="pagebutton">이전</a>
 		</c:if>
-		<c:forEach var="cnt" begin="${pagecount*pagepage+1}" end="${pagecount*(pagepage+1) }">
+		<c:forEach var="cnt" begin="0" end="${Size/5}">
 			<c:if test="${cnt<=Math.ceil(Size/rowcount) }">
 				<c:if test="${cnt==index }">
 					<span style="display:inline">

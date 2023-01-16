@@ -7,12 +7,22 @@
 
 	<select id="ManagerViewOptionList" resultType="com.allways.base.model.managerOptionDto">
 		select cakeoptionId, cakeoptionCategory,cakeoptionValue,cakeoptionPrice from cakeoption
-		where cakeoptionDeletedate is null order by cakeoptionCategory DESC;
+		where cakeoptionDeletedate is null order by cakeoptionCategory DESC limit #{a}, #{b};
+	</select>
+	
+	<select id="OptionCount" resultType="int">
+		select count(*) from cakeoption
+		where cakeoptionDeletedate is null order by cakeoptionCategory DESC
 	</select>
 	
 	<select id="ManagerSearchOption" resultType="com.allways.base.model.managerOptionDto">
 		select cakeoptionId, cakeoptionCategory,cakeoptionValue,cakeoptionPrice from cakeoption where ${condition} like #{query}
-		and cakeoptionDeletedate is null order by cakeoptionCategory DESC;
+		and cakeoptionDeletedate is null order by cakeoptionCategory DESC limit #{a}, #{b};
+	</select>
+	
+	<select id="SearchCount" resultType="int">
+		select count(*) from cakeoption where ${condition} like #{query}
+		and cakeoptionDeletedate is null order by cakeoptionCategory DESC
 	</select>
 	
 	<select id="ManagerCheckOptionName" resultType="int">

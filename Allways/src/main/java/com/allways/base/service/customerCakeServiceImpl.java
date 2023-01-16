@@ -50,11 +50,13 @@ public class customerCakeServiceImpl implements customerCakeService {
 		if (sort2 == null) {
 			sort2 = "";
 		}
+		
+		int size=dao.CakeCount(sort1, sort2);
 
-		List<customerCakeDto> dtos = dao.CustomerCakeList(sort1, sort2);
+		List<customerCakeDto> dtos = dao.CustomerCakeList(sort1, sort2, (index-1)*8, 8);
 
 		model.addAttribute("cakeList", dtos);
-		model.addAttribute("arrsize", dtos.size());
+		model.addAttribute("arrsize", size);
 		model.addAttribute("index", index);
 		model.addAttribute("rowcount", rowcount);
 		model.addAttribute("pagecount", pagecount);

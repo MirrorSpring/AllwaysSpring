@@ -13,7 +13,7 @@ public class managerCakeDaoImpl implements managerCakeDao {
 	public static String nameSpace="com.allways.base.dao.managerCakeDao";
 
 	@Override
-	public List<managerCakeListDto> ManagerCakeList(String cakeName) throws Exception {
+	public List<managerCakeListDto> ManagerCakeList(String cakeName, int a, int b) throws Exception {
 		return sqlSession.selectList(nameSpace + ".ManagerCakeList");
 	}
 
@@ -53,6 +53,12 @@ public class managerCakeDaoImpl implements managerCakeDao {
 	@Override
 	public int ManagerCheckCakeName2(String cakeName, String cakeOriginalName) throws Exception {
 		return sqlSession.selectOne(nameSpace + ".ManagerCheckCakeName2");
+	}
+
+	@Override
+	public int CakeCount(String cakeName) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(nameSpace + ".CakeCount");
 	}
 
 }

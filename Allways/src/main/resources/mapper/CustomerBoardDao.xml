@@ -9,7 +9,15 @@
 		select * from (
 		select row_number() over(order by commentId) as rownum,
 		writeTitle, writeContent, w_customerId, writeInitdate, distinguish, writeId, writeDeletedate, commentId
-		from `write` where ${condition} like #{query} order by commentId desc, writeInitdate asc) w;
+		from `write` where ${condition} like #{query} order by commentId desc, writeInitdate asc)
+		limit #{a}, #{b};
+	</select>
+	
+	<select id="BoardCount" resultType="int">
+		select count(*) from (
+		select row_number() over(order by commentId) as rownum,
+		writeTitle, writeContent, w_customerId, writeInitdate, distinguish, writeId, writeDeletedate, commentId
+		from `write` where ${condition} like #{query} order by commentId desc, writeInitdate asc);
 	</select>
 	
 	<select id="WriteId" resultType="int">

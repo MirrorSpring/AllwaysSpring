@@ -39,13 +39,15 @@ public class managerGoodsServiceImpl implements managerGoodsService {
 		if (goodsCategory==null||goodsCategory.equals("")) {
 			goodsCategory="all";
 		}
+		
+		int size=dao.GoodsCount(goodsCategory, goodsName);
 
 		List<managerGoodsListDto> dtos=dao.ManagerViewAllGoods("%" + goodsName + "%");
 		
 		if (goodsCategory.equals("all")) {
 			dtos=dao.ManagerViewAllGoods("%" + goodsName + "%");
 		} else {
-			dtos=dao.ManagerViewGoodsList(goodsCategory, "%" + goodsName + "%");
+			dtos=dao.ManagerViewGoodsList(goodsCategory, "%" + goodsName + "%", (index-1)*5,5);
 		}
 		
 		if (request.getParameter("index")!=null) {
@@ -62,7 +64,7 @@ public class managerGoodsServiceImpl implements managerGoodsService {
 		
 		
 		model.addAttribute("Dtos", dtos);
-		model.addAttribute("Size", dtos.size());
+		model.addAttribute("Size", size);
 		model.addAttribute("Query", goodsName);
 		model.addAttribute("goodsCategory", goodsCategory);
 		
